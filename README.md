@@ -17,10 +17,19 @@ Together they deliver real-time operational awareness with multi-decade data int
 ```bash
 git clone https://github.com/prestigesf/venturepilotai.git
 cd venturepilotai
-# Open index.html locally or connect the repo to Netlify
 ```
 
-`netlify.toml` is already present. Connect the GitHub repo in Netlify and it deploys as a static site.
+### Netlify
+
+Preferred site name: **venturepilotai** (or closest available).
+
+1. Go to https://app.netlify.com
+2. Add new site → Import from GitHub
+3. Select `prestigesf/venturepilotai`
+4. Set site name to `venturepilotai` (or the closest free name Netlify offers)
+5. Deploy
+
+`netlify.toml` is already configured for a static site.
 
 ---
 
@@ -44,5 +53,4 @@ cd venturepilotai
 ## Status
 
 Build complete for this phase.  
-Repository is ready for Netlify.  
-All content is additive and grounded in the original shared conversation.
+Repository is ready for Netlify under the name **venturepilotai** (or closest available).

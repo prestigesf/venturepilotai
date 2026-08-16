@@ -1,3 +1,6 @@
+# Preferred Netlify site name: venturepilotai
+# (or closest available: venturepilot-ai, venture-pilot-ai, etc.)
+
 [build]
   publish = "."
   command = "echo 'Static site — no build required'"
