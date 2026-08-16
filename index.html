@@ -4,117 +4,740 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VenturePilot — Proof Continuity Infrastructure</title>
-  <meta name="description" content="Digital receipts that survive the next cryptographic transition. Omni Discovery + Proof Continuity." />
+  <meta name="description" content="Digital receipts of critical IP, operational decisions, and compliance records that do not expire or break when the underlying mathematics shifts." />
+  <meta name="color-scheme" content="dark" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="VenturePilot — Proof Continuity Infrastructure" />
+  <meta property="og:description" content="Digital receipts that survive the next cryptographic transition. Omni Discovery + Proof Continuity." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" />
+
   <style>
     :root {
-      --bg: #070b12;
-      --surface: #0f1623;
-      --border: #1e2a3a;
-      --fg: #e8edf5;
-      --muted: #8b9bb4;
-      --accent: #34d399;
-      --accent-dim: #1a3c32;
+      --bg: #080c14;
+      --slate-950: #020617;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-500: #64748b;
+      --slate-400: #94a3b8;
+      --slate-300: #cbd5e1;
+      --slate-100: #f1f5f9;
+      --emerald-400: #34d399;
+      --emerald-500: #10b981;
+      --amber-400: #fbbf24;
+      --rose-400: #fb7185;
+      --sky-400: #38bdf8;
+      --shell: 46rem;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
       background: var(--bg);
-      color: var(--fg);
-      line-height: 1.65;
+      color: var(--slate-100);
       min-height: 100vh;
+      padding-bottom: 6rem;
+      -webkit-font-smoothing: antialiased;
     }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
-    header { margin-bottom: 3rem; }
-    .tag {
-      display: inline-block;
-      background: var(--accent-dim);
-      color: var(--accent);
-      font-size: 0.8rem;
+
+    .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+    /* Glow accent */
+    .glow {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 56rem;
+      height: 24rem;
+      background: rgba(16, 185, 129, 0.10);
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    main {
+      max-width: var(--shell);
+      margin: 0 auto;
+      padding: 3rem 1.25rem 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    section, header { margin-bottom: 2.5rem; }
+
+    /* ---------- Header ---------- */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(16, 185, 129, 0.10);
+      border: 1px solid rgba(16, 185, 129, 0.30);
+      color: var(--emerald-400);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 9999px;
+      background: var(--emerald-400);
+      flex: none;
+    }
+    .dot-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    h1 {
+      font-size: clamp(1.85rem, 6vw, 2.35rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: #fff;
+      margin: 1rem 0 0.9rem;
+    }
+
+    .lead {
+      color: var(--slate-400);
+      font-size: 1rem;
+      line-height: 1.65;
+      max-width: 40rem;
+    }
+
+    .cta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 700;
+      padding: 0.65rem 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--emerald-500);
+      color: var(--slate-950);
+      box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.20);
+    }
+    .btn-primary:hover { background: var(--emerald-400); }
+
+    .btn-secondary {
+      background: var(--slate-900);
+      border-color: var(--slate-800);
+      color: var(--slate-300);
       font-weight: 600;
-      letter-spacing: 0.04em;
-      padding: 0.3rem 0.75rem;
-      border-radius: 6px;
-      margin-bottom: 1.25rem;
     }
-    h1 { font-size: 2.1rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
-    .lead { font-size: 1.15rem; color: var(--muted); max-width: 640px; }
-    h2 { font-size: 1.15rem; color: var(--accent); margin: 2.5rem 0 1rem; font-weight: 600; }
-    p, li { color: var(--muted); margin-bottom: 0.7rem; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    .btn-secondary:hover { border-color: var(--slate-700); }
+
+    /* ---------- Section headings ---------- */
+    .eyebrow {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--emerald-400);
+      font-weight: 700;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 1rem;
-      margin: 1.5rem 0 2rem;
+      margin-bottom: 1rem;
     }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.25rem 1.4rem;
+
+    .hint { font-size: 0.7rem; color: var(--slate-500); }
+
+    .shift {
+      font-size: 0.875rem;
+      color: var(--slate-300);
+      line-height: 1.7;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(30, 41, 59, 0.8);
+      padding: 1rem;
+      border-radius: 0.75rem;
+      backdrop-filter: blur(12px);
     }
-    .card h3 { font-size: 1rem; color: var(--fg); margin-bottom: 0.4rem; }
-    .card p { font-size: 0.9rem; margin: 0; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .docs { list-style: none; padding: 0; columns: 2; column-gap: 2rem; }
-    .docs li { margin-bottom: 0.55rem; break-inside: avoid; }
-    .docs a { font-weight: 500; }
-    footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
-    @media (max-width: 600px) { .docs { columns: 1; } h1 { font-size: 1.7rem; } }
+
+    /* ---------- Pillar cards ---------- */
+    .pillars { display: grid; gap: 1rem; }
+
+    .pillar {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--slate-800);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .pillar:hover { border-color: var(--slate-700); }
+
+    .pillar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .pillar-title {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--slate-100);
+    }
+
+    .chip {
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.125rem 0.5rem;
+      border-radius: 0.25rem;
+      border: 1px solid;
+      white-space: nowrap;
+    }
+    .chip-emerald { background: rgba(16,185,129,0.10); color: var(--emerald-400); border-color: rgba(16,185,129,0.30); }
+    .chip-amber   { background: rgba(245,158,11,0.10); color: var(--amber-400);   border-color: rgba(245,158,11,0.30); }
+    .chip-sky     { background: rgba(56,189,248,0.10); color: var(--sky-400);     border-color: rgba(56,189,248,0.30); }
+
+    .dot-amber { background: var(--amber-400); }
+    .dot-sky   { background: var(--sky-400); }
+
+    .pillar p { font-size: 0.75rem; color: var(--slate-400); line-height: 1.7; }
+
+    /* ---------- Document selector ---------- */
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .doc-btn {
+      display: block;
+      text-align: left;
+      text-decoration: none;
+      padding: 0.75rem;
+      border-radius: 0.75rem;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--slate-800);
+      color: var(--slate-300);
+      cursor: pointer;
+      transition: border-color 0.2s, background-color 0.2s;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+    .doc-btn:hover { border-color: rgba(16, 185, 129, 0.5); }
+    .doc-btn .idx { color: var(--emerald-400); font-weight: 700; }
+    .doc-btn[aria-current="true"] {
+      border-color: var(--emerald-500);
+      background: rgba(16, 185, 129, 0.08);
+      color: var(--slate-100);
+    }
+
+    /* ---------- Inspector ---------- */
+    .panel {
+      background: var(--slate-950);
+      border: 1px solid var(--slate-800);
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--slate-900);
+      margin-bottom: 0.75rem;
+    }
+
+    .panel-title {
+      color: var(--emerald-400);
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+
+    .panel-meta { font-size: 0.625rem; color: var(--slate-500); white-space: nowrap; }
+
+    pre.output {
+      color: var(--slate-300);
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 0.6875rem;
+      line-height: 1.75;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      max-height: 26rem;
+      overflow-y: auto;
+      margin: 0;
+    }
+
+    .panel-foot {
+      margin-top: 0.75rem;
+      padding-top: 0.625rem;
+      border-top: 1px solid var(--slate-900);
+      font-size: 0.625rem;
+      color: var(--slate-500);
+    }
+    .panel-foot a { color: var(--emerald-400); text-decoration: none; }
+    .panel-foot a:hover { text-decoration: underline; }
+
+    /* ---------- Simulation ---------- */
+    .sim-line { display: block; }
+    .sim-ok   { color: var(--emerald-400); }
+    .sim-warn { color: var(--amber-400); }
+    .sim-bad  { color: var(--rose-400); }
+    .sim-dim  { color: var(--slate-500); }
+
+    footer {
+      max-width: var(--shell);
+      margin: 3.5rem auto 0;
+      padding: 1.5rem 1.25rem 0;
+      border-top: 1px solid var(--slate-800);
+      font-size: 0.75rem;
+      color: var(--slate-500);
+      position: relative;
+      z-index: 10;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--emerald-400);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 34rem) {
+      .doc-grid { grid-template-columns: 1fr; }
+      .cta-bar .btn { flex: 1 1 auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
+
+  <div class="glow" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- Header -->
     <header>
-      <div class="tag">VENTUREPILOT</div>
+      <div class="badge mono">
+        <span class="dot dot-pulse" aria-hidden="true"></span>
+        <span>VenturePilot.AI</span>
+      </div>
+
       <h1>Proof Continuity Infrastructure</h1>
+
       <p class="lead">
-        Digital receipts of critical IP, decisions, and compliance records that do not expire or break when the underlying mathematics changes.
+        Digital receipts of critical IP, operational decisions, and compliance records that do not
+        expire or break when underlying mathematics shift.
       </p>
+
+      <div class="cta-bar">
+        <button type="button" class="btn btn-primary" id="runSimBtn">Run Proof Simulation</button>
+        <button type="button" class="btn btn-secondary" data-doc="08">Read Whitepaper</button>
+      </div>
     </header>
 
-    <h2>The Shift</h2>
-    <p>
-      From a passive governance layer to infrastructure that actively preserves continuity across cryptographic transitions.
-      Omni Discovery continuously understands what exists. Proof Continuity makes sure the proofs remain valid for decades.
-    </p>
+    <!-- The Shift -->
+    <section>
+      <h2 class="eyebrow mono" style="margin-bottom:1rem;">The Paradigm Shift</h2>
+      <p class="shift">
+        Transitioning AI governance from passive audit logging into cryptographic infrastructure that
+        actively preserves proofs across quantum transitions.
+      </p>
+    </section>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Omni Discovery</h3>
-        <p>Continuous ingestion and context engine. Inventories systems, receipts, primitives, and relationships.</p>
-      </div>
-      <div class="card">
-        <h3>Proof Continuity</h3>
-        <p>Cryptographic bedrock. Issues, verifies, and re-anchors receipts so they survive algorithm changes.</p>
-      </div>
-      <div class="card">
-        <h3>Migration Receipts</h3>
-        <p>Formal records that re-anchor an existing proof under a new regime without breaking continuity.</p>
-      </div>
-      <div class="card">
-        <h3>WorkGraph</h3>
-        <p>Real-time operational awareness. Alerts executives when continuity is at risk.</p>
-      </div>
-    </div>
+    <!-- Core Pillars -->
+    <section class="pillars">
 
-    <h2>Working Documents</h2>
-    <ul class="docs">
-      <li><a href="docs/01-source-extract.md">01 — Source Extract</a></li>
-      <li><a href="docs/02-proof-type-registry.md">02 — Proof-Type Registry</a></li>
-      <li><a href="docs/03-pqc-exposure-tracking-matrix.md">03 — PQC Exposure Matrix</a></li>
-      <li><a href="docs/04-migration-receipt-concept.md">04 — Migration Receipt</a></li>
-      <li><a href="docs/05-architecture-outline.md">05 — Architecture</a></li>
-      <li><a href="docs/06-workgraph-alerts.md">06 — WorkGraph & Alerts</a></li>
-      <li><a href="docs/07-executive-ux.md">07 — Executive UX</a></li>
-      <li><a href="docs/08-whitepaper-framing.md">08 — Whitepaper Framing</a></li>
-      <li><a href="docs/09-example-schemas.md">09 — Example Schemas</a></li>
-      <li><a href="docs/10-continuity-verification.md">10 — Continuity Verification</a></li>
-    </ul>
+      <article class="pillar">
+        <div class="pillar-head">
+          <h3 class="pillar-title"><span class="dot dot-amber" aria-hidden="true"></span>Omni Discovery</h3>
+          <span class="chip chip-amber mono">Continuous Ingestion</span>
+        </div>
+        <p>
+          Front-end sensory network. Scans approved sources, inventories primitives, maps dependencies,
+          and links context to the enterprise WorkGraph.
+        </p>
+      </article>
 
-    <footer>
-      prestigesf/venturepilotai · Ready for Netlify · Build complete
-    </footer>
-  </div>
+      <article class="pillar">
+        <div class="pillar-head">
+          <h3 class="pillar-title"><span class="dot dot-pulse" aria-hidden="true"></span>Proof Continuity</h3>
+          <span class="chip chip-emerald mono">Post-Quantum Safe</span>
+        </div>
+        <p>
+          Cryptographic core. Issues, verifies, and re-anchors legacy signatures into ML-DSA containers
+          to protect historical proofs from quantum decay.
+        </p>
+      </article>
+
+      <article class="pillar">
+        <div class="pillar-head">
+          <h3 class="pillar-title"><span class="dot dot-sky" aria-hidden="true"></span>Migration Receipts</h3>
+          <span class="chip chip-sky mono">Continuity Invariant</span>
+        </div>
+        <p>
+          Formal records that re-anchor an already-issued proof under a new cryptographic regime.
+          Nothing expires silently — every transition leaves a verifiable link.
+        </p>
+      </article>
+
+      <article class="pillar">
+        <div class="pillar-head">
+          <h3 class="pillar-title"><span class="dot dot-amber" aria-hidden="true"></span>WorkGraph &amp; Alerts</h3>
+          <span class="chip chip-amber mono">P0 – P3 Priority</span>
+        </div>
+        <p>
+          Operational awareness surface. Shows which receipts would break if a primitive fell tomorrow,
+          and which migration chains are still incomplete.
+        </p>
+      </article>
+
+    </section>
+
+    <!-- Working Documents -->
+    <section>
+      <div class="section-head">
+        <h2 class="eyebrow mono">Working Documents &amp; Specs</h2>
+        <span class="hint mono">Click to inspect</span>
+      </div>
+
+      <div class="doc-grid" id="docList">
+        <a class="doc-btn" data-doc="01" href="docs/01-source-extract.md"><span class="idx">01 —</span> Source Extract</a>
+        <a class="doc-btn" data-doc="02" href="docs/02-proof-type-registry.md"><span class="idx">02 —</span> Proof-Type Registry</a>
+        <a class="doc-btn" data-doc="03" href="docs/03-pqc-exposure-tracking-matrix.md"><span class="idx">03 —</span> PQC Exposure Matrix</a>
+        <a class="doc-btn" data-doc="04" href="docs/04-migration-receipt-concept.md"><span class="idx">04 —</span> Migration Receipts</a>
+        <a class="doc-btn" data-doc="05" href="docs/05-architecture-outline.md"><span class="idx">05 —</span> Architecture Outline</a>
+        <a class="doc-btn" data-doc="06" href="docs/06-workgraph-alerts.md"><span class="idx">06 —</span> WorkGraph &amp; Alerts</a>
+        <a class="doc-btn" data-doc="07" href="docs/07-executive-ux.md"><span class="idx">07 —</span> Executive UX</a>
+        <a class="doc-btn" data-doc="08" href="docs/08-whitepaper-framing.md"><span class="idx">08 —</span> Whitepaper Framing</a>
+        <a class="doc-btn" data-doc="09" href="docs/09-example-schemas.md"><span class="idx">09 —</span> Example Schemas</a>
+        <a class="doc-btn" data-doc="10" href="docs/10-continuity-verification.md"><span class="idx">10 —</span> Continuity Verification</a>
+      </div>
+
+      <!-- Live Inspection Drawer -->
+      <div class="panel" id="inspector">
+        <div class="panel-head">
+          <span class="panel-title mono" id="inspectorTitle">09 — Example Schemas (Active Node)</span>
+          <span class="panel-meta mono" id="inspectorMeta">JSON / UTF-8</span>
+        </div>
+        <pre class="output" id="inspectorContent" aria-live="polite" aria-atomic="false" tabindex="0">{
+  "node_id": "wg_node_ip_core_alg_0912",
+  "status": "SECURE_WRAPPED",
+  "primitive": "ML-DSA-65",
+  "legacy_signature": "ECDSA_P256",
+  "epoch_witness": "NIST_Quantum_Safe_Time_Service"
+}</pre>
+        <div class="panel-foot mono" id="inspectorFoot"></div>
+      </div>
+    </section>
+
+    <!-- Proof Simulation -->
+    <section>
+      <div class="section-head">
+        <h2 class="eyebrow mono">Continuity Verification Simulation</h2>
+        <span class="hint mono">Illustrative — runs in your browser</span>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-title mono" id="simTitle">Idle — awaiting run</span>
+          <span class="panel-meta mono">Per doc 10 · verification steps</span>
+        </div>
+        <pre class="output mono" id="simOutput" aria-live="polite" aria-atomic="false"><span class="sim-dim">Press “Run Proof Simulation” to walk a receipt’s migration chain
+and resolve its continuity status: Intact | At Risk | Broken.</span></pre>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="mono">
+    prestigesf/venturepilotai · Proof Continuity Infrastructure · Static build
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // Registry of working documents. `summary` is the instant fallback shown
+      // before (or instead of) the fetched markdown source.
+      var DOCS = {
+        '01': {
+          title: 'Source Extract',
+          path: 'docs/01-source-extract.md',
+          meta: 'Markdown / UTF-8',
+          summary: 'SOURCE EXTRACT\n\nOriginating material: the transition from a passive governance layer to Proof\nContinuity Infrastructure. Omni Discovery is framed as the continuous\ningestion/context engine; Proof Continuity as the cryptographic bedrock.'
+        },
+        '02': {
+          title: 'Proof-Type Registry',
+          path: 'docs/02-proof-type-registry.md',
+          meta: 'Markdown / UTF-8',
+          summary: 'PROOF-TYPE REGISTRY\n\nAuthoritative catalog of every proof type that can be issued, verified and\nmigrated. Continuity guarantee levels:\n\n  Level 0 — Classical only. No long-term guarantee.\n  Level 1 — Hybrid (classical + PQC). Migration path required.\n  Level 2 — PQC-native with recorded migration path.\n  Level 3 — Full multi-decade continuity via a complete receipt chain.'
+        },
+        '03': {
+          title: 'PQC Exposure Matrix',
+          path: 'docs/03-pqc-exposure-tracking-matrix.md',
+          meta: 'Markdown / UTF-8',
+          summary: 'PQC EXPOSURE TRACKING MATRIX\n\nLive view of every primitive in use, its quantum exposure, and migration\nstatus. Columns include usage locations, quantum threat window, current\nstatus, migration path, continuity impact and alert priority (P0–P3).\n\nRule: any change affecting an already-issued receipt MUST produce a\nMigration Receipt. Continuity is re-anchored explicitly, never silently.'
+        },
+        '04': {
+          title: 'Migration Receipts',
+          path: 'docs/04-migration-receipt-concept.md',
+          meta: 'Markdown / UTF-8',
+          summary: 'MIGRATION RECEIPT\n\nThe formal, cryptographically anchored record that a previously issued\nreceipt has been re-anchored under a new cryptographic regime without\nbreaking its continuity claim.\n\nInvariant: a receipt remains valid across algorithm transitions if and only\nif a complete, verifiable chain of Migration Receipts exists.'
+        },
+        '05': {
+          title: 'Architecture Outline',
+          path: 'docs/05-architecture-outline.md',
+          meta: 'Markdown / UTF-8',
+          summary: 'ARCHITECTURE OUTLINE\n\nPrimary components:\n  1. Omni Discovery — continuous ingestion and context engine\n  2. Proof Continuity Layer — issues, verifies and re-anchors receipts\n  3. Proof-Type Registry — catalog of supported proof types\n  4. PQC Exposure Tracking Matrix — live primitive risk\n  5. Migration Receipt Service — continuity-preserving re-anchors\n  6. WorkGraph — operational awareness surface'
+        },
+        '06': {
+          title: 'WorkGraph & Alerts',
+          path: 'docs/06-workgraph-alerts.md',
+          meta: 'Markdown / UTF-8',
+          summary: 'WORKGRAPH & ALERTS\n\n  P0 — Primitive in active use, imminent/unknown threat, no migration path\n  P1 — High-value receipts still on classical-only (Level 0) proof types\n  P2 — Migration in progress; continuity chain incomplete\n  P3 — Informational / upcoming review required'
+        },
+        '07': {
+          title: 'Executive UX',
+          path: 'docs/07-executive-ux.md',
+          meta: 'Markdown / UTF-8',
+          summary: 'EXECUTIVE / SECURITY OFFICER UX\n\nPrimary screens: Continuity Dashboard, Receipt Detail (with full migration\nchain and one-click verification), WorkGraph Explorer, and a Migration\nWizard for authorized operators.'
+        },
+        '08': {
+          title: 'Whitepaper Framing',
+          path: 'docs/08-whitepaper-framing.md',
+          meta: 'Markdown / UTF-8',
+          summary: 'WHITEPAPER FRAMING\n\n"Proof Continuity Infrastructure: Keeping Digital Receipts Alive Across\nCryptographic Transitions"\n\nMost governance systems are passive — they record what happened under\ntoday’s mathematics. When the mathematics changes, those records can become\nunverifiable. VenturePilot treats continuity itself as infrastructure.'
+        },
+        '09': {
+          title: 'Example Schemas',
+          path: 'docs/09-example-schemas.md',
+          meta: 'Markdown / UTF-8',
+          summary: '{\n  "node_id": "wg_node_ip_core_alg_0912",\n  "status": "SECURE_WRAPPED",\n  "primitive": "ML-DSA-65",\n  "legacy_signature": "ECDSA_P256",\n  "epoch_witness": "NIST_Quantum_Safe_Time_Service"\n}'
+        },
+        '10': {
+          title: 'Continuity Verification',
+          path: 'docs/10-continuity-verification.md',
+          meta: 'Markdown / UTF-8',
+          summary: 'CONTINUITY VERIFICATION\n\n  1. Locate the original receipt by ID.\n  2. Walk the chain of Migration Receipts referencing it.\n  3. Confirm each link via the continuity_hash.\n  4. Confirm the tip is signed under a still-approved primitive.\n  5. Return status: Intact | At Risk | Broken.'
+        }
+      };
+
+      var titleEl = document.getElementById('inspectorTitle');
+      var metaEl = document.getElementById('inspectorMeta');
+      var contentEl = document.getElementById('inspectorContent');
+      var footEl = document.getElementById('inspectorFoot');
+      var docList = document.getElementById('docList');
+
+      var cache = {};
+      var activeId = null;
+      var requestToken = 0;
+
+      function markActive(id) {
+        var buttons = docList.querySelectorAll('.doc-btn');
+        for (var i = 0; i < buttons.length; i++) {
+          var isActive = buttons[i].getAttribute('data-doc') === id;
+          buttons[i].setAttribute('aria-current', isActive ? 'true' : 'false');
+        }
+      }
+
+      function setFoot(doc) {
+        footEl.innerHTML = '';
+        var label = document.createTextNode('Source: ');
+        var link = document.createElement('a');
+        link.href = doc.path;
+        link.textContent = doc.path;
+        footEl.appendChild(label);
+        footEl.appendChild(link);
+      }
+
+      function selectDoc(id) {
+        var doc = DOCS[id];
+        if (!doc) { return; }
+
+        activeId = id;
+        markActive(id);
+        titleEl.textContent = id + ' — ' + doc.title;
+        metaEl.textContent = doc.meta;
+        setFoot(doc);
+
+        if (cache[id]) {
+          contentEl.textContent = cache[id];
+          return;
+        }
+
+        // Show the summary immediately, then upgrade to the real document
+        // source once it loads. If the fetch fails, the summary stands.
+        contentEl.textContent = doc.summary;
+
+        var token = ++requestToken;
+        fetch(doc.path, { headers: { Accept: 'text/plain' } })
+          .then(function (res) {
+            if (!res.ok) { throw new Error('HTTP ' + res.status); }
+            return res.text();
+          })
+          .then(function (text) {
+            cache[id] = text;
+            if (token === requestToken && activeId === id) {
+              contentEl.textContent = text;
+            }
+          })
+          .catch(function () {
+            /* Summary already rendered — nothing further to do. */
+          });
+      }
+
+      // Delegate clicks for both the document grid and any [data-doc] trigger.
+      document.addEventListener('click', function (event) {
+        var trigger = event.target.closest('[data-doc]');
+        if (!trigger) { return; }
+        // Let modified clicks open the raw markdown in a new tab.
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) { return; }
+        event.preventDefault();
+        selectDoc(trigger.getAttribute('data-doc'));
+        document.getElementById('inspector').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+
+      markActive('09');
+      setFoot(DOCS['09']);
+
+      /* ---------- Continuity verification simulation ---------- */
+
+      var SCENARIOS = [
+        {
+          label: 'rc-ip-authorship-0912 · Level 3',
+          verdict: 'INTACT',
+          verdictClass: 'sim-ok',
+          steps: [
+            ['ok', 'Locate original receipt ....... rc-ip-authorship-0912 found'],
+            ['ok', 'Walk migration chain .......... 2 Migration Receipts resolved'],
+            ['dim', '  mr-2026-02-04-0007  ECDSA-P256  ->  hybrid'],
+            ['dim', '  mr-2026-08-16-0042  hybrid      ->  ML-DSA-65'],
+            ['ok', 'Verify continuity_hash links ... 2/2 match'],
+            ['ok', 'Chain tip primitive ML-DSA-65 .. approved in PQC matrix']
+          ],
+          note: 'Complete, verifiable chain exists. Continuity preserved across both transitions.'
+        },
+        {
+          label: 'rc-board-minutes-0451 · Level 1',
+          verdict: 'AT RISK',
+          verdictClass: 'sim-warn',
+          steps: [
+            ['ok', 'Locate original receipt ....... rc-board-minutes-0451 found'],
+            ['ok', 'Walk migration chain .......... 0 Migration Receipts resolved'],
+            ['warn', 'Chain tip primitive RSA-4096 ... accepted, elevated threat window'],
+            ['warn', 'Active migration .............. none scheduled'],
+            ['dim', '  Continuity level 1 (hybrid) — migration path required']
+          ],
+          note: 'Still verifiable today. No active migration, so exposure grows with the threat window.'
+        },
+        {
+          label: 'rc-vendor-attest-1188 · Level 0',
+          verdict: 'BROKEN',
+          verdictClass: 'sim-bad',
+          steps: [
+            ['ok', 'Locate original receipt ....... rc-vendor-attest-1188 found'],
+            ['ok', 'Walk migration chain .......... 1 Migration Receipt resolved'],
+            ['bad', 'Verify continuity_hash links ... mismatch at mr-2025-11-30-0003'],
+            ['bad', 'Chain tip primitive ECDSA-P256  retired, no further migration'],
+            ['dim', '  Missing Migration Receipt where original primitive is untrusted']
+          ],
+          note: 'Continuity claim cannot be reconstructed. Requires re-issue under an approved regime.'
+        }
+      ];
+
+      var CLASS_MAP = { ok: 'sim-ok', warn: 'sim-warn', bad: 'sim-bad', dim: 'sim-dim' };
+
+      var simBtn = document.getElementById('runSimBtn');
+      var simOut = document.getElementById('simOutput');
+      var simTitle = document.getElementById('simTitle');
+      var simIndex = 0;
+      var simTimers = [];
+      var simRunning = false;
+
+      function clearTimers() {
+        for (var i = 0; i < simTimers.length; i++) { clearTimeout(simTimers[i]); }
+        simTimers = [];
+      }
+
+      function appendLine(text, kind) {
+        var span = document.createElement('span');
+        span.className = 'sim-line ' + (CLASS_MAP[kind] || '');
+        span.textContent = text;
+        simOut.appendChild(span);
+      }
+
+      function runSimulation() {
+        clearTimers();
+        simRunning = true;
+        simBtn.disabled = true;
+        simBtn.textContent = 'Verifying…';
+
+        var scenario = SCENARIOS[simIndex % SCENARIOS.length];
+        simIndex++;
+
+        simOut.textContent = '';
+        simTitle.textContent = 'Verifying ' + scenario.label;
+        appendLine('$ verify-continuity --receipt ' + scenario.label.split(' ')[0], 'dim');
+
+        var delay = 260;
+        scenario.steps.forEach(function (step, i) {
+          simTimers.push(setTimeout(function () {
+            appendLine(step[0] === 'dim' ? step[1] : '[' + step[0].toUpperCase() + '] ' + step[1], step[0]);
+          }, delay * (i + 1)));
+        });
+
+        simTimers.push(setTimeout(function () {
+          appendLine('', 'dim');
+          var verdict = document.createElement('span');
+          verdict.className = 'sim-line ' + scenario.verdictClass;
+          verdict.textContent = 'STATUS: ' + scenario.verdict;
+          simOut.appendChild(verdict);
+          appendLine(scenario.note, 'dim');
+          appendLine('Run again to evaluate the next receipt.', 'dim');
+
+          simTitle.textContent = scenario.label + ' — ' + scenario.verdict;
+          simBtn.disabled = false;
+          simBtn.textContent = 'Run Proof Simulation';
+          simRunning = false;
+        }, delay * (scenario.steps.length + 1)));
+      }
+
+      simBtn.addEventListener('click', function () {
+        if (simRunning) { return; }
+        runSimulation();
+      });
+    })();
+  </script>
 </body>
 </html>
