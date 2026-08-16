@@ -4,39 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VenturePilot — Proof Continuity Infrastructure</title>
+  <meta name="description" content="Digital receipts that survive the next cryptographic transition. Omni Discovery + Proof Continuity." />
   <style>
-    :root { --bg: #0a0e17; --fg: #e8edf5; --accent: #34d399; --muted: #8b9bb4; }
+    :root {
+      --bg: #070b12;
+      --surface: #0f1623;
+      --border: #1e2a3a;
+      --fg: #e8edf5;
+      --muted: #8b9bb4;
+      --accent: #34d399;
+      --accent-dim: #1a3c32;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; padding: 2rem; max-width: 860px; margin: 0 auto; }
-    h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
-    h2 { font-size: 1.25rem; margin: 2rem 0 0.75rem; color: var(--accent); }
-    p, li { color: var(--muted); margin-bottom: 0.75rem; }
-    ul { padding-left: 1.25rem; }
-    .tag { display: inline-block; background: #13201a; color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; margin-bottom: 1.5rem; }
-    a { color: var(--accent); }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    header { margin-bottom: 3rem; }
+    .tag {
+      display: inline-block;
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+    }
+    h1 { font-size: 2.1rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+    .lead { font-size: 1.15rem; color: var(--muted); max-width: 640px; }
+    h2 { font-size: 1.15rem; color: var(--accent); margin: 2.5rem 0 1rem; font-weight: 600; }
+    p, li { color: var(--muted); margin-bottom: 0.7rem; }
+    ul { padding-left: 1.2rem; margin-bottom: 1.5rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.4rem;
+    }
+    .card h3 { font-size: 1rem; color: var(--fg); margin-bottom: 0.4rem; }
+    .card p { font-size: 0.9rem; margin: 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .docs { list-style: none; padding: 0; }
+    .docs li { margin-bottom: 0.5rem; }
+    .docs a { font-weight: 500; }
+    footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
   </style>
 </head>
 <body>
-  <div class="tag">VenturePilot · Proof Continuity Infrastructure</div>
-  <h1>Proof Continuity Infrastructure</h1>
-  <p>The transition from a passive governance layer to Proof Continuity Infrastructure ensures that the digital receipts of an enterprise's critical IP, decisions, and compliance records do not expire or break when the underlying math shifts.</p>
+  <div class="wrap">
+    <header>
+      <div class="tag">VENTUREPILOT</div>
+      <h1>Proof Continuity Infrastructure</h1>
+      <p class="lead">
+        Digital receipts of critical IP, decisions, and compliance records that do not expire or break when the underlying mathematics changes.
+      </p>
+    </header>
 
-  <h2>Core Framing</h2>
-  <ul>
-    <li><strong>Omni Discovery</strong> — continuous ingestion / context engine</li>
-    <li><strong>Proof Continuity</strong> — cryptographic bedrock</li>
-  </ul>
-  <p>Together they bridge real-time operational awareness with multi-decade data integrity.</p>
+    <h2>The Shift</h2>
+    <p>
+      From a passive governance layer to infrastructure that actively preserves continuity across cryptographic transitions.
+      Omni Discovery continuously understands what exists. Proof Continuity makes sure the proofs remain valid for decades.
+    </p>
 
-  <h2>Working Documents</h2>
-  <ul>
-    <li><a href="docs/01-source-extract.md">01 Source Extract</a></li>
-    <li><a href="docs/02-proof-type-registry.md">02 Proof-Type Registry</a></li>
-    <li><a href="docs/03-pqc-exposure-tracking-matrix.md">03 PQC Exposure Tracking Matrix</a></li>
-    <li><a href="docs/04-migration-receipt-concept.md">04 Migration Receipt Concept</a></li>
-    <li><a href="docs/05-architecture-outline.md">05 Architecture Outline</a></li>
-  </ul>
+    <div class="grid">
+      <div class="card">
+        <h3>Omni Discovery</h3>
+        <p>Continuous ingestion and context engine. Inventories systems, receipts, primitives, and relationships.</p>
+      </div>
+      <div class="card">
+        <h3>Proof Continuity</h3>
+        <p>Cryptographic bedrock. Issues, verifies, and re-anchors receipts so they survive algorithm changes.</p>
+      </div>
+      <div class="card">
+        <h3>Migration Receipts</h3>
+        <p>Formal records that re-anchor an existing proof under a new regime without breaking continuity.</p>
+      </div>
+      <div class="card">
+        <h3>WorkGraph</h3>
+        <p>Real-time operational awareness. Alerts executives when continuity is at risk.</p>
+      </div>
+    </div>
 
-  <p style="margin-top: 3rem; font-size: 0.9rem;">Built from the shared Gemini conversation. Additive only. No prior content altered.</p>
+    <h2>Working Documents</h2>
+    <ul class="docs">
+      <li><a href="docs/01-source-extract.md">01 — Source Extract</a></li>
+      <li><a href="docs/02-proof-type-registry.md">02 — Proof-Type Registry</a></li>
+      <li><a href="docs/03-pqc-exposure-tracking-matrix.md">03 — PQC Exposure Tracking Matrix</a></li>
+      <li><a href="docs/04-migration-receipt-concept.md">04 — Migration Receipt</a></li>
+      <li><a href="docs/05-architecture-outline.md">05 — Architecture Outline</a></li>
+      <li><a href="docs/06-workgraph-alerts.md">06 — WorkGraph & Alerts</a></li>
+      <li><a href="docs/07-executive-ux.md">07 — Executive UX</a></li>
+      <li><a href="docs/08-whitepaper-framing.md">08 — Whitepaper Framing</a></li>
+    </ul>
+
+    <footer>
+      prestigesf/venturepilotai · Ready for Netlify · Additive build from the originating conversation
+    </footer>
+  </div>
 </body>
 </html>

@@ -1,24 +1,29 @@
-# 03 PQC Exposure Tracking Matrix (Technical Spec — Additive Draft)
+# 03 PQC Exposure Tracking Matrix
 
 ## Purpose
 
-Define the PQC (Post-Quantum Cryptography) exposure tracking matrix referenced in the source conversation.
+Live view of every cryptographic primitive in use across the enterprise, its quantum exposure, and the status of its migration path under Proof Continuity.
 
-## 1 Matrix Dimensions
+## 1 Matrix Columns
 
-- Algorithm / Primitive
-- Current usage locations (systems, receipt types, data classes)
-- Quantum threat timeline estimate
-- Migration path status
-- Proof Continuity impact if broken
-- Omni Discovery alert priority
+| Column | Description |
+|--------|-------------|
+| Primitive / Algorithm | e.g. RSA-2048, ECDSA-P256, ML-KEM-768, SLH-DSA |
+| Usage Locations | Systems, receipt types, data classes that depend on it |
+| Quantum Threat Window | Estimated years until practical break (or “unknown”) |
+| Current Status | classical / hybrid / pqc-native / migrating / retired |
+| Migration Path | Reference to approved target primitives + policy |
+| Continuity Impact | What happens to existing receipts if this primitive breaks |
+| Omni Discovery Priority | Alert priority (P0–P3) |
+| Last Assessed | Timestamp |
 
-## 1.1 Initial Rows (placeholder structure only)
+## 1.1 Continuity Rule
 
-| Primitive | Usage | Threat Window | Migration Status | Continuity Impact | Alert Priority |
-|-----------|-------|---------------|------------------|-------------------|----------------|
-| (to be populated from live inventory) | | | | | |
+Any change that affects an already-issued receipt **must** produce a Migration Receipt.  
+The original receipt never silently expires; continuity is explicitly re-anchored.
 
-## 1.2 Link to Proof Continuity
+## 1.2 Integration Points
 
-Any change in the matrix that affects an issued receipt must produce a Migration Receipt that is itself recorded under Proof Continuity rules so the original digital receipt does not silently expire.
+- Omni Discovery feeds live usage inventory into the matrix.
+- Proof-Type Registry reads continuity level and migration status from the matrix.
+- WorkGraph surfaces high-priority rows as alerts to executives and security officers.

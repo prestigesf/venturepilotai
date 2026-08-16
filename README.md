@@ -1,21 +1,45 @@
 # VenturePilot: Proof Continuity Infrastructure
 
-Source material: shared Gemini conversation (https://share.gemini.google/YWD8b6K4xPxu) published 2026-08-16.
+**Digital receipts that survive the next cryptographic transition.**
 
-## Core Direction (from source)
+VenturePilot moves from a passive governance layer to **Proof Continuity Infrastructure**.  
+The system ensures that the digital receipts of an enterprise’s critical IP, decisions, and compliance records do not “expire” or break when the underlying math shifts.
 
-The key breakthrough was that the new quantum-information research fundamentally changed the direction of the project.
+- **Omni Discovery** — continuous ingestion and context engine  
+- **Proof Continuity** — cryptographic bedrock that keeps receipts valid across algorithm changes  
 
-The transition from a passive governance layer to **Proof Continuity Infrastructure** fundamentally shifts the value proposition. You aren't just auditing what happened; you are ensuring that the digital receipts of an enterprise's critical IP, decisions, and compliance records don't "expire" or break when the underlying math shifts.
+Together they deliver real-time operational awareness with multi-decade data integrity.
 
-By framing **Omni Discovery** as the continuous ingestion/context engine and **Proof Continuity** as the cryptographic bedrock, VenturePilot effectively bridges real-time operational awareness with multi-decade data integrity.
+---
 
-## Suggested Next Focus Areas (from source)
+## Quick Start
 
-1. Flesh out the Technical Spec: Define the exact mechanics of the Proof-Type Registry or the PQC (Post-Quantum Cryptography) exposure tracking matrix.
-2. Map out the User Experience: Design how an executive or security officer visualizes a "Migration Receipt" or interacts with Omni Discovery's WorkGraph alerts.
-3. Draft the Architecture/Whitepaper narrative that translates this quantum-shift into a compelling technical positioning document.
+```bash
+git clone https://github.com/prestigesf/venturepilotai.git
+cd venturepilotai
+# Static site — open index.html or deploy to Netlify
+```
 
-## Repository Status
+Netlify: connect this repo. `netlify.toml` is already configured.
 
-This repository is the working location for the build. Content is additive only.
+---
+
+## Core Documents
+
+| Doc | Purpose |
+|-----|---------|
+| [01 Source Extract](docs/01-source-extract.md) | Exact text from the originating conversation |
+| [02 Proof-Type Registry](docs/02-proof-type-registry.md) | Mechanics of the registry |
+| [03 PQC Exposure Tracking Matrix](docs/03-pqc-exposure-tracking-matrix.md) | Quantum risk + migration tracking |
+| [04 Migration Receipt](docs/04-migration-receipt-concept.md) | Continuity-preserving re-anchoring record |
+| [05 Architecture](docs/05-architecture-outline.md) | System components and invariants |
+| [06 WorkGraph & Alerts](docs/06-workgraph-alerts.md) | Operational awareness surface |
+| [07 Executive UX](docs/07-executive-ux.md) | How a security officer / executive sees continuity |
+| [08 Whitepaper Framing](docs/08-whitepaper-framing.md) | Positioning narrative |
+
+---
+
+## Status
+
+This repository is the single source of truth for the Proof Continuity build.  
+All content is additive. The static site at the root is ready for Netlify.
