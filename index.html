@@ -17,7 +17,7 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--bg);
       color: var(--fg);
       line-height: 1.65;
@@ -40,7 +40,6 @@
     .lead { font-size: 1.15rem; color: var(--muted); max-width: 640px; }
     h2 { font-size: 1.15rem; color: var(--accent); margin: 2.5rem 0 1rem; font-weight: 600; }
     p, li { color: var(--muted); margin-bottom: 0.7rem; }
-    ul { padding-left: 1.2rem; margin-bottom: 1.5rem; }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -57,10 +56,11 @@
     .card p { font-size: 0.9rem; margin: 0; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .docs { list-style: none; padding: 0; }
-    .docs li { margin-bottom: 0.5rem; }
+    .docs { list-style: none; padding: 0; columns: 2; column-gap: 2rem; }
+    .docs li { margin-bottom: 0.55rem; break-inside: avoid; }
     .docs a { font-weight: 500; }
     footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
+    @media (max-width: 600px) { .docs { columns: 1; } h1 { font-size: 1.7rem; } }
   </style>
 </head>
 <body>
@@ -102,16 +102,18 @@
     <ul class="docs">
       <li><a href="docs/01-source-extract.md">01 — Source Extract</a></li>
       <li><a href="docs/02-proof-type-registry.md">02 — Proof-Type Registry</a></li>
-      <li><a href="docs/03-pqc-exposure-tracking-matrix.md">03 — PQC Exposure Tracking Matrix</a></li>
+      <li><a href="docs/03-pqc-exposure-tracking-matrix.md">03 — PQC Exposure Matrix</a></li>
       <li><a href="docs/04-migration-receipt-concept.md">04 — Migration Receipt</a></li>
-      <li><a href="docs/05-architecture-outline.md">05 — Architecture Outline</a></li>
+      <li><a href="docs/05-architecture-outline.md">05 — Architecture</a></li>
       <li><a href="docs/06-workgraph-alerts.md">06 — WorkGraph & Alerts</a></li>
       <li><a href="docs/07-executive-ux.md">07 — Executive UX</a></li>
       <li><a href="docs/08-whitepaper-framing.md">08 — Whitepaper Framing</a></li>
+      <li><a href="docs/09-example-schemas.md">09 — Example Schemas</a></li>
+      <li><a href="docs/10-continuity-verification.md">10 — Continuity Verification</a></li>
     </ul>
 
     <footer>
-      prestigesf/venturepilotai · Ready for Netlify · Additive build from the originating conversation
+      prestigesf/venturepilotai · Ready for Netlify · Build complete
     </footer>
   </div>
 </body>
