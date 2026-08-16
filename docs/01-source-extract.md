@@ -1,6 +1,6 @@
 # 01 Source Extract
 
-Exact visible text from the shared Gemini conversation used as the sole starting material.
+Exact visible text from the shared Gemini conversation used as the originating material.
 
 ---
 
