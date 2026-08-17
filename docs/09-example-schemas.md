@@ -135,3 +135,22 @@ See also the full production file: [workgraph_node_schema.json](workgraph_node_s
   }
 }
 ```
+
+## 6 Gap 4 Enclave Semantic Masking Module (Additive)
+
+```json
+"gap_4_enclave_semantic_masking": {
+  "tee_provider": "AWS_Nitro_Enclaves",
+  "attestation_type": "NITRO_PCR_HARDWARE_ROOTED",
+  "memory_encryption": "CHIP_LEVEL_AES_128_XTS",
+  "masking_protocol": {
+    "nonce_derivation": "HMAC_SHA256_EPHEMERAL",
+    "entity_tokenization": "SYNTHETIC_SEMANTIC_MASK",
+    "memory_zeroization_policy": "IMMEDIATE_POST_LEAF_GENERATION"
+  },
+  "host_isolation": {
+    "interactive_shell_disabled": true,
+    "external_network_restricted": true
+  }
+}
+```
