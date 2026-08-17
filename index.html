@@ -69,6 +69,48 @@
     }
     .status strong { color: var(--accent); }
     footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
+    /* Live Simulator styles (additive) */
+    .simulator {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .simulator h2 { margin-top: 0; }
+    .sim-btn {
+      background: var(--accent);
+      color: #04120c;
+      border: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 1rem 0 1.25rem;
+      transition: opacity 0.15s;
+    }
+    .sim-btn:hover { opacity: 0.9; }
+    .sim-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    #inspector {
+      background: #0a1018;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.1rem 1.25rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      min-height: 140px;
+      white-space: pre-wrap;
+      color: var(--muted);
+    }
+    #inspectorTitle {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+    }
+    #inspectorContent { color: #a8b8c8; }
     @media (max-width: 600px) { .docs { columns: 1; } h1 { font-size: 1.7rem; } }
   </style>
 </head>
@@ -127,6 +169,19 @@
       </div>
     </div>
 
+    <!-- Track 1: Interactive Live Sandbox (additive) -->
+    <div class="simulator" id="live-sandbox">
+      <h2>Live Proof Continuity Sandbox</h2>
+      <p style="margin-bottom:0.5rem;color:var(--muted);font-size:0.95rem;">
+        Run a mock pre-flight WASM gate → enclave masking → Sparse Merkle leaf → dual PQC root attestation cycle.
+      </p>
+      <button class="sim-btn" id="runSimBtn" onclick="runProofSimulation()">Run Live Simulation</button>
+      <div id="inspector">
+        <div id="inspectorTitle">Ready</div>
+        <div id="inspectorContent">Click “Run Live Simulation” to execute a deterministic mock of Gaps 1–5.</div>
+      </div>
+    </div>
+
     <h2>Working Documents</h2>
     <ul class="docs">
       <li><a href="docs/01-source-extract.md">01 — Source Extract</a></li>
@@ -149,5 +204,34 @@
       prestigesf/venturepilotai · All 5 Architecture Gaps Closed
     </footer>
   </div>
+
+  <script>
+    // Additive Live Simulator Function
+    function runProofSimulation() {
+      const btn = document.getElementById('runSimBtn');
+      const title = document.getElementById('inspectorTitle');
+      const content = document.getElementById('inspectorContent');
+
+      if (btn) btn.disabled = true;
+
+      title.innerHTML = '⚡ Simulating Pre-Flight WASM Gate & Merkle PQC Attestation...';
+      content.innerText = 'Initializing WASM OPA engine...\nEvaluating parameter AST against Rego policies...';
+
+      setTimeout(() => {
+        content.innerText =
+`[1/4] WASM Pre-flight Check: ALLOW (<18ms latency)
+[2/4] Entity Masking: Salted HMAC nonce generated in Nitro Enclave
+[3/4] Leaf Hashed: BLAKE3(0x4b7c...fa01) -> Added to Sparse Merkle Tree (Leaf #412)
+[4/4] Epoch Root Signed:
+  - NIST FIPS 204 ML-DSA-65 Root Sig: 0x9a88f1...88ab (Verified)
+  - NIST FIPS 203 ML-KEM-768 Encapsulation: Active (Ciphertext: 1088B)
+  - NIST Randomness Beacon Anchor: Verified @ 2026-08-16T19:30:00Z
+
+RESULT: Proof Continuity Receipt Sealed. Zero Quantum Decay Risk.`;
+        title.innerText = '04 — Live Merkle Attestation Receipt [SEALED & VALIDATED]';
+        if (btn) btn.disabled = false;
+      }, 600);
+    }
+  </script>
 </body>
 </html>
