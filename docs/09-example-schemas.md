@@ -113,3 +113,25 @@ See also the full production file: [workgraph_node_schema.json](workgraph_node_s
   }
 }
 ```
+
+## 5 Gap 3 Deterministic Guardrail Module (Additive)
+
+```json
+"gap_3_deterministic_guardrail": {
+  "engine": "Open_Policy_Agent_WASM",
+  "policy_bundle_version": "rego_v2.4.1",
+  "evaluation_mode": "PRE_FLIGHT_SYNCHRONOUS",
+  "latency_ceiling_ms": 45,
+  "untrusted_input_source": "LLM_PARAMETER_EMISSION",
+  "ast_validation": {
+    "parser": "OPA_AST_V1",
+    "invariant_checks": [
+      "MAX_TRANSACTION_LIMIT",
+      "AUTHORIZED_API_WHITELIST",
+      "IMMUTABLE_ROOT_DIRECTORY_LOCK"
+    ],
+    "evaluation_result": "ALLOW",
+    "evaluation_digest": "sha256:5a9e...0021"
+  }
+}
+```
