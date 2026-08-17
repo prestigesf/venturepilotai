@@ -23,6 +23,17 @@ Production schema locked in `docs/workgraph_node_schema.json`.
 
 Ready for **Gaps 3 & 4** (Deterministic OPA/AST Guardrail & Hardware Enclaves).
 
+**Gap 3 Closed (Additive)**
+
+- Deterministic OPA/AST Pre-Flight Policy Engine
+- LLM isolated as untrusted parameter emitter outside the deterministic trust boundary
+- In-memory WASM (OPA/Rego) evaluation, total pre-flight < 45 ms
+- Binary ALLOW/DENY gate; DENY events forensically hashed into Sparse Merkle Tree
+- New document: `docs/05-deterministic-guardrail.md`
+- Schema module `gap_3_deterministic_guardrail` appended to production WorkGraph node schema
+
+Ready for **Gap 4** (Confidential Computing Enclaves & Semantic Nonce Masking).
+
 ---
 
 ## Quick Start
@@ -57,16 +68,18 @@ Live: https://venturepilotai.netlify.app (or current Netlify domain)
 | 03 | [PQC Exposure Tracking Matrix](docs/03-pqc-exposure-tracking-matrix.md) | Quantum risk + migration tracking |
 | 04 | [Migration Receipt](docs/04-migration-receipt-concept.md) | Continuity-preserving re-anchoring + Sparse Merkle batching |
 | 05 | [Architecture Outline](docs/05-architecture-outline.md) | System components and core invariant |
+| 05 | [Deterministic OPA/AST Guardrail](docs/05-deterministic-guardrail.md) | Gap 3: Pre-flight WASM policy engine & AST validation |
 | 06 | [WorkGraph & Alerts](docs/06-workgraph-alerts.md) | Operational awareness surface |
 | 07 | [Executive UX](docs/07-executive-ux.md) | How executives and security officers see continuity |
 | 08 | [Whitepaper Framing](docs/08-whitepaper-framing.md) | Positioning narrative |
 | 09 | [Example Schemas](docs/09-example-schemas.md) | Concrete JSON shapes including WorkGraph node |
 | 10 | [Continuity Verification](docs/10-continuity-verification.md) | How to verify a receipt is still intact |
-| — | [Production WorkGraph Node Schema](docs/workgraph_node_schema.json) | Locked Gap 1 + Gap 2 production JSON |
+| — | [Production WorkGraph Node Schema](docs/workgraph_node_schema.json) | Locked Gap 1 + Gap 2 + Gap 3 production JSON |
 
 ---
 
 ## Status
 
 Gaps 1 & 2 closed with production-standard NIST and RFC primitives.  
-Repository is ready for Netlify and for Gaps 3 & 4.
+Gap 3 (Deterministic OPA/AST Guardrail) closed additively.  
+Repository is ready for Netlify and for Gap 4.
