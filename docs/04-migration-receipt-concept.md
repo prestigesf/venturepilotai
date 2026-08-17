@@ -28,3 +28,29 @@ An executive or security officer must be able to open any original receipt and i
 1. Its current continuity status
 2. The full migration chain (if any)
 3. That no silent break occurred when the math changed
+
+## 2 Sparse Merkle Batching Layer (Gap 2 Resolved)
+
+ML-DSA-65 signatures are ~3,309 bytes each. Signing every micro-event, API call, or telemetry packet individually saturates bandwidth and causes exponential database growth.
+
+### Technical Fix — RFC 6962 Sparse Merkle Tree
+
+- **Leaf Level**: Individual micro-events are hashed to 32-byte BLAKE3 (or SHA-256) digests.
+- **Root Aggregation**: N events (N = 1024 or 1-minute epochs) form a binary Merkle tree producing a single 32-byte `Root_epoch`.
+- **Dual Root Attestation**: One ML-DSA-65 + ECDSA dual signature is applied exclusively to the epoch root.
+- **Verification Overhead**: Any single transaction needs only:
+  - 32-byte payload hash
+  - ~320-byte Merkle inclusion path
+  - The single shared root signature
+
+This reduces per-transaction signature overhead by >90% while preserving full cryptographic integrity and auditability.
+
+### Production Status
+
+- Tree structure: RFC 6962 Sparse Merkle Tree
+- Hash primitive: BLAKE3-256
+- Batch size limit: 1024 leaves (or epoch-based)
+- Dual attestation: ML-DSA-65 + ECDSA_P256 signed at root only
+- Verification: Self-contained inclusion proof + optional NIST Quantum-Safe Time Beacon timestamp
+
+**Status**: Gaps 1 & 2 closed with production-standard NIST and RFC primitives.
