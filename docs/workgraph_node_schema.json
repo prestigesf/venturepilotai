@@ -62,5 +62,20 @@
       "evaluation_result": "ALLOW",
       "evaluation_digest": "sha256:5a9e...0021"
     }
+  },
+
+  "gap_4_enclave_semantic_masking": {
+    "tee_provider": "AWS_Nitro_Enclaves",
+    "attestation_type": "NITRO_PCR_HARDWARE_ROOTED",
+    "memory_encryption": "CHIP_LEVEL_AES_128_XTS",
+    "masking_protocol": {
+      "nonce_derivation": "HMAC_SHA256_EPHEMERAL",
+      "entity_tokenization": "SYNTHETIC_SEMANTIC_MASK",
+      "memory_zeroization_policy": "IMMEDIATE_POST_LEAF_GENERATION"
+    },
+    "host_isolation": {
+      "interactive_shell_disabled": true,
+      "external_network_restricted": true
+    }
   }
 }
