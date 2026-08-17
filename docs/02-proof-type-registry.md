@@ -29,11 +29,32 @@ The Proof-Type Registry is the authoritative catalog of every proof type that ca
 - **Level 2** — PQC-native with recorded migration path. Continuity is preserved via Migration Receipts.
 - **Level 3** — Full multi-decade continuity. Receipt remains valid across any approved algorithm transition because a complete, verifiable Migration Receipt chain always exists.
 
-### 1.3 Relationship to Omni Discovery
+### 1.3 Current Production Cryptographic Stack (Gaps 1 & 2 Closed)
+
+**Confidentiality (Data-at-Rest / In-Transit) — Gap 1 Resolved**
+
+- Hybrid Key Encapsulation: **X25519 + ML-KEM-768** (NIST FIPS 203)
+- Key derivation: `HKDF-SHA256(SharedSecret_X25519 ∥ SharedSecret_ML-KEM-768)`
+- Payload cipher: AES-256-GCM (authenticated encryption)
+- Encapsulated ciphertext size: 1088 bytes (ML-KEM-768)
+
+This hybrid construction defeats Harvest-Now-Decrypt-Later attacks while remaining compliant with current classical requirements and CNSA 2.0 timelines.
+
+**Authentication / Attestation — Dual Signature**
+
+- Primary: **ML-DSA-65** (NIST FIPS 204) — post-quantum
+- Classical companion: **ECDSA P-256**
+- Signatures are applied only at the Merkle root (see Gap 2), never per micro-event.
+
+**Hash Primitive**
+
+- BLAKE3-256 (32-byte leaves) for high-speed, secure Merkle tree construction.
+
+### 1.4 Relationship to Omni Discovery
 
 Omni Discovery continuously inventories which proof types are in active use, surfaces exposure scores from the PQC matrix, and raises WorkGraph alerts when a type approaches a threat window or requires migration.
 
-### 1.4 Registry Operations
+### 1.5 Registry Operations
 
 - Register new proof type
 - Update primitives / continuity level
@@ -41,3 +62,10 @@ Omni Discovery continuously inventories which proof types are in active use, sur
 - Retire (only after all live receipts have been migrated or expired by policy)
 
 All mutations themselves produce an audit receipt under Proof Continuity rules.
+
+---
+
+**Status**: Fully Compliant with NIST PQC & CNSA 2.0 Timelines  
+Key Encapsulation: ML-KEM-768 (FIPS 203) + X25519 Hybrid  
+Primary Signature: ML-DSA-65 (FIPS 204) + ECDSA_P256 Hybrid  
+Hash: BLAKE3 (32-byte cryptographic leaves)
