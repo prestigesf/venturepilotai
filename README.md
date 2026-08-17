@@ -34,6 +34,17 @@ Ready for **Gaps 3 & 4** (Deterministic OPA/AST Guardrail & Hardware Enclaves).
 
 Ready for **Gap 4** (Confidential Computing Enclaves & Semantic Nonce Masking).
 
+**Gap 4 Closed (Additive)**
+
+- Hardware TEE: AWS Nitro Enclaves / GCP Confidential Space (AMD SEV-SNP / Intel SGX)
+- Silicon-rooted PCR attestation before any worker joins the pipeline
+- Semantic Nonce Masking via ephemeral salted HMAC tokenization
+- Immediate memory zeroization of ephemeral mapping keys post leaf-hash generation
+- New document: `docs/06-enclave-semantic-masking.md`
+- Schema module `gap_4_enclave_semantic_masking` appended to production WorkGraph node schema
+
+Ready for **Gap 5** (Epoch-Bound State Attestation & Operational Boundaries).
+
 ---
 
 ## Quick Start
@@ -70,11 +81,12 @@ Live: https://venturepilotai.netlify.app (or current Netlify domain)
 | 05 | [Architecture Outline](docs/05-architecture-outline.md) | System components and core invariant |
 | 05 | [Deterministic OPA/AST Guardrail](docs/05-deterministic-guardrail.md) | Gap 3: Pre-flight WASM policy engine & AST validation |
 | 06 | [WorkGraph & Alerts](docs/06-workgraph-alerts.md) | Operational awareness surface |
+| 06 | [Enclave & Semantic Masking](docs/06-enclave-semantic-masking.md) | Gap 4: TEE isolation + ephemeral HMAC tokenization |
 | 07 | [Executive UX](docs/07-executive-ux.md) | How executives and security officers see continuity |
 | 08 | [Whitepaper Framing](docs/08-whitepaper-framing.md) | Positioning narrative |
 | 09 | [Example Schemas](docs/09-example-schemas.md) | Concrete JSON shapes including WorkGraph node |
 | 10 | [Continuity Verification](docs/10-continuity-verification.md) | How to verify a receipt is still intact |
-| — | [Production WorkGraph Node Schema](docs/workgraph_node_schema.json) | Locked Gap 1 + Gap 2 + Gap 3 production JSON |
+| — | [Production WorkGraph Node Schema](docs/workgraph_node_schema.json) | Locked Gap 1 + Gap 2 + Gap 3 + Gap 4 production JSON |
 
 ---
 
@@ -82,4 +94,5 @@ Live: https://venturepilotai.netlify.app (or current Netlify domain)
 
 Gaps 1 & 2 closed with production-standard NIST and RFC primitives.  
 Gap 3 (Deterministic OPA/AST Guardrail) closed additively.  
-Repository is ready for Netlify and for Gap 4.
+Gap 4 (Confidential Computing Enclaves & Semantic Nonce Masking) closed additively.  
+Repository is ready for Netlify and for Gap 5.
