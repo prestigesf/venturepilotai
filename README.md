@@ -45,6 +45,16 @@ Ready for **Gap 4** (Confidential Computing Enclaves & Semantic Nonce Masking).
 
 Ready for **Gap 5** (Epoch-Bound State Attestation & Operational Boundaries).
 
+**Gap 5 Closed (Additive)**
+
+- Epoch-Bound State Attestation model
+- Guarantees: temporal existence (NIST beacon linked), payload tamper evidence, policy execution non-repudiation
+- Explicit limitations: attests to ingested state integrity only (not external ground truth); worker key TTL ≤ 15 min; Sparse Merkle Revocation Trees
+- New document: `docs/08-operational-boundaries.md`
+- Schema module `gap_5_attestation_boundaries` appended to production WorkGraph node schema
+
+**All 5 Architecture Gaps Closed**
+
 ---
 
 ## Quick Start
@@ -84,9 +94,10 @@ Live: https://venturepilotai.netlify.app (or current Netlify domain)
 | 06 | [Enclave & Semantic Masking](docs/06-enclave-semantic-masking.md) | Gap 4: TEE isolation + ephemeral HMAC tokenization |
 | 07 | [Executive UX](docs/07-executive-ux.md) | How executives and security officers see continuity |
 | 08 | [Whitepaper Framing](docs/08-whitepaper-framing.md) | Positioning narrative |
+| 08 | [Operational Boundaries](docs/08-operational-boundaries.md) | Gap 5: Epoch-Bound State Attestation & limitations |
 | 09 | [Example Schemas](docs/09-example-schemas.md) | Concrete JSON shapes including WorkGraph node |
 | 10 | [Continuity Verification](docs/10-continuity-verification.md) | How to verify a receipt is still intact |
-| — | [Production WorkGraph Node Schema](docs/workgraph_node_schema.json) | Locked Gap 1 + Gap 2 + Gap 3 + Gap 4 production JSON |
+| — | [Production WorkGraph Node Schema](docs/workgraph_node_schema.json) | Locked Gap 1 through Gap 5 production JSON |
 
 ---
 
@@ -95,4 +106,5 @@ Live: https://venturepilotai.netlify.app (or current Netlify domain)
 Gaps 1 & 2 closed with production-standard NIST and RFC primitives.  
 Gap 3 (Deterministic OPA/AST Guardrail) closed additively.  
 Gap 4 (Confidential Computing Enclaves & Semantic Nonce Masking) closed additively.  
-Repository is ready for Netlify and for Gap 5.
+Gap 5 (Epoch-Bound State Attestation & Operational Boundaries) closed additively.  
+**All 5 Architecture Gaps Closed.**
