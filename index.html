@@ -86,6 +86,10 @@
       <strong>Gaps 1 & 2 Closed</strong> — Hybrid X25519 + ML-KEM-768 confidentiality (FIPS 203) and Sparse Merkle Tree batching (RFC 6962) with dual ML-DSA-65 + ECDSA root attestation now locked in production schema.
     </div>
 
+    <div class="status">
+      <strong>Gap 3 Closed</strong> — Deterministic OPA/AST Pre-Flight Policy Engine (WASM Rego sandbox, <45 ms latency). LLM isolated as untrusted parameter emitter; binary ALLOW/DENY gate with forensic Merkle logging.
+    </div>
+
     <h2>The Shift</h2>
     <p>
       From a passive governance layer to infrastructure that actively preserves continuity across cryptographic transitions.
@@ -118,6 +122,7 @@
       <li><a href="docs/03-pqc-exposure-tracking-matrix.md">03 — PQC Exposure Matrix</a></li>
       <li><a href="docs/04-migration-receipt-concept.md">04 — Migration Receipt</a></li>
       <li><a href="docs/05-architecture-outline.md">05 — Architecture</a></li>
+      <li><a href="docs/05-deterministic-guardrail.md">05 — Deterministic OPA/AST Guardrail</a></li>
       <li><a href="docs/06-workgraph-alerts.md">06 — WorkGraph & Alerts</a></li>
       <li><a href="docs/07-executive-ux.md">07 — Executive UX</a></li>
       <li><a href="docs/08-whitepaper-framing.md">08 — Whitepaper Framing</a></li>
@@ -127,7 +132,7 @@
     </ul>
 
     <footer>
-      prestigesf/venturepilotai · Gaps 1 & 2 closed · Ready for Gaps 3 & 4
+      prestigesf/venturepilotai · Gaps 1, 2 & 3 closed · Ready for Gap 4
     </footer>
   </div>
 </body>
