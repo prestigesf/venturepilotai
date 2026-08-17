@@ -94,6 +94,14 @@
       <strong>Gap 4 Closed</strong> — Confidential Computing Enclaves & Semantic Nonce Masking (AWS Nitro / AMD SEV-SNP TEE, silicon-rooted attestation, ephemeral HMAC tokenization, immediate memory zeroization).
     </div>
 
+    <div class="status">
+      <strong>Gap 5 Closed</strong> — Epoch-Bound State Attestation & Operational Boundaries. Receipts certify integrity, non-repudiation, and policy compliance at timestamp T (NIST beacon anchored). Explicit limitations: no external ground-truth certification; ephemeral worker keys (≤15 min TTL); Sparse Merkle Revocation Trees.
+    </div>
+
+    <div class="status">
+      <strong>All 5 Architecture Gaps Closed</strong> — Production schema now contains gap_1 through gap_5 modules. System is fully specified for Proof Continuity Infrastructure.
+    </div>
+
     <h2>The Shift</h2>
     <p>
       From a passive governance layer to infrastructure that actively preserves continuity across cryptographic transitions.
@@ -131,13 +139,14 @@
       <li><a href="docs/06-enclave-semantic-masking.md">06 — Enclave & Semantic Masking</a></li>
       <li><a href="docs/07-executive-ux.md">07 — Executive UX</a></li>
       <li><a href="docs/08-whitepaper-framing.md">08 — Whitepaper Framing</a></li>
+      <li><a href="docs/08-operational-boundaries.md">08 — Operational Boundaries</a></li>
       <li><a href="docs/09-example-schemas.md">09 — Example Schemas</a></li>
       <li><a href="docs/10-continuity-verification.md">10 — Continuity Verification</a></li>
       <li><a href="docs/workgraph_node_schema.json">Production WorkGraph Node Schema</a></li>
     </ul>
 
     <footer>
-      prestigesf/venturepilotai · Gaps 1–4 closed · Ready for Gap 5
+      prestigesf/venturepilotai · All 5 Architecture Gaps Closed
     </footer>
   </div>
 </body>
