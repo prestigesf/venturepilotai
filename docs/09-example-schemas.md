@@ -58,3 +58,58 @@ These are concrete shapes that implement the concepts defined in the earlier doc
   "last_assessed": "2026-08-16T12:00:00Z"
 }
 ```
+
+## 4 WorkGraph Node (Production — Gaps 1 & 2 Closed)
+
+See also the full production file: [workgraph_node_schema.json](workgraph_node_schema.json)
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "node_id": "wg_node_ip_core_alg_0912",
+  "asset_name": "Proprietary Core Execution Engine",
+  "status": "SECURE_WRAPPED_MERKLE_BATCH",
+  
+  "gap_1_confidentiality_layer": {
+    "kem_standard": "NIST_FIPS_203_ML_KEM_768",
+    "hybrid_kex_scheme": "X25519_ML_KEM_768_HYBRID",
+    "key_derivation": "HKDF_SHA256_EXTRACT_AND_EXPAND",
+    "encapsulated_ciphertext_bytes": 1088,
+    "payload_cipher": "AES_256_GCM_AUTHENTICATED"
+  },
+
+  "gap_2_merkle_batching_layer": {
+    "tree_structure": "RFC_6962_Sparse_Merkle_Tree",
+    "hash_primitive": "BLAKE3_256",
+    "batch_size_limit": 1024,
+    "leaf_index": 412,
+    "leaf_hash": "0x4b7c89f2a01391d84f88c8e18b1cf31b9942a12903828751db68bc019283fa01",
+    "merkle_inclusion_path": [
+      {"dir": "right", "hash": "0x89ab...cd12"},
+      {"dir": "left",  "hash": "0x34ef...7890"},
+      {"dir": "right", "hash": "0x12bc...45de"}
+    ],
+    "epoch_merkle_root": "0xfa881c09934e892d13bb912837fec0912389abcd9901328912ef891234567890"
+  },
+
+  "cryptographic_attestation": {
+    "epoch_id": "epoch_2026_08_16_T1930",
+    "epoch_timestamp": "2026-08-16T19:30:00Z",
+    "time_beacon_witness": {
+      "provider": "NIST_Quantum_Safe_Time_Beacon",
+      "beacon_signature": "0x9812bc...ffee"
+    },
+    "dual_root_signatures": {
+      "classical_signature": {
+        "algorithm": "ECDSA_P256",
+        "sig_value": "0x304502...c419"
+      },
+      "pqc_signature": {
+        "algorithm": "NIST_FIPS_204_ML_DSA_65",
+        "signature_size_bytes": 3309,
+        "sig_value": "0x9a88f1...88ab"
+      }
+    }
+  }
+}
+```
