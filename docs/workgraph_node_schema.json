@@ -77,5 +77,23 @@
       "interactive_shell_disabled": true,
       "external_network_restricted": true
     }
+  },
+
+  "gap_5_attestation_boundaries": {
+    "attestation_model": "EPOCH_BOUND_STATE_ATTESTATION",
+    "guarantees": [
+      "TEMPORAL_EXISTENCE_BEACON_LINKED",
+      "PAYLOAD_TAMPER_EVIDENCE",
+      "POLICY_EXECUTION_NON_REPUDIATION"
+    ],
+    "limitations_and_assumptions": {
+      "ground_truth_disclaimer": "ATTESTS_TO_INGESTED_STATE_INTEGRITY_NOT_EXTERNAL_TRUTH",
+      "worker_key_ttl_seconds": 900,
+      "revocation_mechanism": "SPARSE_MERKLE_REVOCATION_TREE",
+      "entropy_anchor": {
+        "beacon_source": "NIST_PUBLIC_RANDOMNESS_BEACON",
+        "pulse_hash": "0x4e01...bb89"
+      }
+    }
   }
 }
