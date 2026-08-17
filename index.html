@@ -59,6 +59,15 @@
     .docs { list-style: none; padding: 0; columns: 2; column-gap: 2rem; }
     .docs li { margin-bottom: 0.55rem; break-inside: avoid; }
     .docs a { font-weight: 500; }
+    .status {
+      background: var(--accent-dim);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .status strong { color: var(--accent); }
     footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
     @media (max-width: 600px) { .docs { columns: 1; } h1 { font-size: 1.7rem; } }
   </style>
@@ -72,6 +81,10 @@
         Digital receipts of critical IP, decisions, and compliance records that do not expire or break when the underlying mathematics changes.
       </p>
     </header>
+
+    <div class="status">
+      <strong>Gaps 1 & 2 Closed</strong> — Hybrid X25519 + ML-KEM-768 confidentiality (FIPS 203) and Sparse Merkle Tree batching (RFC 6962) with dual ML-DSA-65 + ECDSA root attestation now locked in production schema.
+    </div>
 
     <h2>The Shift</h2>
     <p>
@@ -110,10 +123,11 @@
       <li><a href="docs/08-whitepaper-framing.md">08 — Whitepaper Framing</a></li>
       <li><a href="docs/09-example-schemas.md">09 — Example Schemas</a></li>
       <li><a href="docs/10-continuity-verification.md">10 — Continuity Verification</a></li>
+      <li><a href="docs/workgraph_node_schema.json">Production WorkGraph Node Schema</a></li>
     </ul>
 
     <footer>
-      prestigesf/venturepilotai · Ready for Netlify · Build complete
+      prestigesf/venturepilotai · Gaps 1 & 2 closed · Ready for Gaps 3 & 4
     </footer>
   </div>
 </body>
