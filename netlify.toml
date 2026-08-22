@@ -5,6 +5,27 @@
   publish = "."
   command = "echo 'Static site — no build required'"
 
+# Internal, non-public. These paths must never be served from the public site.
+# Forced rules are applied before static files, so they hold even if a file is
+# reintroduced into the publish directory by mistake.
+[[redirects]]
+  from = "/engine-hardening.html"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/engine-hardening/*"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/docs/*"
+  to = "/index.html"
+  status = 404
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
