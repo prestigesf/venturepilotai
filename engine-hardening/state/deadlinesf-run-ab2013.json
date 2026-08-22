@@ -1,0 +1,14 @@
+{
+  "$comment": "Pack run reconstructed from DeadlineSF's own frozen phase artifacts. Commits are recorded as baseline digests because the build environment had no git (the protocol records git_commit=null); the baseline hash anchors the state just as firmly.",
+  "pack_id": "AB2013",
+  "pack_version": "1.0.0",
+  "run_id": "dsf-phase19-ab2013",
+  "timestamp": "2026-08-02T13:59:50.156660+00:00",
+  "starting_commit": "baseline18:d0f421694137fdd50609b5f91a424dd427b794b7",
+  "ending_commit": "baseline19:e0735ddd7a9abd367192ce51a47c7c6449b1d9dd",
+  "title": "California Generative AI Training Data Transparency Act (AB 2013) ingestion",
+  "rules_evaluated": ["sb942","co_sb24_205","eu_ai_act","il_hb3773","nyc_ll144","tx_hb149","ut_sb149","ab2013"],
+  "rules_unsupported": [],
+  "authority_sources_used": ["Cal. Civ. Code sec. 3110 et seq. (AB 2013, 2024)"],
+  "discoveries": {}
+}

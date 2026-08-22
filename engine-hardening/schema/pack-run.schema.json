@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://venturepilot.ai/schema/engine-hardening/pack-run.schema.json",
+  "title": "Pack Run",
+  "description": "The input side of PACK IN -> DELTA OUT. Declares what the pack tested and what it revealed. What it *changed* is never declared here — that is diffed from the engine state.",
+  "type": "object",
+  "required": ["pack_id", "pack_version", "run_id", "timestamp"],
+  "properties": {
+    "pack_id": { "type": "string" },
+    "pack_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "starting_commit": { "type": "string" },
+    "ending_commit": { "type": "string" },
+    "title": { "type": "string" },
+    "rules_evaluated": { "type": "array", "items": { "type": "string" } },
+    "rules_unsupported": { "type": "array", "items": { "type": "string" } },
+    "authority_sources_used": { "type": "array", "items": { "type": "string" } },
+    "deterministic_checks_executed": { "type": "array", "items": { "type": "string" } },
+    "discoveries": {
+      "type": "object",
+      "properties": {
+        "new_failure_modes": { "type": "array" },
+        "new_edge_cases": { "type": "array" },
+        "false_positives": { "type": "array" },
+        "false_negatives": { "type": "array" },
+        "ambiguous_authority_mappings": { "type": "array" },
+        "missing_provenance": { "type": "array" },
+        "missing_refusal_conditions": { "type": "array" }
+      }
+    }
+  }
+}

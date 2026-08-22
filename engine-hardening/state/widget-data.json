@@ -1,0 +1,706 @@
+{
+  "generated_at": "2026-08-22T00:09:38.592Z",
+  "data_class": "LIVE",
+  "engine_version": "0.1.0",
+  "score": {
+    "engine_version": "0.1.0",
+    "total": 0,
+    "total_exact": 0,
+    "max": 100,
+    "components": [
+      {
+        "id": "rule_coverage",
+        "label": "Rule Coverage",
+        "max": 20,
+        "points": 0,
+        "points_exact": 0,
+        "fraction": 0,
+        "measured": false,
+        "measured_terms": 0,
+        "total_terms": 3,
+        "terms": [
+          {
+            "label": "Rules supported / rules in pack",
+            "formula": "(rules_evaluated - rules_unsupported) / rules_total",
+            "value": 0,
+            "measured": false,
+            "weight": 0.5,
+            "weighted": 0,
+            "contribution": 0
+          },
+          {
+            "label": "Authority sources mapped",
+            "formula": "authority_sources_used / authority_sources_required",
+            "value": 0,
+            "measured": false,
+            "weight": 0.3,
+            "weighted": 0,
+            "contribution": 0
+          },
+          {
+            "label": "Unambiguous authority mappings",
+            "formula": "(authority_mappings - ambiguous) / authority_mappings",
+            "value": 0,
+            "measured": false,
+            "weight": 0.2,
+            "weighted": 0,
+            "contribution": 0
+          }
+        ],
+        "raw": {
+          "rules_total": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "rules_evaluated": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "rules_unsupported": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "authority_sources_required": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "authority_sources_used": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "authority_mappings": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "ambiguous_authority_mappings": {
+            "value": 0,
+            "basis": "derived"
+          }
+        },
+        "notes": [
+          "rules_total is 0 — no pack has declared a rule surface yet."
+        ]
+      },
+      {
+        "id": "detector_coverage",
+        "label": "Detector Coverage",
+        "max": 20,
+        "points": 0,
+        "points_exact": 0,
+        "fraction": 0,
+        "measured": false,
+        "measured_terms": 0,
+        "total_terms": 2,
+        "terms": [
+          {
+            "label": "Known failure modes with a detector",
+            "formula": "failure_modes_with_detector / failure_modes_known",
+            "value": 0,
+            "measured": false,
+            "weight": 0.7,
+            "weighted": 0,
+            "contribution": 0
+          },
+          {
+            "label": "Detectors that are deterministic",
+            "formula": "deterministic_detectors / active_detectors",
+            "value": 0,
+            "measured": false,
+            "weight": 0.3,
+            "weighted": 0,
+            "contribution": 0
+          }
+        ],
+        "raw": {
+          "failure_modes_known": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "failure_modes_with_detector": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "active_detectors": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "deterministic_detectors": {
+            "value": 0,
+            "basis": "derived"
+          }
+        },
+        "notes": []
+      },
+      {
+        "id": "regression_depth",
+        "label": "Regression Depth",
+        "max": 15,
+        "points": 0,
+        "points_exact": 0,
+        "fraction": 0,
+        "measured": false,
+        "measured_terms": 0,
+        "total_terms": 3,
+        "terms": [
+          {
+            "label": "Known failure modes pinned by a regression test",
+            "formula": "failure_modes_with_regression / failure_modes_known",
+            "value": 0,
+            "measured": false,
+            "weight": 0.5,
+            "weighted": 0,
+            "contribution": 0
+          },
+          {
+            "label": "Test density vs target",
+            "formula": "(regression_tests / active_detectors) / 3",
+            "value": 0,
+            "measured": false,
+            "weight": 0.3,
+            "weighted": 0,
+            "contribution": 0
+          },
+          {
+            "label": "Regression tests passing",
+            "formula": "regression_tests_passing / regression_tests",
+            "value": 0,
+            "measured": false,
+            "weight": 0.2,
+            "weighted": 0,
+            "contribution": 0
+          }
+        ],
+        "raw": {
+          "regression_tests": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "regression_tests_passing": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "failure_modes_with_regression": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "failure_modes_known": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "active_detectors": {
+            "value": 0,
+            "basis": "derived"
+          }
+        },
+        "notes": []
+      },
+      {
+        "id": "evidence_quality",
+        "label": "Evidence Quality",
+        "max": 15,
+        "points": 0,
+        "points_exact": 0,
+        "fraction": 0,
+        "measured": false,
+        "measured_terms": 0,
+        "total_terms": 3,
+        "terms": [
+          {
+            "label": "Replays that reproduced byte-identical evidence",
+            "formula": "replay_identical / replay_runs",
+            "value": 0,
+            "measured": false,
+            "weight": 0.5,
+            "weighted": 0,
+            "contribution": 0
+          },
+          {
+            "label": "Required evidence fields populated",
+            "formula": "evidence_fields_populated / evidence_fields_required",
+            "value": 0,
+            "measured": false,
+            "weight": 0.3,
+            "weighted": 0,
+            "contribution": 0
+          },
+          {
+            "label": "Deterministic checks executed",
+            "formula": "deterministic_checks_executed / deterministic_checks_total",
+            "value": 0,
+            "measured": false,
+            "weight": 0.2,
+            "weighted": 0,
+            "contribution": 0
+          }
+        ],
+        "raw": {
+          "replay_runs": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "replay_identical": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "evidence_fields_required": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "evidence_fields_populated": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "evidence_schemas": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "deterministic_checks_total": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "deterministic_checks_executed": {
+            "value": 0,
+            "basis": "asserted"
+          }
+        },
+        "notes": [
+          "No replay run recorded — reproducibility is unproven, not assumed."
+        ]
+      },
+      {
+        "id": "detection_accuracy",
+        "label": "Detection Accuracy",
+        "max": 10,
+        "points": 0,
+        "points_exact": 0,
+        "fraction": 0,
+        "measured": false,
+        "measured_terms": 0,
+        "total_terms": 1,
+        "terms": [
+          {
+            "label": "F1 over the labelled corpus",
+            "formula": "2PR/(P+R) where P = tp/(tp+fp), R = tp/(tp+fn)",
+            "value": 0,
+            "measured": false,
+            "weight": 1,
+            "weighted": 0,
+            "contribution": 0
+          }
+        ],
+        "raw": {
+          "labeled_cases": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "true_positives": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "false_positives": {
+            "value": 0,
+            "basis": "asserted"
+          },
+          "false_negatives": {
+            "value": 0,
+            "basis": "asserted"
+          }
+        },
+        "notes": [
+          "No labelled corpus — detection accuracy scores 0 until cases exist."
+        ]
+      },
+      {
+        "id": "blocking_integrity",
+        "label": "Blocking Integrity",
+        "max": 10,
+        "points": 0,
+        "points_exact": 0,
+        "fraction": 0,
+        "measured": false,
+        "measured_terms": 0,
+        "total_terms": 2,
+        "terms": [
+          {
+            "label": "Blocking invariants with a test that proves they block",
+            "formula": "blocking_invariants_with_test / blocking_invariants",
+            "value": 0,
+            "measured": false,
+            "weight": 0.5,
+            "weighted": 0,
+            "contribution": 0
+          },
+          {
+            "label": "Refusal conditions exercised by a test",
+            "formula": "refusal_conditions_exercised / refusal_conditions",
+            "value": 0,
+            "measured": false,
+            "weight": 0.5,
+            "weighted": 0,
+            "contribution": 0
+          }
+        ],
+        "raw": {
+          "blocking_invariants": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "blocking_invariants_with_test": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "refusal_conditions": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "refusal_conditions_exercised": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "bypasses_observed": {
+            "value": 0,
+            "basis": "asserted"
+          }
+        },
+        "notes": [],
+        "penalty": {
+          "bypasses_observed": 0,
+          "factor": 1
+        }
+      },
+      {
+        "id": "provenance",
+        "label": "Provenance",
+        "max": 5,
+        "points": 0,
+        "points_exact": 0,
+        "fraction": 0,
+        "measured": false,
+        "measured_terms": 0,
+        "total_terms": 1,
+        "terms": [
+          {
+            "label": "Artefact classes with full provenance",
+            "formula": "provenance_controls_complete / provenance_controls (source + hash + timestamp + authority link)",
+            "value": 0,
+            "measured": false,
+            "weight": 1,
+            "weighted": 0,
+            "contribution": 0
+          }
+        ],
+        "raw": {
+          "provenance_controls": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "provenance_controls_complete": {
+            "value": 0,
+            "basis": "derived"
+          }
+        },
+        "notes": []
+      },
+      {
+        "id": "reuse",
+        "label": "Reuse",
+        "max": 5,
+        "points": 0,
+        "points_exact": 0,
+        "fraction": 0,
+        "measured": true,
+        "measured_terms": 1,
+        "total_terms": 2,
+        "terms": [
+          {
+            "label": "Reusable controls actually used by 2+ products",
+            "formula": "reusable_controls_used_by_2plus / reusable_controls",
+            "value": 0,
+            "measured": false,
+            "weight": 0.6,
+            "weighted": 0,
+            "contribution": 0
+          },
+          {
+            "label": "Registered products that inherited a control",
+            "formula": "products_strengthened / products_registered",
+            "value": 0,
+            "measured": true,
+            "weight": 0.4,
+            "weighted": 0,
+            "contribution": 0
+          }
+        ],
+        "raw": {
+          "reusable_controls": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "reusable_controls_used_by_2plus": {
+            "value": 0,
+            "basis": "derived"
+          },
+          "products_registered": {
+            "value": 7,
+            "basis": "derived"
+          },
+          "products_strengthened": {
+            "value": 0,
+            "basis": "derived"
+          }
+        },
+        "notes": []
+      }
+    ],
+    "raw": {
+      "rules_total": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "rules_evaluated": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "rules_unsupported": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "authority_sources_required": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "authority_sources_used": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "authority_mappings": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "ambiguous_authority_mappings": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "failure_modes_known": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "active_detectors": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "deterministic_detectors": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "failure_modes_with_detector": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "regression_tests": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "regression_tests_passing": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "failure_modes_with_regression": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "evidence_schemas": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "evidence_fields_required": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "evidence_fields_populated": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "replay_runs": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "replay_identical": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "deterministic_checks_total": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "deterministic_checks_executed": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "labeled_cases": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "true_positives": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "false_positives": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "false_negatives": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "blocking_invariants": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "blocking_invariants_with_test": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "refusal_conditions": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "refusal_conditions_exercised": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "bypasses_observed": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "provenance_controls": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "provenance_controls_complete": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "reusable_controls": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "reusable_controls_used_by_2plus": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "products_registered": {
+        "value": 7,
+        "basis": "derived"
+      },
+      "products_strengthened": {
+        "value": 0,
+        "basis": "derived"
+      },
+      "known_gaps": {
+        "value": 0,
+        "basis": "derived"
+      }
+    },
+    "unmeasured": [
+      "rule_coverage",
+      "detector_coverage",
+      "regression_depth",
+      "evidence_quality",
+      "detection_accuracy",
+      "blocking_integrity",
+      "provenance"
+    ],
+    "scored_at_state_version": 1
+  },
+  "counters": null,
+  "history": [],
+  "products": [
+    {
+      "id": "deadlinesf",
+      "name": "DeadlineSF",
+      "status": "LIVE",
+      "inherited_controls": [],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "billrosetta",
+      "name": "BillRosetta",
+      "status": "LIVE",
+      "inherited_controls": [],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "billrosetta-capital",
+      "name": "BillRosetta Capital",
+      "status": "VALIDATING",
+      "inherited_controls": [],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "venturepilotai",
+      "name": "VenturePilotAI",
+      "status": "VALIDATING",
+      "inherited_controls": [],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "goldtrac",
+      "name": "GoldTrac",
+      "status": "DESIGNED",
+      "inherited_controls": [],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "bopcart",
+      "name": "BopCart",
+      "status": "UNDECLARED",
+      "inherited_controls": [],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "cited",
+      "name": "Cited",
+      "status": "UNDECLARED",
+      "inherited_controls": [],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    }
+  ],
+  "capability_unlocks": [],
+  "ledger_head": "0000000000000000000000000000000000000000000000000000000000000000",
+  "verification": {
+    "ok": true,
+    "receipts": 0,
+    "head": "0000000000000000000000000000000000000000000000000000000000000000",
+    "problems": []
+  }
+}

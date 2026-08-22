@@ -1,0 +1,1178 @@
+{
+  "data_class": "ILLUSTRATIVE_EXAMPLE",
+  "engine_version": "0.1.0",
+  "state_version": 12,
+  "updated_at": "2026-05-12T12:00:00Z",
+  "commit": null,
+  "last_pack_id": "PACK_12",
+  "controls": {
+    "detectors": [
+      {
+        "id": "det.clause-parse",
+        "name": "Clause parse completeness",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.unparsed-clause"
+        ],
+        "products": [
+          "deadlinesf"
+        ],
+        "added_by_pack": "PACK_01"
+      },
+      {
+        "id": "det.evidence-complete",
+        "name": "Evidence field completeness",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.thin-evidence"
+        ],
+        "products": [
+          "deadlinesf",
+          "billrosetta"
+        ],
+        "added_by_pack": "PACK_02"
+      },
+      {
+        "id": "det.replay-identity",
+        "name": "Replay byte-identity",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.nondeterministic-output"
+        ],
+        "products": [
+          "deadlinesf",
+          "billrosetta",
+          "venturepilotai"
+        ],
+        "added_by_pack": "PACK_03"
+      },
+      {
+        "id": "det.citation-resolves",
+        "name": "Citation resolves to a pinned source",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.dangling-citation"
+        ],
+        "products": [
+          "deadlinesf",
+          "cited"
+        ],
+        "added_by_pack": "PACK_04"
+      },
+      {
+        "id": "det.jurisdiction-scope",
+        "name": "Jurisdiction in scope",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.out-of-scope-answer"
+        ],
+        "products": [
+          "deadlinesf",
+          "billrosetta"
+        ],
+        "added_by_pack": "PACK_05"
+      },
+      {
+        "id": "det.rule-conflict",
+        "name": "Conflicting rule outcomes",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.rule-conflict"
+        ],
+        "products": [
+          "deadlinesf",
+          "billrosetta"
+        ],
+        "added_by_pack": "PACK_06"
+      },
+      {
+        "id": "det.authority-boundary",
+        "name": "Authority boundary enforcement",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.authority-overreach"
+        ],
+        "products": [
+          "deadlinesf"
+        ],
+        "added_by_pack": "PACK_07"
+      },
+      {
+        "id": "det.effective-window",
+        "name": "Effective-date window",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.stale-rule-version"
+        ],
+        "products": [
+          "deadlinesf",
+          "billrosetta",
+          "goldtrac"
+        ],
+        "added_by_pack": "PACK_08"
+      },
+      {
+        "id": "det.nested-exemption",
+        "name": "Nested exemption resolution",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.nested-exemption"
+        ],
+        "products": [
+          "deadlinesf",
+          "billrosetta"
+        ],
+        "added_by_pack": "PACK_09"
+      },
+      {
+        "id": "det.disbursement-authz",
+        "name": "Disbursement authorization match",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.unauthorized-disbursement"
+        ],
+        "products": [
+          "billrosetta-capital",
+          "billrosetta"
+        ],
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "det.authz-chain",
+        "name": "Authorization chain integrity",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.broken-authz-chain"
+        ],
+        "products": [
+          "billrosetta-capital"
+        ],
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "det.nonce-freshness",
+        "name": "Nonce freshness",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.receipt-replay"
+        ],
+        "products": [
+          "billrosetta-capital",
+          "bopcart",
+          "venturepilotai"
+        ],
+        "added_by_pack": "PACK_11"
+      },
+      {
+        "id": "det.receipt-uniqueness",
+        "name": "Receipt uniqueness",
+        "kind": "deterministic",
+        "failure_modes": [
+          "fm.duplicate-receipt"
+        ],
+        "products": [
+          "billrosetta-capital",
+          "bopcart",
+          "venturepilotai"
+        ],
+        "added_by_pack": "PACK_11"
+      }
+    ],
+    "regression_tests": [
+      {
+        "id": "t.clause-parse.01",
+        "status": "PASS",
+        "covers_detector": "det.clause-parse",
+        "covers_failure_mode": "fm.unparsed-clause",
+        "added_by_pack": "PACK_01"
+      },
+      {
+        "id": "t.clause-parse.02",
+        "status": "PASS",
+        "covers_detector": "det.clause-parse",
+        "covers_failure_mode": "fm.unparsed-clause",
+        "added_by_pack": "PACK_01"
+      },
+      {
+        "id": "t.clause-parse.03",
+        "status": "PASS",
+        "covers_detector": "det.clause-parse",
+        "covers_failure_mode": "fm.unparsed-clause",
+        "added_by_pack": "PACK_01"
+      },
+      {
+        "id": "t.clause-parse.04",
+        "status": "PASS",
+        "covers_detector": "det.clause-parse",
+        "covers_failure_mode": "fm.unparsed-clause",
+        "added_by_pack": "PACK_01"
+      },
+      {
+        "id": "t.evidence.01",
+        "status": "PASS",
+        "covers_detector": "det.evidence-complete",
+        "covers_failure_mode": "fm.thin-evidence",
+        "added_by_pack": "PACK_02"
+      },
+      {
+        "id": "t.evidence.02",
+        "status": "PASS",
+        "covers_detector": "det.evidence-complete",
+        "covers_failure_mode": "fm.thin-evidence",
+        "added_by_pack": "PACK_02"
+      },
+      {
+        "id": "t.evidence.03",
+        "status": "PASS",
+        "covers_detector": "det.evidence-complete",
+        "covers_failure_mode": "fm.thin-evidence",
+        "added_by_pack": "PACK_02"
+      },
+      {
+        "id": "t.evidence.04",
+        "status": "PASS",
+        "covers_detector": "det.evidence-complete",
+        "covers_failure_mode": "fm.thin-evidence",
+        "added_by_pack": "PACK_02"
+      },
+      {
+        "id": "t.evidence.05",
+        "status": "PASS",
+        "covers_detector": "det.evidence-complete",
+        "covers_failure_mode": "fm.thin-evidence",
+        "added_by_pack": "PACK_02"
+      },
+      {
+        "id": "t.replay.01",
+        "status": "PASS",
+        "covers_detector": "det.replay-identity",
+        "covers_failure_mode": "fm.nondeterministic-output",
+        "added_by_pack": "PACK_03"
+      },
+      {
+        "id": "t.replay.02",
+        "status": "PASS",
+        "covers_detector": "det.replay-identity",
+        "covers_failure_mode": "fm.nondeterministic-output",
+        "added_by_pack": "PACK_03"
+      },
+      {
+        "id": "t.replay.03",
+        "status": "PASS",
+        "covers_detector": "det.replay-identity",
+        "covers_failure_mode": "fm.nondeterministic-output",
+        "added_by_pack": "PACK_03"
+      },
+      {
+        "id": "t.replay.04",
+        "status": "PASS",
+        "covers_detector": "det.replay-identity",
+        "covers_failure_mode": "fm.nondeterministic-output",
+        "added_by_pack": "PACK_03"
+      },
+      {
+        "id": "t.replay.05",
+        "status": "PASS",
+        "covers_detector": "det.replay-identity",
+        "covers_failure_mode": "fm.nondeterministic-output",
+        "added_by_pack": "PACK_03"
+      },
+      {
+        "id": "t.replay.06",
+        "status": "PASS",
+        "covers_detector": "det.replay-identity",
+        "covers_failure_mode": "fm.nondeterministic-output",
+        "added_by_pack": "PACK_03"
+      },
+      {
+        "id": "t.citation.01",
+        "status": "PASS",
+        "covers_detector": "det.citation-resolves",
+        "covers_failure_mode": "fm.dangling-citation",
+        "added_by_pack": "PACK_04"
+      },
+      {
+        "id": "t.citation.02",
+        "status": "PASS",
+        "covers_detector": "det.citation-resolves",
+        "covers_failure_mode": "fm.dangling-citation",
+        "added_by_pack": "PACK_04"
+      },
+      {
+        "id": "t.citation.03",
+        "status": "PASS",
+        "covers_detector": "det.citation-resolves",
+        "covers_failure_mode": "fm.dangling-citation",
+        "added_by_pack": "PACK_04"
+      },
+      {
+        "id": "t.citation.04",
+        "status": "PASS",
+        "covers_detector": "det.citation-resolves",
+        "covers_failure_mode": "fm.dangling-citation",
+        "added_by_pack": "PACK_04"
+      },
+      {
+        "id": "t.citation.05",
+        "status": "PASS",
+        "covers_detector": "det.citation-resolves",
+        "covers_failure_mode": "fm.dangling-citation",
+        "added_by_pack": "PACK_04"
+      },
+      {
+        "id": "t.refusal.01",
+        "status": "PASS",
+        "covers_detector": "det.jurisdiction-scope",
+        "covers_failure_mode": "fm.out-of-scope-answer",
+        "added_by_pack": "PACK_05"
+      },
+      {
+        "id": "t.refusal.02",
+        "status": "PASS",
+        "covers_detector": "det.jurisdiction-scope",
+        "covers_failure_mode": "fm.out-of-scope-answer",
+        "added_by_pack": "PACK_05"
+      },
+      {
+        "id": "t.refusal.03",
+        "status": "PASS",
+        "covers_detector": "det.jurisdiction-scope",
+        "covers_failure_mode": "fm.out-of-scope-answer",
+        "added_by_pack": "PACK_05"
+      },
+      {
+        "id": "t.refusal.04",
+        "status": "PASS",
+        "covers_detector": "det.jurisdiction-scope",
+        "covers_failure_mode": "fm.out-of-scope-answer",
+        "added_by_pack": "PACK_05"
+      },
+      {
+        "id": "t.refusal.05",
+        "status": "PASS",
+        "covers_detector": "det.jurisdiction-scope",
+        "covers_failure_mode": "fm.out-of-scope-answer",
+        "added_by_pack": "PACK_05"
+      },
+      {
+        "id": "t.refusal.06",
+        "status": "PASS",
+        "covers_detector": "det.jurisdiction-scope",
+        "covers_failure_mode": "fm.out-of-scope-answer",
+        "added_by_pack": "PACK_05"
+      },
+      {
+        "id": "t.conflict.01",
+        "status": "PASS",
+        "covers_detector": "det.rule-conflict",
+        "covers_failure_mode": "fm.rule-conflict",
+        "added_by_pack": "PACK_06"
+      },
+      {
+        "id": "t.conflict.02",
+        "status": "PASS",
+        "covers_detector": "det.rule-conflict",
+        "covers_failure_mode": "fm.rule-conflict",
+        "added_by_pack": "PACK_06"
+      },
+      {
+        "id": "t.conflict.03",
+        "status": "PASS",
+        "covers_detector": "det.rule-conflict",
+        "covers_failure_mode": "fm.rule-conflict",
+        "added_by_pack": "PACK_06"
+      },
+      {
+        "id": "t.conflict.04",
+        "status": "PASS",
+        "covers_detector": "det.rule-conflict",
+        "covers_failure_mode": "fm.rule-conflict",
+        "added_by_pack": "PACK_06"
+      },
+      {
+        "id": "t.conflict.05",
+        "status": "PASS",
+        "covers_detector": "det.rule-conflict",
+        "covers_failure_mode": "fm.rule-conflict",
+        "added_by_pack": "PACK_06"
+      },
+      {
+        "id": "t.authority-boundary.01",
+        "status": "PASS",
+        "covers_detector": "det.authority-boundary",
+        "covers_failure_mode": "fm.authority-overreach",
+        "added_by_pack": "PACK_07"
+      },
+      {
+        "id": "t.authority-boundary.02",
+        "status": "PASS",
+        "covers_detector": "det.authority-boundary",
+        "covers_failure_mode": "fm.authority-overreach",
+        "added_by_pack": "PACK_07"
+      },
+      {
+        "id": "t.authority-boundary.03",
+        "status": "PASS",
+        "covers_detector": "det.authority-boundary",
+        "covers_failure_mode": "fm.authority-overreach",
+        "added_by_pack": "PACK_07"
+      },
+      {
+        "id": "t.authority-boundary.04",
+        "status": "PASS",
+        "covers_detector": "det.authority-boundary",
+        "covers_failure_mode": "fm.authority-overreach",
+        "added_by_pack": "PACK_07"
+      },
+      {
+        "id": "t.temporal.01",
+        "status": "PASS",
+        "covers_detector": "det.effective-window",
+        "covers_failure_mode": "fm.stale-rule-version",
+        "added_by_pack": "PACK_08"
+      },
+      {
+        "id": "t.temporal.02",
+        "status": "PASS",
+        "covers_detector": "det.effective-window",
+        "covers_failure_mode": "fm.stale-rule-version",
+        "added_by_pack": "PACK_08"
+      },
+      {
+        "id": "t.temporal.03",
+        "status": "PASS",
+        "covers_detector": "det.effective-window",
+        "covers_failure_mode": "fm.stale-rule-version",
+        "added_by_pack": "PACK_08"
+      },
+      {
+        "id": "t.temporal.04",
+        "status": "PASS",
+        "covers_detector": "det.effective-window",
+        "covers_failure_mode": "fm.stale-rule-version",
+        "added_by_pack": "PACK_08"
+      },
+      {
+        "id": "t.temporal.05",
+        "status": "PASS",
+        "covers_detector": "det.effective-window",
+        "covers_failure_mode": "fm.stale-rule-version",
+        "added_by_pack": "PACK_08"
+      },
+      {
+        "id": "t.temporal.06",
+        "status": "SKIP",
+        "covers_detector": "det.effective-window",
+        "covers_failure_mode": "fm.stale-rule-version",
+        "added_by_pack": "PACK_08"
+      },
+      {
+        "id": "t.temporal.07",
+        "status": "SKIP",
+        "covers_detector": "det.effective-window",
+        "covers_failure_mode": "fm.stale-rule-version",
+        "added_by_pack": "PACK_08"
+      },
+      {
+        "id": "t.exemption.01",
+        "status": "PASS",
+        "covers_detector": "det.nested-exemption",
+        "covers_failure_mode": "fm.nested-exemption",
+        "added_by_pack": "PACK_09"
+      },
+      {
+        "id": "t.exemption.02",
+        "status": "PASS",
+        "covers_detector": "det.nested-exemption",
+        "covers_failure_mode": "fm.nested-exemption",
+        "added_by_pack": "PACK_09"
+      },
+      {
+        "id": "t.exemption.03",
+        "status": "PASS",
+        "covers_detector": "det.nested-exemption",
+        "covers_failure_mode": "fm.nested-exemption",
+        "added_by_pack": "PACK_09"
+      },
+      {
+        "id": "t.exemption.04",
+        "status": "PASS",
+        "covers_detector": "det.nested-exemption",
+        "covers_failure_mode": "fm.nested-exemption",
+        "added_by_pack": "PACK_09"
+      },
+      {
+        "id": "t.exemption.05",
+        "status": "PASS",
+        "covers_detector": "det.nested-exemption",
+        "covers_failure_mode": "fm.nested-exemption",
+        "added_by_pack": "PACK_09"
+      },
+      {
+        "id": "t.exemption.06",
+        "status": "PASS",
+        "covers_detector": "det.nested-exemption",
+        "covers_failure_mode": "fm.nested-exemption",
+        "added_by_pack": "PACK_09"
+      },
+      {
+        "id": "t.disbursement.01",
+        "status": "PASS",
+        "covers_detector": "det.disbursement-authz",
+        "covers_failure_mode": "fm.unauthorized-disbursement",
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "t.disbursement.02",
+        "status": "PASS",
+        "covers_detector": "det.disbursement-authz",
+        "covers_failure_mode": "fm.unauthorized-disbursement",
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "t.disbursement.03",
+        "status": "PASS",
+        "covers_detector": "det.disbursement-authz",
+        "covers_failure_mode": "fm.unauthorized-disbursement",
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "t.disbursement.04",
+        "status": "PASS",
+        "covers_detector": "det.disbursement-authz",
+        "covers_failure_mode": "fm.unauthorized-disbursement",
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "t.disbursement.05",
+        "status": "PASS",
+        "covers_detector": "det.disbursement-authz",
+        "covers_failure_mode": "fm.unauthorized-disbursement",
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "t.authz-chain.01",
+        "status": "PASS",
+        "covers_detector": "det.authz-chain",
+        "covers_failure_mode": "fm.broken-authz-chain",
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "t.authz-chain.02",
+        "status": "PASS",
+        "covers_detector": "det.authz-chain",
+        "covers_failure_mode": "fm.broken-authz-chain",
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "t.authz-chain.03",
+        "status": "PASS",
+        "covers_detector": "det.authz-chain",
+        "covers_failure_mode": "fm.broken-authz-chain",
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "t.nonce.01",
+        "status": "PASS",
+        "covers_detector": "det.nonce-freshness",
+        "covers_failure_mode": "fm.receipt-replay",
+        "added_by_pack": "PACK_11"
+      },
+      {
+        "id": "t.nonce.02",
+        "status": "PASS",
+        "covers_detector": "det.nonce-freshness",
+        "covers_failure_mode": "fm.receipt-replay",
+        "added_by_pack": "PACK_11"
+      },
+      {
+        "id": "t.nonce.03",
+        "status": "PASS",
+        "covers_detector": "det.nonce-freshness",
+        "covers_failure_mode": "fm.receipt-replay",
+        "added_by_pack": "PACK_11"
+      },
+      {
+        "id": "t.uniqueness.01",
+        "status": "PASS",
+        "covers_detector": "det.receipt-uniqueness",
+        "covers_failure_mode": "fm.duplicate-receipt",
+        "added_by_pack": "PACK_11"
+      },
+      {
+        "id": "t.uniqueness.02",
+        "status": "PASS",
+        "covers_detector": "det.receipt-uniqueness",
+        "covers_failure_mode": "fm.duplicate-receipt",
+        "added_by_pack": "PACK_11"
+      }
+    ],
+    "blocking_invariants": [
+      {
+        "id": "inv.no-decision-without-rule",
+        "statement": "No decision may be emitted without a resolved rule id",
+        "test_id": "t.clause-parse.01",
+        "products": [
+          "deadlinesf"
+        ],
+        "added_by_pack": "PACK_01"
+      },
+      {
+        "id": "inv.replay-identical",
+        "statement": "A replayed run must produce byte-identical evidence",
+        "test_id": "t.replay.01",
+        "products": [
+          "deadlinesf",
+          "venturepilotai"
+        ],
+        "added_by_pack": "PACK_03"
+      },
+      {
+        "id": "inv.authority-in-scope",
+        "statement": "A rule may only be applied within the scope its authority governs",
+        "test_id": "t.authority-boundary.01",
+        "products": [
+          "deadlinesf"
+        ],
+        "added_by_pack": "PACK_07"
+      },
+      {
+        "id": "inv.decision-timestamped",
+        "statement": "Every decision pins the rule version effective at its timestamp",
+        "test_id": "t.temporal.01",
+        "products": [
+          "deadlinesf",
+          "billrosetta"
+        ],
+        "added_by_pack": "PACK_08"
+      },
+      {
+        "id": "inv.no-unauthorized-funds",
+        "statement": "No disbursement without a verified authorization record",
+        "test_id": "t.disbursement.01",
+        "products": [
+          "billrosetta-capital"
+        ],
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "inv.single-use-receipt",
+        "statement": "A receipt may be honoured at most once",
+        "test_id": "t.uniqueness.01",
+        "products": [
+          "billrosetta-capital",
+          "bopcart",
+          "venturepilotai"
+        ],
+        "added_by_pack": "PACK_11"
+      }
+    ],
+    "evidence_schemas": [
+      {
+        "id": "ev.decision",
+        "version": "1.0.0",
+        "required_fields": [
+          "rule_id",
+          "inputs",
+          "outcome"
+        ],
+        "populated_fields": [
+          "rule_id",
+          "inputs",
+          "outcome"
+        ],
+        "added_by_pack": "PACK_01"
+      },
+      {
+        "id": "ev.citation",
+        "version": "1.0.0",
+        "required_fields": [
+          "source_id",
+          "source_hash",
+          "retrieved_at"
+        ],
+        "populated_fields": [
+          "source_id",
+          "source_hash",
+          "retrieved_at"
+        ],
+        "added_by_pack": "PACK_02"
+      },
+      {
+        "id": "ev.temporal",
+        "version": "1.0.0",
+        "required_fields": [
+          "decided_at",
+          "rule_version",
+          "effective_from"
+        ],
+        "populated_fields": [
+          "decided_at",
+          "rule_version"
+        ],
+        "added_by_pack": "PACK_08"
+      }
+    ],
+    "refusal_conditions": [
+      {
+        "id": "rf.out-of-scope",
+        "condition": "Refuse when no pack covers the jurisdiction",
+        "exercised_by_test": "t.refusal.01",
+        "products": [
+          "deadlinesf",
+          "billrosetta"
+        ],
+        "added_by_pack": "PACK_05"
+      },
+      {
+        "id": "rf.stale-authority",
+        "condition": "Refuse when the cited authority is older than its effective window",
+        "exercised_by_test": null,
+        "products": [
+          "deadlinesf"
+        ],
+        "added_by_pack": "PACK_05"
+      },
+      {
+        "id": "rf.missing-authz",
+        "condition": "Refuse any funding action lacking an authorization chain",
+        "exercised_by_test": "t.authz-chain.01",
+        "products": [
+          "billrosetta-capital"
+        ],
+        "added_by_pack": "PACK_10"
+      }
+    ],
+    "human_review_triggers": [
+      {
+        "id": "hr.novel-jurisdiction",
+        "trigger": "First decision in a jurisdiction",
+        "added_by_pack": "PACK_05"
+      },
+      {
+        "id": "hr.rule-conflict",
+        "trigger": "Two rules disagree on outcome",
+        "added_by_pack": "PACK_06"
+      },
+      {
+        "id": "hr.low-confidence-authority",
+        "trigger": "Authority mapping marked ambiguous",
+        "added_by_pack": "PACK_06"
+      }
+    ],
+    "authority_mappings": [
+      {
+        "id": "am.sb942-core",
+        "rule_id": "SB942-001",
+        "authority_source": "CA-SB-942",
+        "citation": "SB 942 § 22757.3",
+        "ambiguous": false,
+        "added_by_pack": "PACK_04"
+      },
+      {
+        "id": "am.ag-guidance",
+        "rule_id": "SB942-004",
+        "authority_source": "CA-AG-GUIDANCE",
+        "citation": "AG Guidance 2025-04",
+        "ambiguous": false,
+        "added_by_pack": "PACK_04"
+      },
+      {
+        "id": "am.ccpa-overlap",
+        "rule_id": "SB942-007",
+        "authority_source": "CA-CCPA",
+        "citation": "CCPA § 1798.100",
+        "ambiguous": true,
+        "added_by_pack": "PACK_06"
+      },
+      {
+        "id": "am.ab1008-core",
+        "rule_id": "AB1008-001",
+        "authority_source": "CA-AB-1008",
+        "citation": "AB 1008 § 1798.140",
+        "ambiguous": false,
+        "added_by_pack": "PACK_07"
+      },
+      {
+        "id": "am.ucc9",
+        "rule_id": "FUND-003",
+        "authority_source": "UCC-9",
+        "citation": "UCC § 9-203",
+        "ambiguous": false,
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "am.ca-fin",
+        "rule_id": "FUND-011",
+        "authority_source": "CA-FIN-CODE",
+        "citation": "Fin. Code § 22100",
+        "ambiguous": false,
+        "added_by_pack": "PACK_10"
+      }
+    ],
+    "provenance_controls": [
+      {
+        "id": "prov.source-hash",
+        "artifact_class": "authority source document",
+        "has_source": true,
+        "has_hash": true,
+        "has_timestamp": true,
+        "has_authority_link": true,
+        "products": [
+          "deadlinesf",
+          "billrosetta"
+        ],
+        "added_by_pack": "PACK_02"
+      },
+      {
+        "id": "prov.derived-artifact",
+        "artifact_class": "derived artefact",
+        "has_source": true,
+        "has_hash": true,
+        "has_timestamp": true,
+        "has_authority_link": true,
+        "products": [
+          "deadlinesf",
+          "cited"
+        ],
+        "added_by_pack": "PACK_04"
+      },
+      {
+        "id": "prov.model-output",
+        "artifact_class": "model output",
+        "has_source": true,
+        "has_hash": false,
+        "has_timestamp": true,
+        "has_authority_link": false,
+        "products": [
+          "cited"
+        ],
+        "added_by_pack": "PACK_04"
+      },
+      {
+        "id": "prov.authz-record",
+        "artifact_class": "authorization record",
+        "has_source": true,
+        "has_hash": true,
+        "has_timestamp": true,
+        "has_authority_link": true,
+        "products": [
+          "billrosetta-capital"
+        ],
+        "added_by_pack": "PACK_10"
+      }
+    ],
+    "escalation_rules": [
+      {
+        "id": "esc.conflict-to-human",
+        "rule": "Rule conflict escalates to human review before any BLOCK is issued",
+        "products": [
+          "deadlinesf"
+        ],
+        "added_by_pack": "PACK_06"
+      },
+      {
+        "id": "esc.funding-threshold",
+        "rule": "Disbursement above threshold escalates to human review",
+        "products": [
+          "billrosetta-capital"
+        ],
+        "added_by_pack": "PACK_10"
+      }
+    ],
+    "reusable_controls": [
+      {
+        "id": "rc.evidence-complete",
+        "control_ref": "det.evidence-complete",
+        "products": [
+          "deadlinesf",
+          "billrosetta"
+        ],
+        "added_by_pack": "PACK_02"
+      },
+      {
+        "id": "rc.replay-identity",
+        "control_ref": "det.replay-identity",
+        "products": [
+          "deadlinesf",
+          "billrosetta",
+          "venturepilotai"
+        ],
+        "added_by_pack": "PACK_03"
+      },
+      {
+        "id": "rc.citation-resolves",
+        "control_ref": "det.citation-resolves",
+        "products": [
+          "deadlinesf",
+          "cited"
+        ],
+        "added_by_pack": "PACK_04"
+      },
+      {
+        "id": "rc.jurisdiction-scope",
+        "control_ref": "det.jurisdiction-scope",
+        "products": [
+          "deadlinesf",
+          "billrosetta"
+        ],
+        "added_by_pack": "PACK_05"
+      },
+      {
+        "id": "rc.authority-boundary",
+        "control_ref": "det.authority-boundary",
+        "products": [
+          "deadlinesf"
+        ],
+        "added_by_pack": "PACK_07"
+      },
+      {
+        "id": "rc.effective-window",
+        "control_ref": "det.effective-window",
+        "products": [
+          "deadlinesf",
+          "billrosetta",
+          "goldtrac"
+        ],
+        "added_by_pack": "PACK_08"
+      },
+      {
+        "id": "rc.nested-exemption",
+        "control_ref": "det.nested-exemption",
+        "products": [
+          "deadlinesf",
+          "billrosetta"
+        ],
+        "added_by_pack": "PACK_09"
+      },
+      {
+        "id": "rc.disbursement-authz",
+        "control_ref": "det.disbursement-authz",
+        "products": [
+          "billrosetta-capital",
+          "billrosetta"
+        ],
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "rc.replay-protection",
+        "control_ref": "det.nonce-freshness",
+        "products": [
+          "billrosetta-capital",
+          "bopcart",
+          "venturepilotai"
+        ],
+        "added_by_pack": "PACK_11"
+      }
+    ],
+    "known_gaps": [
+      {
+        "id": "gap.temporal-validity",
+        "description": "No handling of rules that change on an effective date",
+        "closed_by_pack": "PACK_08",
+        "added_by_pack": "PACK_01"
+      },
+      {
+        "id": "gap.authority-boundary",
+        "description": "Authority of a cited source is not bounded",
+        "closed_by_pack": "PACK_07",
+        "added_by_pack": "PACK_01"
+      },
+      {
+        "id": "gap.replay",
+        "description": "Evidence is not replay-verified",
+        "closed_by_pack": "PACK_03",
+        "added_by_pack": "PACK_01"
+      },
+      {
+        "id": "gap.cross-jurisdiction",
+        "description": "No pack covers filings spanning multiple states",
+        "closed_by_pack": null,
+        "added_by_pack": "PACK_09"
+      },
+      {
+        "id": "gap.fx-settlement",
+        "description": "Cross-currency settlement authority is unmapped",
+        "closed_by_pack": null,
+        "added_by_pack": "PACK_10"
+      },
+      {
+        "id": "gap.key-rotation",
+        "description": "Receipt signing keys have no rotation or revocation policy",
+        "closed_by_pack": null,
+        "added_by_pack": "PACK_11"
+      }
+    ]
+  },
+  "measurement": {
+    "rules_total": 48,
+    "rules_evaluated": 48,
+    "rules_unsupported": 2,
+    "authority_sources_required": 8,
+    "authority_sources_used": 7,
+    "failure_modes_known": 16,
+    "deterministic_checks_total": 55,
+    "deterministic_checks_executed": 55,
+    "replay_runs": 168,
+    "replay_identical": 166,
+    "labeled_cases": 314,
+    "true_positives": 259,
+    "false_positives": 24,
+    "false_negatives": 31,
+    "bypasses_observed": 0
+  },
+  "products": [
+    {
+      "id": "deadlinesf",
+      "name": "DeadlineSF",
+      "status": "LIVE",
+      "status_source": "declared for the worked example",
+      "inherited_controls": [
+        "det.clause-parse",
+        "inv.no-decision-without-rule",
+        "det.evidence-complete",
+        "prov.source-hash",
+        "rc.evidence-complete",
+        "det.replay-identity",
+        "inv.replay-identical",
+        "rc.replay-identity",
+        "det.citation-resolves",
+        "prov.derived-artifact",
+        "rc.citation-resolves",
+        "det.jurisdiction-scope",
+        "rf.out-of-scope",
+        "rf.stale-authority",
+        "rc.jurisdiction-scope",
+        "det.rule-conflict",
+        "esc.conflict-to-human",
+        "det.authority-boundary",
+        "inv.authority-in-scope",
+        "rc.authority-boundary",
+        "det.effective-window",
+        "inv.decision-timestamped",
+        "rc.effective-window",
+        "det.nested-exemption",
+        "rc.nested-exemption"
+      ],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "billrosetta",
+      "name": "BillRosetta",
+      "status": "LIVE",
+      "status_source": "declared for the worked example",
+      "inherited_controls": [
+        "det.evidence-complete",
+        "prov.source-hash",
+        "rc.evidence-complete",
+        "det.replay-identity",
+        "rc.replay-identity",
+        "det.jurisdiction-scope",
+        "rf.out-of-scope",
+        "rc.jurisdiction-scope",
+        "det.rule-conflict",
+        "det.effective-window",
+        "inv.decision-timestamped",
+        "rc.effective-window",
+        "det.nested-exemption",
+        "rc.nested-exemption",
+        "det.disbursement-authz",
+        "rc.disbursement-authz"
+      ],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "billrosetta-capital",
+      "name": "BillRosetta Capital",
+      "status": "VALIDATING",
+      "status_source": "declared for the worked example",
+      "inherited_controls": [
+        "det.disbursement-authz",
+        "det.authz-chain",
+        "inv.no-unauthorized-funds",
+        "rf.missing-authz",
+        "prov.authz-record",
+        "esc.funding-threshold",
+        "rc.disbursement-authz",
+        "det.nonce-freshness",
+        "det.receipt-uniqueness",
+        "inv.single-use-receipt",
+        "rc.replay-protection"
+      ],
+      "capabilities_unlocked": [
+        {
+          "capability": "Funding Authorization",
+          "unlocked_by_pack": "PACK_10",
+          "note": "Capital flows could not be gated before this pack existed."
+        }
+      ],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "venturepilotai",
+      "name": "VenturePilotAI",
+      "status": "VALIDATING",
+      "status_source": "declared for the worked example",
+      "inherited_controls": [
+        "det.replay-identity",
+        "inv.replay-identical",
+        "rc.replay-identity",
+        "det.nonce-freshness",
+        "det.receipt-uniqueness",
+        "inv.single-use-receipt",
+        "rc.replay-protection"
+      ],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "goldtrac",
+      "name": "GoldTrac",
+      "status": "DESIGNED",
+      "status_source": "declared for the worked example",
+      "inherited_controls": [
+        "det.effective-window",
+        "rc.effective-window"
+      ],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "bopcart",
+      "name": "BopCart",
+      "status": "UNDECLARED",
+      "status_source": "declared for the worked example",
+      "inherited_controls": [
+        "det.nonce-freshness",
+        "det.receipt-uniqueness",
+        "inv.single-use-receipt",
+        "rc.replay-protection"
+      ],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "cited",
+      "name": "Cited",
+      "status": "UNDECLARED",
+      "status_source": "declared for the worked example",
+      "inherited_controls": [
+        "det.citation-resolves",
+        "prov.derived-artifact",
+        "prov.model-output",
+        "rc.citation-resolves"
+      ],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    }
+  ]
+}

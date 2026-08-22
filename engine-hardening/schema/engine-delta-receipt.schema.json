@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://venturepilot.ai/schema/engine-hardening/engine-delta-receipt.schema.json",
+  "title": "Engine Delta Receipt",
+  "description": "PACK IN -> DELTA OUT. One receipt per pack run. Answers: what did this pack test, what did it reveal, what permanent hardening was gained, which products inherited it.",
+  "type": "object",
+  "required": [
+    "receipt_version", "engine_version", "pack_id", "pack_version", "run_id", "timestamp",
+    "starting_commit", "ending_commit", "previous_receipt_hash",
+    "pack_coverage", "before", "discoveries", "hardening_added", "after",
+    "engine_delta", "product_propagation", "strength", "result", "result_reasons",
+    "signature", "receipt_hash"
+  ],
+  "properties": {
+    "receipt_version": { "const": "1.0.0" },
+    "engine_version": { "type": "string" },
+    "pack_id": { "type": "string" },
+    "pack_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "starting_commit": { "type": "string" },
+    "ending_commit": { "type": "string" },
+    "previous_receipt_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+
+    "pack_coverage": {
+      "type": "object",
+      "required": ["counts"],
+      "properties": {
+        "rules_evaluated": { "type": "array", "items": { "type": "string" } },
+        "rules_unsupported": { "type": "array", "items": { "type": "string" } },
+        "authority_sources_used": { "type": "array", "items": { "type": "string" } },
+        "deterministic_checks_executed": { "type": "array", "items": { "type": "string" } },
+        "counts": {
+          "type": "object",
+          "properties": {
+            "rules_evaluated": { "type": "integer", "minimum": 0 },
+            "rules_unsupported": { "type": "integer", "minimum": 0 },
+            "authority_sources_used": { "type": "integer", "minimum": 0 },
+            "deterministic_checks_executed": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+
+    "before": { "$ref": "#/$defs/counters" },
+    "after": { "$ref": "#/$defs/counters" },
+
+    "discoveries": {
+      "type": "object",
+      "required": ["total"],
+      "properties": {
+        "new_failure_modes": { "$ref": "#/$defs/findings" },
+        "new_edge_cases": { "$ref": "#/$defs/findings" },
+        "false_positives": { "$ref": "#/$defs/findings" },
+        "false_negatives": { "$ref": "#/$defs/findings" },
+        "ambiguous_authority_mappings": { "$ref": "#/$defs/findings" },
+        "missing_provenance": { "$ref": "#/$defs/findings" },
+        "missing_refusal_conditions": { "$ref": "#/$defs/findings" },
+        "total": { "type": "integer", "minimum": 0 }
+      }
+    },
+
+    "hardening_added": {
+      "type": "object",
+      "properties": {
+        "detectors": { "$ref": "#/$defs/refs" },
+        "regression_tests": { "$ref": "#/$defs/refs" },
+        "blocking_invariants": { "$ref": "#/$defs/refs" },
+        "authority_mappings": { "$ref": "#/$defs/refs" },
+        "evidence_fields": { "$ref": "#/$defs/refs" },
+        "refusal_conditions": { "$ref": "#/$defs/refs" },
+        "provenance_controls": { "$ref": "#/$defs/refs" },
+        "escalation_rules": { "$ref": "#/$defs/refs" },
+        "reusable_controls": { "$ref": "#/$defs/refs" },
+        "gaps_closed": { "$ref": "#/$defs/refs" }
+      }
+    },
+
+    "engine_delta": {
+      "type": "object",
+      "required": ["is_measurable"],
+      "description": "Net change per category, computed by set-difference on control ids — never from a pack's self-report.",
+      "properties": {
+        "detectors": { "type": "integer" },
+        "regression_tests": { "type": "integer" },
+        "blocking_invariants": { "type": "integer" },
+        "authority_mappings": { "type": "integer" },
+        "reusable_controls": { "type": "integer" },
+        "refusal_conditions": { "type": "integer" },
+        "provenance_controls": { "type": "integer" },
+        "escalation_rules": { "type": "integer" },
+        "evidence_schemas": { "type": "integer" },
+        "human_review_triggers": { "type": "integer" },
+        "known_gaps": { "type": "integer", "description": "Negative is good: gaps closed." },
+        "is_measurable": { "type": "boolean" }
+      }
+    },
+
+    "product_propagation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["product_id", "product", "verdict"],
+        "properties": {
+          "product_id": { "type": "string" },
+          "product": { "type": "string" },
+          "status": { "type": "string" },
+          "verdict": { "enum": ["UNLOCKED", "STRENGTHENED", "NO_CHANGE"] },
+          "inherited": { "type": "array", "items": { "type": "object" } },
+          "unlocked": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+
+    "strength": {
+      "type": "object",
+      "required": ["before", "after", "change", "breakdown_after"],
+      "properties": {
+        "before": { "type": "number" },
+        "after": { "type": "number" },
+        "change": { "type": "number" },
+        "components": { "type": "array" },
+        "breakdown_after": {
+          "type": "array",
+          "description": "Every component exposes the raw numbers behind it. A number that cannot be shown cannot be scored.",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "points", "max", "measured", "terms", "raw"],
+            "properties": {
+              "id": { "type": "string" },
+              "label": { "type": "string" },
+              "points": { "type": "number" },
+              "max": { "type": "number" },
+              "measured": { "type": "boolean" },
+              "terms": { "type": "array" },
+              "raw": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "value": { "type": "number" },
+                    "basis": { "enum": ["derived", "asserted", "missing"] }
+                  }
+                }
+              },
+              "notes": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "unmeasured_components": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "result": { "enum": ["IMPROVED", "VALIDATED_NO_CHANGE", "REGRESSED", "INCONCLUSIVE"] },
+    "result_reasons": { "type": "array", "items": { "type": "string" } },
+
+    "signature": {
+      "type": "object",
+      "required": ["algorithm", "signed", "digest"],
+      "properties": {
+        "algorithm": { "enum": ["SHA-256", "HMAC-SHA-256"] },
+        "signed": { "type": "boolean" },
+        "digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "signature": { "type": ["string", "null"] },
+        "key_id": { "type": ["string", "null"] }
+      }
+    },
+    "receipt_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  },
+  "$defs": {
+    "counters": {
+      "type": "object",
+      "properties": {
+        "active_detectors": { "type": "integer", "minimum": 0 },
+        "regression_tests": { "type": "integer", "minimum": 0 },
+        "blocking_invariants": { "type": "integer", "minimum": 0 },
+        "evidence_schemas": { "type": "integer", "minimum": 0 },
+        "known_gaps": { "type": "integer", "minimum": 0 },
+        "human_review_triggers": { "type": "integer", "minimum": 0 },
+        "reusable_controls": { "type": "integer", "minimum": 0 },
+        "authority_mappings": { "type": "integer", "minimum": 0 },
+        "refusal_conditions": { "type": "integer", "minimum": 0 },
+        "provenance_controls": { "type": "integer", "minimum": 0 },
+        "escalation_rules": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": { "type": "string" },
+          "description": { "type": "string" },
+          "addressed_by": { "type": "string" }
+        }
+      }
+    },
+    "refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "properties": { "id": { "type": "string" }, "name": { "type": "string" } }
+      }
+    }
+  }
+}

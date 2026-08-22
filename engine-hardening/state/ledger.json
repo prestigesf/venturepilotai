@@ -1,0 +1,7 @@
+{
+  "ledger_version": "1.0.0",
+  "engine": "venturepilot-engine-hardening-layer",
+  "data_class": "LIVE",
+  "created_at": null,
+  "receipts": []
+}
