@@ -121,8 +121,14 @@ export function rawInputs(state) {
     populatedEvidenceFields += required.filter((f) => populated.has(f)).length;
   }
 
+  // An artefact class that no statutory authority governs cannot be faulted for
+  // lacking an authority link. Marking the flag inapplicable is a statement
+  // about the artefact, not a waiver: source, hash and timestamp are still
+  // required. Without this, adding a genuine provenance control that happens to
+  // be code lowers the provenance score.
   const completeProvenance = inv.provenance.filter(
-    (p) => p.has_source && p.has_hash && p.has_timestamp && p.has_authority_link,
+    (p) => p.has_source && p.has_hash && p.has_timestamp
+      && (p.has_authority_link || p.authority_link_applicable === false),
   );
 
   const reusedAcrossProducts = inv.reusable.filter((r) => arr(r.products).length >= 2);

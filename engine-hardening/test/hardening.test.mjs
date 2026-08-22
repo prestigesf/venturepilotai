@@ -487,3 +487,48 @@ test('failing cases are counted against the pass rate', () => {
   const c = score(red).components.find((c) => c.id === 'regression_depth');
   assert.match(c.notes.join(' '), /10 regression test\(s\) are not passing/);
 });
+
+/* --------------------------------------------- provenance applicability */
+test('an inapplicable authority link does not count as missing provenance', () => {
+  // The defect this guards: adding a genuine provenance control that happens to
+  // be code lowered the provenance score, because a Python module has no
+  // statutory citation to link to.
+  const withCode = populatedState();
+  withCode.controls.provenance_controls = [
+    { id: 'pv.pack', has_source: true, has_hash: true, has_timestamp: true, has_authority_link: true },
+    {
+      id: 'pv.code',
+      has_source: true, has_hash: true, has_timestamp: true,
+      has_authority_link: false, authority_link_applicable: false,
+    },
+  ];
+  const c = score(withCode).components.find((x) => x.id === 'provenance');
+  assert.equal(c.points, 5, 'both controls count as complete');
+});
+
+test('inapplicability does not waive source, hash or timestamp', () => {
+  const sloppy = populatedState();
+  sloppy.controls.provenance_controls = [{
+    id: 'pv.code',
+    has_source: true, has_hash: false, has_timestamp: true,
+    has_authority_link: false, authority_link_applicable: false,
+  }];
+  const c = score(sloppy).components.find((x) => x.id === 'provenance');
+  assert.equal(c.points, 0, 'a missing hash still fails, applicability or not');
+});
+
+test('adding a provenance control never lowers the provenance score', () => {
+  const before = populatedState();
+  before.controls.provenance_controls = [
+    { id: 'pv.pack', has_source: true, has_hash: true, has_timestamp: true, has_authority_link: true },
+  ];
+  const after = structuredClone(before);
+  after.controls.provenance_controls.push({
+    id: 'pv.verifier',
+    has_source: true, has_hash: true, has_timestamp: true,
+    has_authority_link: false, authority_link_applicable: false,
+  });
+  const a = score(before).components.find((x) => x.id === 'provenance').points;
+  const b = score(after).components.find((x) => x.id === 'provenance').points;
+  assert.ok(b >= a, 'adding a well-formed control cannot regress the score');
+});

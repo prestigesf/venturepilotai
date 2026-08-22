@@ -23,9 +23,9 @@ import { score, counters } from '../lib/index.js';
 
 const run = promisify(execFile);
 const HERE = dirname(fileURLToPath(import.meta.url));
-const [engineRoot, fromArg, toArg] = process.argv.slice(2);
-if (!engineRoot) {
-  process.stderr.write('usage: sweep-phases.mjs <engine-root> [from] [to]\n');
+const [engineRoot, factsPath, fromArg, toArg] = process.argv.slice(2);
+if (!engineRoot || !factsPath) {
+  process.stderr.write('usage: sweep-phases.mjs <engine-root> <lawpack-facts.json> [from] [to]\n');
   process.exit(2);
 }
 const from = Number(fromArg || 1);
@@ -36,43 +36,57 @@ const rows = [];
 for (let p = from; p <= to; p += 1) {
   const out = join(dir, `phase${p}.json`);
   try {
-    await run(process.execPath, [join(HERE, 'deadlinesf-phase.mjs'), engineRoot, String(p), out]);
+    await run(process.execPath, [join(HERE, 'deadlinesf-phase.mjs'), engineRoot, String(p), out, factsPath]);
   } catch { continue; }
   const state = JSON.parse(await readFile(out, 'utf8'));
   rows.push({ phase: p, state, score: score(state), counters: counters(state) });
 }
 
-process.stdout.write('\nphase   score   delta  detectors  cases  authority  files\n');
-process.stdout.write('-'.repeat(62) + '\n');
+process.stdout.write('\nphase   score   delta   rules  wired  packs  cases  files\n');
+process.stdout.write('-'.repeat(60) + '\n');
 let prev = null;
 for (const r of rows) {
   const d = prev === null ? '—' : `${r.score.total - prev > 0 ? '+' : ''}${Math.round((r.score.total - prev) * 10) / 10}`;
+  const m = r.state.measurement;
+  const supported = (m.rules_evaluated ?? 0) - (m.rules_unsupported ?? 0);
   process.stdout.write(
     `${String(r.phase).padStart(5)}${String(r.score.total).padStart(8)}${String(d).padStart(8)}`
-    + `${String(r.counters.active_detectors).padStart(11)}`
-    + `${String(r.state.measurement.regression_test_cases).padStart(7)}`
-    + `${String(r.counters.authority_mappings).padStart(11)}`
+    + `${String(m.rules_total ?? 0).padStart(8)}${String(supported).padStart(7)}`
+    + `${String(r.counters.authority_mappings).padStart(7)}`
+    + `${String(m.regression_test_cases ?? 0).padStart(7)}`
     + `${String(r.state.source_evidence.baseline_files).padStart(7)}\n`,
   );
   prev = r.score.total;
 }
 
-// Resolution check: a term whose numerator and denominator both derive from the
-// same count is pinned at 1.0 and can never register growth. Say so plainly
-// rather than letting a flat line read as "the engine did not improve".
-const last = rows[rows.length - 1];
-if (last) {
-  const measured = last.score.components.flatMap((c) => c.terms.filter((t) => t.measured));
-  const pinned = measured.filter((t) => t.value === 1).length;
-  const unmeasured = last.score.components.flatMap((c) => c.terms.filter((t) => !t.measured)).length;
-  process.stdout.write(
-    `\nRESOLUTION: ${measured.length} measured term(s), ${pinned} pinned at 1.0, `
-    + `${unmeasured} unmeasured.\n`,
-  );
-  if (pinned === measured.length) {
-    process.stdout.write(
-      'Every measured term is saturated, so this curve cannot show growth. The flat\n'
-      + 'line is a property of the adapter, not a finding about the engine.\n',
-    );
+// Resolution check. The question is not whether terms sit at 1.0 in the final
+// phase — a finished engine should — but whether any term MOVED across the
+// sweep. A term that never varies is contributing no information, and a flat
+// curve built from such terms says nothing about the engine.
+const termKey = (c, t) => `${c.id}::${t.label}`;
+const seen = new Map();
+for (const r of rows) {
+  for (const c of r.score.components) {
+    for (const t of c.terms) {
+      const k = termKey(c, t);
+      if (!seen.has(k)) seen.set(k, new Set());
+      seen.get(k).add(t.measured ? t.value : null);
+    }
   }
+}
+const varying = [...seen.entries()].filter(([, vals]) => vals.size > 1);
+const inert = [...seen.entries()].filter(([, vals]) => vals.size <= 1);
+process.stdout.write(
+  `\nRESOLUTION: ${varying.length} of ${seen.size} term(s) moved across phases `
+  + `${from}-${to}; ${inert.length} never varied.\n`,
+);
+for (const [k, vals] of inert) {
+  const only = [...vals][0];
+  process.stdout.write(`  inert: ${k} — ${only === null ? 'never measured' : `always ${only}`}\n`);
+}
+if (varying.length === 0) {
+  process.stdout.write(
+    '\nNo term moved. This curve cannot show growth; the flat line is a property\n'
+    + 'of the adapter, not a finding about the engine.\n',
+  );
 }

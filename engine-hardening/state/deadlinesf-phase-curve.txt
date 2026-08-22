@@ -1,0 +1,50 @@
+
+phase   score   delta   rules  wired  packs  cases  files
+------------------------------------------------------------
+    1    22.5       —       0      0      0    100     15
+    2    32.5     +10       4      0      1    162     19
+    3      43   +10.5      37      0      7    306     29
+    4      43       0      37      0      7    334     31
+    5      43       0      37      0      7    364     34
+    6      43       0      37      0      7    385     36
+    7      43       0      37      0      7    403     39
+    8      43       0      37      0      7    441     42
+    9      43       0      37      0      7    462     44
+   10    51.9    +8.9      37     33      7    509     53
+   11    51.9       0      37     33      7    509     53
+   12    51.9       0      37     33      7    539     56
+   13    51.9       0      37     33      7    539     56
+   14    51.9       0      37     33      7    539     57
+   15      53    +1.1      37     37      7    547     58
+   16      53       0      37     37      7    547     59
+   17      53       0      37     37      7    547     59
+   18      53       0      37     37      7    547     62
+   19      53       0      42     42      8    572     65
+   20      53       0      42     42      8    572     66
+   21      53       0      42     42      8    572     66
+   22      53       0      42     42      8    597     68
+   23      53       0      42     42      8    619     70
+   24      53       0      42     42      8    644     72
+   25      53       0      42     42      8    663     74
+   26      53       0      42     42      8    663     74
+   27      53       0      42     42      8    663     75
+   28      53       0      42     42      8    663     75
+   29      53       0      42     42      8    663     89
+   30      53       0      42     42      8    663     93
+   31      53       0      42     42      8    681     96
+   32      53       0      42     42      8    690     99
+   33      53       0      42     42      8    690    100
+
+RESOLUTION: 5 of 17 term(s) moved across phases 1-33; 12 never varied.
+  inert: detector_coverage::Known failure modes with a detector — never measured
+  inert: regression_depth::Known failure modes pinned by a regression test — never measured
+  inert: regression_depth::Regression tests passing — always 1
+  inert: evidence_quality::Replays that reproduced byte-identical evidence — never measured
+  inert: evidence_quality::Required evidence fields populated — always 1
+  inert: evidence_quality::Deterministic checks executed — always 1
+  inert: detection_accuracy::F1 over the labelled corpus — never measured
+  inert: blocking_integrity::Blocking invariants with a test that proves they block — always 1
+  inert: blocking_integrity::Refusal conditions exercised by a test — never measured
+  inert: provenance::Artefact classes with full provenance — always 1
+  inert: reuse::Reusable controls actually used by 2+ products — never measured
+  inert: reuse::Registered products that inherited a control — always 1

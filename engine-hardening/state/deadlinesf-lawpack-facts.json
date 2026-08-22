@@ -1,0 +1,1534 @@
+{
+  "_comment": "Per-phase law-pack facts, read from the exact historical bytes of each pack via content-addressed lookup into git history. Read-only; the engine repository is never modified.",
+  "engine_root": "/home/user/deadlinesf",
+  "blobs_indexed": 282,
+  "phases": {
+    "1": {
+      "packs": 0,
+      "packs_resolved": 0,
+      "packs_unresolved": [],
+      "requirements_total": 0,
+      "requirements_wired": 0,
+      "jurisdictions": 0,
+      "packs_cited": 0,
+      "detail": []
+    },
+    "2": {
+      "packs": 1,
+      "packs_resolved": 1,
+      "packs_unresolved": [],
+      "requirements_total": 4,
+      "requirements_wired": 0,
+      "jurisdictions": 1,
+      "packs_cited": 1,
+      "detail": [
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": false
+        }
+      ]
+    },
+    "3": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 0,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": false
+        }
+      ]
+    },
+    "4": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 0,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": false
+        }
+      ]
+    },
+    "5": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 0,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": false
+        }
+      ]
+    },
+    "6": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 0,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": false
+        }
+      ]
+    },
+    "7": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 0,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": false
+        }
+      ]
+    },
+    "8": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 0,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": false
+        }
+      ]
+    },
+    "9": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 0,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": false
+        }
+      ]
+    },
+    "10": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 33,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "11": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 33,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "12": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 33,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "13": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 33,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "14": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 33,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": false
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "15": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 37,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "16": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 37,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "17": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 37,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "18": {
+      "packs": 7,
+      "packs_resolved": 7,
+      "packs_unresolved": [],
+      "requirements_total": 37,
+      "requirements_wired": 37,
+      "jurisdictions": 7,
+      "packs_cited": 7,
+      "detail": [
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "19": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "20": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "21": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "22": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "23": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "24": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "25": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "26": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "27": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "28": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "29": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "30": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "31": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "32": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    },
+    "33": {
+      "packs": 8,
+      "packs_resolved": 8,
+      "packs_unresolved": [],
+      "requirements_total": 42,
+      "requirements_wired": 42,
+      "jurisdictions": 7,
+      "packs_cited": 8,
+      "detail": [
+        {
+          "law_id": "ab2013",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "co_sb24_205",
+          "requirements": 7,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "eu_ai_act",
+          "requirements": 10,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "il_hb3773",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "nyc_ll144",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "sb942",
+          "requirements": 4,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "tx_hb149",
+          "requirements": 5,
+          "penalty_profile": true
+        },
+        {
+          "law_id": "ut_sb149",
+          "requirements": 3,
+          "penalty_profile": true
+        }
+      ]
+    }
+  }
+}

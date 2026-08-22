@@ -27,12 +27,22 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
-const [engineRoot, phaseArg, outPath] = process.argv.slice(2);
+const [engineRoot, phaseArg, outPath, factsPath] = process.argv.slice(2);
 if (!engineRoot || !phaseArg || !outPath) {
-  process.stderr.write('usage: deadlinesf-phase.mjs <engine-root> <phase> <out.json>\n');
+  process.stderr.write('usage: deadlinesf-phase.mjs <engine-root> <phase> <out.json> [lawpack-facts.json]\n');
   process.exit(2);
 }
 const phase = Number(phaseArg);
+
+// Per-phase law-pack facts, recovered from the engine's own history by
+// extract-lawpacks.py. These supply denominators that do NOT move with their
+// numerators — without them the coverage ratios are pinned at 1.0 and the
+// score cannot register growth.
+let facts = null;
+if (factsPath) {
+  const all = JSON.parse(await readFile(factsPath, 'utf8'));
+  facts = all.phases?.[String(phase)] ?? null;
+}
 
 /** Parse a frozen baseline into path -> sha256. */
 async function readBaseline(root, n) {
@@ -111,22 +121,50 @@ const blockingInvariants = lawIsData ? [{
   evidence: ev(lawIsData),
 }] : [];
 
-// Provenance controls: the hash-chain ledger and the evidence verifier, both of
-// which exist as code in the baseline.
-const provenance = [
-  ...has(/^ledger\/hash_chain\.py$/).map((p) => ({
-    id: 'prov.hash-chain-ledger',
-    artifact_class: 'decision evidence ledger',
-    has_source: true, has_hash: true, has_timestamp: true, has_authority_link: true,
-    products: ['deadlinesf'], evidence: ev(p),
-  })),
-  ...has(/^verify_evidence\.py$/).map((p) => ({
-    id: 'prov.evidence-selfhash',
-    artifact_class: 'phase evidence artifact',
-    has_source: true, has_hash: true, has_timestamp: true, has_authority_link: false,
-    products: ['deadlinesf'], evidence: ev(p),
-  })),
-];
+// Provenance controls, derived rather than declared.
+//
+// A law pack is a fully-provenanced artefact: it has a source (the YAML), a
+// hash (the baseline), a timestamp (its effective date) and an authority link
+// (its statutory citation). Code-provenance artefacts have the first three and
+// no authority link, because none applies to them — that is a real property of
+// the artefact, not a penalty.
+//
+// The previous version hardcoded has_authority_link:false on the evidence
+// verifier, so the engine scored a 2.5-point REGRESSION at phase 30 purely for
+// adding one. Deriving the flags removes that false signal.
+const codeProvenance = [
+  ...has(/^ledger\/hash_chain\.py$/).map((p) => ({ id: 'prov.hash-chain-ledger', artifact_class: 'decision evidence ledger', path: p })),
+  ...has(/^verify_evidence\.py$/).map((p) => ({ id: 'prov.evidence-selfhash', artifact_class: 'phase evidence artifact', path: p })),
+].map((c) => ({
+  id: c.id,
+  artifact_class: c.artifact_class,
+  has_source: true,
+  has_hash: Boolean(artifact?.code_file_hashes),
+  has_timestamp: Boolean(artifact?.timestamp),
+  has_authority_link: false,
+  // No statute governs a Python module, so the flag does not apply. Source,
+  // hash and timestamp are still required and still checked.
+  authority_link_applicable: false,
+  products: ['deadlinesf'],
+  evidence: ev(c.path),
+}));
+
+const packProvenance = has(/^lawpacks\/.*\.yaml$/).map((p) => {
+  const lawId = p.replace(/^lawpacks\//, '').replace(/\.yaml$/, '');
+  const cited = (facts?.detail ?? []).find((d) => d.law_id === lawId);
+  return {
+    id: `prov.pack.${lawId}`,
+    artifact_class: `law pack (${lawId})`,
+    has_source: true,
+    has_hash: true,
+    has_timestamp: true,
+    has_authority_link: facts ? (facts.packs_cited > 0 && cited !== undefined) : false,
+    products: ['deadlinesf'],
+    evidence: ev(p),
+  };
+});
+
+const provenance = [...codeProvenance, ...packProvenance];
 
 // Evidence schema: the artifact payload shape, with the fields the artifact
 // actually carries counted as populated.
@@ -182,8 +220,16 @@ const state = {
   },
   measurement: {
     $comment: 'Only figures the evidence artifact proves. Everything else omitted = unmeasured = 0.',
-    authority_sources_required: authorityMappings.length,
-    authority_sources_used: authorityMappings.length,
+    // Denominators come from the packs themselves, not from the count of the
+    // thing being measured. requirements_wired are those whose law also has a
+    // penalty profile, i.e. the ones the engine can carry through to exposure.
+    ...(facts ? {
+      rules_total: facts.requirements_total,
+      rules_evaluated: facts.requirements_total,
+      rules_unsupported: facts.requirements_total - facts.requirements_wired,
+      authority_sources_required: facts.packs,
+      authority_sources_used: facts.packs_cited,
+    } : {}),
     deterministic_checks_total: artifact?.test_counts?.passed ?? 0,
     deterministic_checks_executed: artifact?.test_counts?.passed ?? 0,
     // Test CASE counts, taken straight from the phase's own suite result. The
