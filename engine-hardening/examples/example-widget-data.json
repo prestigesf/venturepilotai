@@ -1,0 +1,3058 @@
+{
+  "generated_at": "2026-05-12T12:00:00Z",
+  "data_class": "ILLUSTRATIVE_EXAMPLE",
+  "disclaimer": "Pack contents are illustrative. Every score, delta, result and signature is computed by the real library and passes the real completeness gate.",
+  "engine_version": "0.1.0",
+  "score": {
+    "engine_version": "0.1.0",
+    "total": 89.2,
+    "total_exact": 89.2379099126991,
+    "max": 100,
+    "components": [
+      {
+        "id": "rule_coverage",
+        "label": "Rule Coverage",
+        "max": 20,
+        "points": 18.2,
+        "points_exact": 18.166666666666668,
+        "fraction": 0.9083333333333334,
+        "measured": true,
+        "measured_terms": 3,
+        "total_terms": 3,
+        "terms": [
+          {
+            "label": "Rules supported / rules in pack",
+            "formula": "(rules_evaluated - rules_unsupported) / rules_total",
+            "value": 0.958,
+            "measured": true,
+            "weight": 0.5,
+            "weighted": 0.4791666666666667,
+            "contribution": 9.6
+          },
+          {
+            "label": "Authority sources mapped",
+            "formula": "authority_sources_used / authority_sources_required",
+            "value": 0.875,
+            "measured": true,
+            "weight": 0.3,
+            "weighted": 0.2625,
+            "contribution": 5.3
+          },
+          {
+            "label": "Unambiguous authority mappings",
+            "formula": "(authority_mappings - ambiguous) / authority_mappings",
+            "value": 0.833,
+            "measured": true,
+            "weight": 0.2,
+            "weighted": 0.16666666666666669,
+            "contribution": 3.3
+          }
+        ],
+        "raw": {
+          "rules_total": {
+            "value": 48,
+            "basis": "asserted"
+          },
+          "rules_evaluated": {
+            "value": 48,
+            "basis": "asserted"
+          },
+          "rules_unsupported": {
+            "value": 2,
+            "basis": "asserted"
+          },
+          "authority_sources_required": {
+            "value": 8,
+            "basis": "asserted"
+          },
+          "authority_sources_used": {
+            "value": 7,
+            "basis": "asserted"
+          },
+          "authority_mappings": {
+            "value": 6,
+            "basis": "derived"
+          },
+          "ambiguous_authority_mappings": {
+            "value": 1,
+            "basis": "derived"
+          }
+        },
+        "notes": [
+          "1 authority mapping(s) still marked ambiguous."
+        ]
+      },
+      {
+        "id": "detector_coverage",
+        "label": "Detector Coverage",
+        "max": 20,
+        "points": 17.4,
+        "points_exact": 17.375,
+        "fraction": 0.8687499999999999,
+        "measured": true,
+        "measured_terms": 2,
+        "total_terms": 2,
+        "terms": [
+          {
+            "label": "Known failure modes with a detector",
+            "formula": "failure_modes_with_detector / failure_modes_known",
+            "value": 0.813,
+            "measured": true,
+            "weight": 0.7,
+            "weighted": 0.56875,
+            "contribution": 11.4
+          },
+          {
+            "label": "Detectors that are deterministic",
+            "formula": "deterministic_detectors / active_detectors",
+            "value": 1,
+            "measured": true,
+            "weight": 0.3,
+            "weighted": 0.3,
+            "contribution": 6
+          }
+        ],
+        "raw": {
+          "failure_modes_known": {
+            "value": 16,
+            "basis": "asserted"
+          },
+          "failure_modes_with_detector": {
+            "value": 13,
+            "basis": "derived"
+          },
+          "active_detectors": {
+            "value": 13,
+            "basis": "derived"
+          },
+          "deterministic_detectors": {
+            "value": 13,
+            "basis": "derived"
+          }
+        },
+        "notes": [
+          "3 known failure mode(s) have no detector."
+        ]
+      },
+      {
+        "id": "regression_depth",
+        "label": "Regression Depth",
+        "max": 15,
+        "points": 13.5,
+        "points_exact": 13.495389344262296,
+        "fraction": 0.8996926229508198,
+        "measured": true,
+        "measured_terms": 3,
+        "total_terms": 3,
+        "terms": [
+          {
+            "label": "Known failure modes pinned by a regression test",
+            "formula": "failure_modes_with_regression / failure_modes_known",
+            "value": 0.813,
+            "measured": true,
+            "weight": 0.5,
+            "weighted": 0.40625,
+            "contribution": 6.1
+          },
+          {
+            "label": "Test density vs target",
+            "formula": "(regression_tests / active_detectors) / 3",
+            "value": 1,
+            "measured": true,
+            "weight": 0.3,
+            "weighted": 0.3,
+            "contribution": 4.5
+          },
+          {
+            "label": "Regression tests passing",
+            "formula": "regression_tests_passing / regression_tests",
+            "value": 0.967,
+            "measured": true,
+            "weight": 0.2,
+            "weighted": 0.19344262295081968,
+            "contribution": 2.9
+          }
+        ],
+        "raw": {
+          "regression_tests": {
+            "value": 61,
+            "basis": "derived"
+          },
+          "regression_tests_passing": {
+            "value": 59,
+            "basis": "derived"
+          },
+          "failure_modes_with_regression": {
+            "value": 13,
+            "basis": "derived"
+          },
+          "failure_modes_known": {
+            "value": 16,
+            "basis": "asserted"
+          },
+          "active_detectors": {
+            "value": 13,
+            "basis": "derived"
+          }
+        },
+        "notes": [
+          "2 regression test(s) are not passing.",
+          "Test density 4.69 per detector (target 3)."
+        ]
+      },
+      {
+        "id": "evidence_quality",
+        "label": "Evidence Quality",
+        "max": 15,
+        "points": 14.4,
+        "points_exact": 14.410714285714285,
+        "fraction": 0.9607142857142856,
+        "measured": true,
+        "measured_terms": 3,
+        "total_terms": 3,
+        "terms": [
+          {
+            "label": "Replays that reproduced byte-identical evidence",
+            "formula": "replay_identical / replay_runs",
+            "value": 0.988,
+            "measured": true,
+            "weight": 0.5,
+            "weighted": 0.49404761904761907,
+            "contribution": 7.4
+          },
+          {
+            "label": "Required evidence fields populated",
+            "formula": "evidence_fields_populated / evidence_fields_required",
+            "value": 0.889,
+            "measured": true,
+            "weight": 0.3,
+            "weighted": 0.26666666666666666,
+            "contribution": 4
+          },
+          {
+            "label": "Deterministic checks executed",
+            "formula": "deterministic_checks_executed / deterministic_checks_total",
+            "value": 1,
+            "measured": true,
+            "weight": 0.2,
+            "weighted": 0.2,
+            "contribution": 3
+          }
+        ],
+        "raw": {
+          "replay_runs": {
+            "value": 168,
+            "basis": "asserted"
+          },
+          "replay_identical": {
+            "value": 166,
+            "basis": "asserted"
+          },
+          "evidence_fields_required": {
+            "value": 9,
+            "basis": "derived"
+          },
+          "evidence_fields_populated": {
+            "value": 8,
+            "basis": "derived"
+          },
+          "evidence_schemas": {
+            "value": 3,
+            "basis": "derived"
+          },
+          "deterministic_checks_total": {
+            "value": 55,
+            "basis": "asserted"
+          },
+          "deterministic_checks_executed": {
+            "value": 55,
+            "basis": "asserted"
+          }
+        },
+        "notes": []
+      },
+      {
+        "id": "detection_accuracy",
+        "label": "Detection Accuracy",
+        "max": 10,
+        "points": 9,
+        "points_exact": 9.040139616055846,
+        "fraction": 0.9040139616055846,
+        "measured": true,
+        "measured_terms": 1,
+        "total_terms": 1,
+        "terms": [
+          {
+            "label": "F1 over the labelled corpus",
+            "formula": "2PR/(P+R) where P = tp/(tp+fp), R = tp/(tp+fn)",
+            "value": 0.904,
+            "measured": true,
+            "weight": 1,
+            "weighted": 0.9040139616055846,
+            "contribution": 9
+          }
+        ],
+        "raw": {
+          "labeled_cases": {
+            "value": 314,
+            "basis": "asserted"
+          },
+          "true_positives": {
+            "value": 259,
+            "basis": "asserted"
+          },
+          "false_positives": {
+            "value": 24,
+            "basis": "asserted"
+          },
+          "false_negatives": {
+            "value": 31,
+            "basis": "asserted"
+          }
+        },
+        "notes": [
+          "precision 0.915, recall 0.893 over 314 labelled case(s)."
+        ]
+      },
+      {
+        "id": "blocking_integrity",
+        "label": "Blocking Integrity",
+        "max": 10,
+        "points": 8.3,
+        "points_exact": 8.333333333333332,
+        "fraction": 0.8333333333333333,
+        "measured": true,
+        "measured_terms": 2,
+        "total_terms": 2,
+        "terms": [
+          {
+            "label": "Blocking invariants with a test that proves they block",
+            "formula": "blocking_invariants_with_test / blocking_invariants",
+            "value": 1,
+            "measured": true,
+            "weight": 0.5,
+            "weighted": 0.5,
+            "contribution": 5
+          },
+          {
+            "label": "Refusal conditions exercised by a test",
+            "formula": "refusal_conditions_exercised / refusal_conditions",
+            "value": 0.667,
+            "measured": true,
+            "weight": 0.5,
+            "weighted": 0.3333333333333333,
+            "contribution": 3.3
+          }
+        ],
+        "raw": {
+          "blocking_invariants": {
+            "value": 6,
+            "basis": "derived"
+          },
+          "blocking_invariants_with_test": {
+            "value": 6,
+            "basis": "derived"
+          },
+          "refusal_conditions": {
+            "value": 3,
+            "basis": "derived"
+          },
+          "refusal_conditions_exercised": {
+            "value": 2,
+            "basis": "derived"
+          },
+          "bypasses_observed": {
+            "value": 0,
+            "basis": "asserted"
+          }
+        },
+        "notes": [],
+        "penalty": {
+          "bypasses_observed": 0,
+          "factor": 1
+        }
+      },
+      {
+        "id": "provenance",
+        "label": "Provenance",
+        "max": 5,
+        "points": 3.8,
+        "points_exact": 3.75,
+        "fraction": 0.75,
+        "measured": true,
+        "measured_terms": 1,
+        "total_terms": 1,
+        "terms": [
+          {
+            "label": "Artefact classes with full provenance",
+            "formula": "provenance_controls_complete / provenance_controls (source + hash + timestamp + authority link)",
+            "value": 0.75,
+            "measured": true,
+            "weight": 1,
+            "weighted": 0.75,
+            "contribution": 3.8
+          }
+        ],
+        "raw": {
+          "provenance_controls": {
+            "value": 4,
+            "basis": "derived"
+          },
+          "provenance_controls_complete": {
+            "value": 3,
+            "basis": "derived"
+          }
+        },
+        "notes": [
+          "1 provenance control(s) missing source, hash, timestamp or authority link."
+        ]
+      },
+      {
+        "id": "reuse",
+        "label": "Reuse",
+        "max": 5,
+        "points": 4.7,
+        "points_exact": 4.666666666666667,
+        "fraction": 0.9333333333333333,
+        "measured": true,
+        "measured_terms": 2,
+        "total_terms": 2,
+        "terms": [
+          {
+            "label": "Reusable controls actually used by 2+ products",
+            "formula": "reusable_controls_used_by_2plus / reusable_controls",
+            "value": 0.889,
+            "measured": true,
+            "weight": 0.6,
+            "weighted": 0.5333333333333333,
+            "contribution": 2.7
+          },
+          {
+            "label": "Registered products that inherited a control",
+            "formula": "products_strengthened / products_registered",
+            "value": 1,
+            "measured": true,
+            "weight": 0.4,
+            "weighted": 0.4,
+            "contribution": 2
+          }
+        ],
+        "raw": {
+          "reusable_controls": {
+            "value": 9,
+            "basis": "derived"
+          },
+          "reusable_controls_used_by_2plus": {
+            "value": 8,
+            "basis": "derived"
+          },
+          "products_registered": {
+            "value": 7,
+            "basis": "derived"
+          },
+          "products_strengthened": {
+            "value": 7,
+            "basis": "derived"
+          }
+        },
+        "notes": []
+      }
+    ],
+    "raw": {
+      "rules_total": {
+        "value": 48,
+        "basis": "asserted",
+        "present": true
+      },
+      "rules_evaluated": {
+        "value": 48,
+        "basis": "asserted",
+        "present": true
+      },
+      "rules_unsupported": {
+        "value": 2,
+        "basis": "asserted",
+        "present": true
+      },
+      "authority_sources_required": {
+        "value": 8,
+        "basis": "asserted",
+        "present": true
+      },
+      "authority_sources_used": {
+        "value": 7,
+        "basis": "asserted",
+        "present": true
+      },
+      "authority_mappings": {
+        "value": 6,
+        "basis": "derived"
+      },
+      "ambiguous_authority_mappings": {
+        "value": 1,
+        "basis": "derived"
+      },
+      "failure_modes_known": {
+        "value": 16,
+        "basis": "asserted",
+        "present": true
+      },
+      "active_detectors": {
+        "value": 13,
+        "basis": "derived"
+      },
+      "deterministic_detectors": {
+        "value": 13,
+        "basis": "derived"
+      },
+      "failure_modes_with_detector": {
+        "value": 13,
+        "basis": "derived"
+      },
+      "regression_tests": {
+        "value": 61,
+        "basis": "derived"
+      },
+      "regression_tests_passing": {
+        "value": 59,
+        "basis": "derived"
+      },
+      "failure_modes_with_regression": {
+        "value": 13,
+        "basis": "derived"
+      },
+      "evidence_schemas": {
+        "value": 3,
+        "basis": "derived"
+      },
+      "evidence_fields_required": {
+        "value": 9,
+        "basis": "derived"
+      },
+      "evidence_fields_populated": {
+        "value": 8,
+        "basis": "derived"
+      },
+      "replay_runs": {
+        "value": 168,
+        "basis": "asserted",
+        "present": true
+      },
+      "replay_identical": {
+        "value": 166,
+        "basis": "asserted",
+        "present": true
+      },
+      "deterministic_checks_total": {
+        "value": 55,
+        "basis": "asserted",
+        "present": true
+      },
+      "deterministic_checks_executed": {
+        "value": 55,
+        "basis": "asserted",
+        "present": true
+      },
+      "labeled_cases": {
+        "value": 314,
+        "basis": "asserted",
+        "present": true
+      },
+      "true_positives": {
+        "value": 259,
+        "basis": "asserted",
+        "present": true
+      },
+      "false_positives": {
+        "value": 24,
+        "basis": "asserted",
+        "present": true
+      },
+      "false_negatives": {
+        "value": 31,
+        "basis": "asserted",
+        "present": true
+      },
+      "blocking_invariants": {
+        "value": 6,
+        "basis": "derived"
+      },
+      "blocking_invariants_with_test": {
+        "value": 6,
+        "basis": "derived"
+      },
+      "refusal_conditions": {
+        "value": 3,
+        "basis": "derived"
+      },
+      "refusal_conditions_exercised": {
+        "value": 2,
+        "basis": "derived"
+      },
+      "bypasses_observed": {
+        "value": 0,
+        "basis": "asserted",
+        "present": true
+      },
+      "provenance_controls": {
+        "value": 4,
+        "basis": "derived"
+      },
+      "provenance_controls_complete": {
+        "value": 3,
+        "basis": "derived"
+      },
+      "reusable_controls": {
+        "value": 9,
+        "basis": "derived"
+      },
+      "reusable_controls_used_by_2plus": {
+        "value": 8,
+        "basis": "derived"
+      },
+      "products_registered": {
+        "value": 7,
+        "basis": "derived"
+      },
+      "products_strengthened": {
+        "value": 7,
+        "basis": "derived"
+      },
+      "known_gaps": {
+        "value": 3,
+        "basis": "derived"
+      }
+    },
+    "unmeasured": [],
+    "scored_at_state_version": 12
+  },
+  "history": [
+    {
+      "pack_id": "PACK_01",
+      "pack_version": "1.0.0",
+      "run_id": "run-pack-01-01",
+      "timestamp": "2026-04-01T12:00:00Z",
+      "result": "IMPROVED",
+      "score_before": 0,
+      "score_after": 42,
+      "score_change": 42,
+      "delta": {
+        "detectors": 1,
+        "regression_tests": 4,
+        "blocking_invariants": 1,
+        "authority_mappings": 0,
+        "reusable_controls": 0,
+        "refusal_conditions": 0,
+        "provenance_controls": 0,
+        "escalation_rules": 0,
+        "evidence_schemas": 1,
+        "human_review_triggers": 0,
+        "known_gaps": 3,
+        "is_measurable": true
+      },
+      "discoveries": 1,
+      "hardening": {
+        "detectors": [
+          {
+            "id": "det.clause-parse",
+            "name": "Clause parse completeness"
+          }
+        ],
+        "regression_tests": [
+          {
+            "id": "t.clause-parse.01",
+            "name": "t.clause-parse.01"
+          },
+          {
+            "id": "t.clause-parse.02",
+            "name": "t.clause-parse.02"
+          },
+          {
+            "id": "t.clause-parse.03",
+            "name": "t.clause-parse.03"
+          },
+          {
+            "id": "t.clause-parse.04",
+            "name": "t.clause-parse.04"
+          }
+        ],
+        "blocking_invariants": [
+          {
+            "id": "inv.no-decision-without-rule",
+            "name": "No decision may be emitted without a resolved rule id"
+          }
+        ],
+        "authority_mappings": [],
+        "evidence_fields": [
+          {
+            "id": "ev.decision",
+            "name": "ev.decision"
+          }
+        ],
+        "refusal_conditions": [],
+        "provenance_controls": [],
+        "escalation_rules": [],
+        "reusable_controls": [],
+        "gaps_closed": []
+      },
+      "propagation": [
+        {
+          "product_id": "deadlinesf",
+          "product": "DeadlineSF",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.clause-parse",
+              "name": "Clause parse completeness"
+            },
+            {
+              "kind": "blocking_invariants",
+              "id": "inv.no-decision-without-rule",
+              "name": "inv.no-decision-without-rule"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta",
+          "product": "BillRosetta",
+          "status": "LIVE",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta-capital",
+          "product": "BillRosetta Capital",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "venturepilotai",
+          "product": "VenturePilotAI",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "goldtrac",
+          "product": "GoldTrac",
+          "status": "DESIGNED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "bopcart",
+          "product": "BopCart",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "cited",
+          "product": "Cited",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        }
+      ],
+      "reasons": [
+        "3 new known gap(s) recorded (discovery, not a regression).",
+        "7 control(s) added, 0 gap(s) closed.",
+        "Strength score moved +42."
+      ]
+    },
+    {
+      "pack_id": "PACK_02",
+      "pack_version": "1.0.0",
+      "run_id": "run-pack-02-02",
+      "timestamp": "2026-04-02T12:00:00Z",
+      "result": "IMPROVED",
+      "score_before": 42,
+      "score_after": 56.3,
+      "score_change": 14.3,
+      "delta": {
+        "detectors": 1,
+        "regression_tests": 5,
+        "blocking_invariants": 0,
+        "authority_mappings": 0,
+        "reusable_controls": 1,
+        "refusal_conditions": 0,
+        "provenance_controls": 1,
+        "escalation_rules": 0,
+        "evidence_schemas": 1,
+        "human_review_triggers": 0,
+        "known_gaps": 0,
+        "is_measurable": true
+      },
+      "discoveries": 1,
+      "hardening": {
+        "detectors": [
+          {
+            "id": "det.evidence-complete",
+            "name": "Evidence field completeness"
+          }
+        ],
+        "regression_tests": [
+          {
+            "id": "t.evidence.01",
+            "name": "t.evidence.01"
+          },
+          {
+            "id": "t.evidence.02",
+            "name": "t.evidence.02"
+          },
+          {
+            "id": "t.evidence.03",
+            "name": "t.evidence.03"
+          },
+          {
+            "id": "t.evidence.04",
+            "name": "t.evidence.04"
+          },
+          {
+            "id": "t.evidence.05",
+            "name": "t.evidence.05"
+          }
+        ],
+        "blocking_invariants": [],
+        "authority_mappings": [],
+        "evidence_fields": [
+          {
+            "id": "ev.citation",
+            "name": "ev.citation"
+          }
+        ],
+        "refusal_conditions": [],
+        "provenance_controls": [
+          {
+            "id": "prov.source-hash",
+            "name": "prov.source-hash"
+          }
+        ],
+        "escalation_rules": [],
+        "reusable_controls": [
+          {
+            "id": "rc.evidence-complete",
+            "name": "rc.evidence-complete"
+          }
+        ],
+        "gaps_closed": []
+      },
+      "propagation": [
+        {
+          "product_id": "deadlinesf",
+          "product": "DeadlineSF",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.evidence-complete",
+              "name": "Evidence field completeness"
+            },
+            {
+              "kind": "provenance_controls",
+              "id": "prov.source-hash",
+              "name": "prov.source-hash"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.evidence-complete",
+              "name": "rc.evidence-complete"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta",
+          "product": "BillRosetta",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.evidence-complete",
+              "name": "Evidence field completeness"
+            },
+            {
+              "kind": "provenance_controls",
+              "id": "prov.source-hash",
+              "name": "prov.source-hash"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.evidence-complete",
+              "name": "rc.evidence-complete"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta-capital",
+          "product": "BillRosetta Capital",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "venturepilotai",
+          "product": "VenturePilotAI",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "goldtrac",
+          "product": "GoldTrac",
+          "status": "DESIGNED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "bopcart",
+          "product": "BopCart",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "cited",
+          "product": "Cited",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        }
+      ],
+      "reasons": [
+        "9 control(s) added, 0 gap(s) closed.",
+        "Strength score moved +14.3."
+      ]
+    },
+    {
+      "pack_id": "PACK_03",
+      "pack_version": "1.1.0",
+      "run_id": "run-pack-03-03",
+      "timestamp": "2026-04-03T12:00:00Z",
+      "result": "IMPROVED",
+      "score_before": 56.3,
+      "score_after": 66.4,
+      "score_change": 10,
+      "delta": {
+        "detectors": 1,
+        "regression_tests": 6,
+        "blocking_invariants": 1,
+        "authority_mappings": 0,
+        "reusable_controls": 1,
+        "refusal_conditions": 0,
+        "provenance_controls": 0,
+        "escalation_rules": 0,
+        "evidence_schemas": 0,
+        "human_review_triggers": 0,
+        "known_gaps": -1,
+        "is_measurable": true
+      },
+      "discoveries": 1,
+      "hardening": {
+        "detectors": [
+          {
+            "id": "det.replay-identity",
+            "name": "Replay byte-identity"
+          }
+        ],
+        "regression_tests": [
+          {
+            "id": "t.replay.01",
+            "name": "t.replay.01"
+          },
+          {
+            "id": "t.replay.02",
+            "name": "t.replay.02"
+          },
+          {
+            "id": "t.replay.03",
+            "name": "t.replay.03"
+          },
+          {
+            "id": "t.replay.04",
+            "name": "t.replay.04"
+          },
+          {
+            "id": "t.replay.05",
+            "name": "t.replay.05"
+          },
+          {
+            "id": "t.replay.06",
+            "name": "t.replay.06"
+          }
+        ],
+        "blocking_invariants": [
+          {
+            "id": "inv.replay-identical",
+            "name": "A replayed run must produce byte-identical evidence"
+          }
+        ],
+        "authority_mappings": [],
+        "evidence_fields": [],
+        "refusal_conditions": [],
+        "provenance_controls": [],
+        "escalation_rules": [],
+        "reusable_controls": [
+          {
+            "id": "rc.replay-identity",
+            "name": "rc.replay-identity"
+          }
+        ],
+        "gaps_closed": [
+          {
+            "id": "gap.replay",
+            "description": "Evidence is not replay-verified"
+          }
+        ]
+      },
+      "propagation": [
+        {
+          "product_id": "deadlinesf",
+          "product": "DeadlineSF",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.replay-identity",
+              "name": "Replay byte-identity"
+            },
+            {
+              "kind": "blocking_invariants",
+              "id": "inv.replay-identical",
+              "name": "inv.replay-identical"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.replay-identity",
+              "name": "rc.replay-identity"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta",
+          "product": "BillRosetta",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.replay-identity",
+              "name": "Replay byte-identity"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.replay-identity",
+              "name": "rc.replay-identity"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta-capital",
+          "product": "BillRosetta Capital",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "venturepilotai",
+          "product": "VenturePilotAI",
+          "status": "VALIDATING",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.replay-identity",
+              "name": "Replay byte-identity"
+            },
+            {
+              "kind": "blocking_invariants",
+              "id": "inv.replay-identical",
+              "name": "inv.replay-identical"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.replay-identity",
+              "name": "rc.replay-identity"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "goldtrac",
+          "product": "GoldTrac",
+          "status": "DESIGNED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "bopcart",
+          "product": "BopCart",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "cited",
+          "product": "Cited",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        }
+      ],
+      "reasons": [
+        "9 control(s) added, 1 gap(s) closed.",
+        "Strength score moved +10."
+      ]
+    },
+    {
+      "pack_id": "PACK_04",
+      "pack_version": "1.0.0",
+      "run_id": "run-pack-04-04",
+      "timestamp": "2026-04-04T12:00:00Z",
+      "result": "IMPROVED",
+      "score_before": 66.4,
+      "score_after": 71.3,
+      "score_change": 5,
+      "delta": {
+        "detectors": 1,
+        "regression_tests": 5,
+        "blocking_invariants": 0,
+        "authority_mappings": 2,
+        "reusable_controls": 1,
+        "refusal_conditions": 0,
+        "provenance_controls": 2,
+        "escalation_rules": 0,
+        "evidence_schemas": 0,
+        "human_review_triggers": 0,
+        "known_gaps": 0,
+        "is_measurable": true
+      },
+      "discoveries": 1,
+      "hardening": {
+        "detectors": [
+          {
+            "id": "det.citation-resolves",
+            "name": "Citation resolves to a pinned source"
+          }
+        ],
+        "regression_tests": [
+          {
+            "id": "t.citation.01",
+            "name": "t.citation.01"
+          },
+          {
+            "id": "t.citation.02",
+            "name": "t.citation.02"
+          },
+          {
+            "id": "t.citation.03",
+            "name": "t.citation.03"
+          },
+          {
+            "id": "t.citation.04",
+            "name": "t.citation.04"
+          },
+          {
+            "id": "t.citation.05",
+            "name": "t.citation.05"
+          }
+        ],
+        "blocking_invariants": [],
+        "authority_mappings": [
+          {
+            "id": "am.sb942-core",
+            "name": "am.sb942-core"
+          },
+          {
+            "id": "am.ag-guidance",
+            "name": "am.ag-guidance"
+          }
+        ],
+        "evidence_fields": [],
+        "refusal_conditions": [],
+        "provenance_controls": [
+          {
+            "id": "prov.derived-artifact",
+            "name": "prov.derived-artifact"
+          },
+          {
+            "id": "prov.model-output",
+            "name": "prov.model-output"
+          }
+        ],
+        "escalation_rules": [],
+        "reusable_controls": [
+          {
+            "id": "rc.citation-resolves",
+            "name": "rc.citation-resolves"
+          }
+        ],
+        "gaps_closed": []
+      },
+      "propagation": [
+        {
+          "product_id": "deadlinesf",
+          "product": "DeadlineSF",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.citation-resolves",
+              "name": "Citation resolves to a pinned source"
+            },
+            {
+              "kind": "provenance_controls",
+              "id": "prov.derived-artifact",
+              "name": "prov.derived-artifact"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.citation-resolves",
+              "name": "rc.citation-resolves"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta",
+          "product": "BillRosetta",
+          "status": "LIVE",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta-capital",
+          "product": "BillRosetta Capital",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "venturepilotai",
+          "product": "VenturePilotAI",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "goldtrac",
+          "product": "GoldTrac",
+          "status": "DESIGNED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "bopcart",
+          "product": "BopCart",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "cited",
+          "product": "Cited",
+          "status": "UNDECLARED",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.citation-resolves",
+              "name": "Citation resolves to a pinned source"
+            },
+            {
+              "kind": "provenance_controls",
+              "id": "prov.derived-artifact",
+              "name": "prov.derived-artifact"
+            },
+            {
+              "kind": "provenance_controls",
+              "id": "prov.model-output",
+              "name": "prov.model-output"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.citation-resolves",
+              "name": "rc.citation-resolves"
+            }
+          ],
+          "unlocked": []
+        }
+      ],
+      "reasons": [
+        "11 control(s) added, 0 gap(s) closed.",
+        "Strength score moved +5."
+      ]
+    },
+    {
+      "pack_id": "PACK_05",
+      "pack_version": "1.0.0",
+      "run_id": "run-pack-05-05",
+      "timestamp": "2026-04-05T12:00:00Z",
+      "result": "IMPROVED",
+      "score_before": 71.3,
+      "score_after": 83,
+      "score_change": 11.7,
+      "delta": {
+        "detectors": 1,
+        "regression_tests": 6,
+        "blocking_invariants": 0,
+        "authority_mappings": 0,
+        "reusable_controls": 1,
+        "refusal_conditions": 2,
+        "provenance_controls": 0,
+        "escalation_rules": 0,
+        "evidence_schemas": 0,
+        "human_review_triggers": 1,
+        "known_gaps": 0,
+        "is_measurable": true
+      },
+      "discoveries": 1,
+      "hardening": {
+        "detectors": [
+          {
+            "id": "det.jurisdiction-scope",
+            "name": "Jurisdiction in scope"
+          }
+        ],
+        "regression_tests": [
+          {
+            "id": "t.refusal.01",
+            "name": "t.refusal.01"
+          },
+          {
+            "id": "t.refusal.02",
+            "name": "t.refusal.02"
+          },
+          {
+            "id": "t.refusal.03",
+            "name": "t.refusal.03"
+          },
+          {
+            "id": "t.refusal.04",
+            "name": "t.refusal.04"
+          },
+          {
+            "id": "t.refusal.05",
+            "name": "t.refusal.05"
+          },
+          {
+            "id": "t.refusal.06",
+            "name": "t.refusal.06"
+          }
+        ],
+        "blocking_invariants": [],
+        "authority_mappings": [],
+        "evidence_fields": [],
+        "refusal_conditions": [
+          {
+            "id": "rf.out-of-scope",
+            "name": "Refuse when no pack covers the jurisdiction"
+          },
+          {
+            "id": "rf.stale-authority",
+            "name": "Refuse when the cited authority is older than its effective window"
+          }
+        ],
+        "provenance_controls": [],
+        "escalation_rules": [],
+        "reusable_controls": [
+          {
+            "id": "rc.jurisdiction-scope",
+            "name": "rc.jurisdiction-scope"
+          }
+        ],
+        "gaps_closed": []
+      },
+      "propagation": [
+        {
+          "product_id": "deadlinesf",
+          "product": "DeadlineSF",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.jurisdiction-scope",
+              "name": "Jurisdiction in scope"
+            },
+            {
+              "kind": "refusal_conditions",
+              "id": "rf.out-of-scope",
+              "name": "rf.out-of-scope"
+            },
+            {
+              "kind": "refusal_conditions",
+              "id": "rf.stale-authority",
+              "name": "rf.stale-authority"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.jurisdiction-scope",
+              "name": "rc.jurisdiction-scope"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta",
+          "product": "BillRosetta",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.jurisdiction-scope",
+              "name": "Jurisdiction in scope"
+            },
+            {
+              "kind": "refusal_conditions",
+              "id": "rf.out-of-scope",
+              "name": "rf.out-of-scope"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.jurisdiction-scope",
+              "name": "rc.jurisdiction-scope"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta-capital",
+          "product": "BillRosetta Capital",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "venturepilotai",
+          "product": "VenturePilotAI",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "goldtrac",
+          "product": "GoldTrac",
+          "status": "DESIGNED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "bopcart",
+          "product": "BopCart",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "cited",
+          "product": "Cited",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        }
+      ],
+      "reasons": [
+        "11 control(s) added, 0 gap(s) closed.",
+        "Strength score moved +11.7."
+      ]
+    },
+    {
+      "pack_id": "PACK_06",
+      "pack_version": "1.0.0",
+      "run_id": "run-pack-06-06",
+      "timestamp": "2026-04-06T12:00:00Z",
+      "result": "IMPROVED",
+      "score_before": 83,
+      "score_after": 84.4,
+      "score_change": 1.4,
+      "delta": {
+        "detectors": 1,
+        "regression_tests": 5,
+        "blocking_invariants": 0,
+        "authority_mappings": 1,
+        "reusable_controls": 0,
+        "refusal_conditions": 0,
+        "provenance_controls": 0,
+        "escalation_rules": 1,
+        "evidence_schemas": 0,
+        "human_review_triggers": 2,
+        "known_gaps": 0,
+        "is_measurable": true
+      },
+      "discoveries": 1,
+      "hardening": {
+        "detectors": [
+          {
+            "id": "det.rule-conflict",
+            "name": "Conflicting rule outcomes"
+          }
+        ],
+        "regression_tests": [
+          {
+            "id": "t.conflict.01",
+            "name": "t.conflict.01"
+          },
+          {
+            "id": "t.conflict.02",
+            "name": "t.conflict.02"
+          },
+          {
+            "id": "t.conflict.03",
+            "name": "t.conflict.03"
+          },
+          {
+            "id": "t.conflict.04",
+            "name": "t.conflict.04"
+          },
+          {
+            "id": "t.conflict.05",
+            "name": "t.conflict.05"
+          }
+        ],
+        "blocking_invariants": [],
+        "authority_mappings": [
+          {
+            "id": "am.ccpa-overlap",
+            "name": "am.ccpa-overlap"
+          }
+        ],
+        "evidence_fields": [],
+        "refusal_conditions": [],
+        "provenance_controls": [],
+        "escalation_rules": [
+          {
+            "id": "esc.conflict-to-human",
+            "name": "esc.conflict-to-human"
+          }
+        ],
+        "reusable_controls": [],
+        "gaps_closed": []
+      },
+      "propagation": [
+        {
+          "product_id": "deadlinesf",
+          "product": "DeadlineSF",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.rule-conflict",
+              "name": "Conflicting rule outcomes"
+            },
+            {
+              "kind": "escalation_rules",
+              "id": "esc.conflict-to-human",
+              "name": "esc.conflict-to-human"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta",
+          "product": "BillRosetta",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.rule-conflict",
+              "name": "Conflicting rule outcomes"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta-capital",
+          "product": "BillRosetta Capital",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "venturepilotai",
+          "product": "VenturePilotAI",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "goldtrac",
+          "product": "GoldTrac",
+          "status": "DESIGNED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "bopcart",
+          "product": "BopCart",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "cited",
+          "product": "Cited",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        }
+      ],
+      "reasons": [
+        "10 control(s) added, 0 gap(s) closed.",
+        "Strength score moved +1.4."
+      ]
+    },
+    {
+      "pack_id": "PACK_07",
+      "pack_version": "1.0.0",
+      "run_id": "run-pack-07-07",
+      "timestamp": "2026-04-07T12:00:00Z",
+      "result": "IMPROVED",
+      "score_before": 84.4,
+      "score_after": 85.1,
+      "score_change": 0.7,
+      "delta": {
+        "detectors": 1,
+        "regression_tests": 4,
+        "blocking_invariants": 1,
+        "authority_mappings": 1,
+        "reusable_controls": 1,
+        "refusal_conditions": 0,
+        "provenance_controls": 0,
+        "escalation_rules": 0,
+        "evidence_schemas": 0,
+        "human_review_triggers": 0,
+        "known_gaps": -1,
+        "is_measurable": true
+      },
+      "discoveries": 1,
+      "hardening": {
+        "detectors": [
+          {
+            "id": "det.authority-boundary",
+            "name": "Authority boundary enforcement"
+          }
+        ],
+        "regression_tests": [
+          {
+            "id": "t.authority-boundary.01",
+            "name": "t.authority-boundary.01"
+          },
+          {
+            "id": "t.authority-boundary.02",
+            "name": "t.authority-boundary.02"
+          },
+          {
+            "id": "t.authority-boundary.03",
+            "name": "t.authority-boundary.03"
+          },
+          {
+            "id": "t.authority-boundary.04",
+            "name": "t.authority-boundary.04"
+          }
+        ],
+        "blocking_invariants": [
+          {
+            "id": "inv.authority-in-scope",
+            "name": "A rule may only be applied within the scope its authority governs"
+          }
+        ],
+        "authority_mappings": [
+          {
+            "id": "am.ab1008-core",
+            "name": "am.ab1008-core"
+          }
+        ],
+        "evidence_fields": [],
+        "refusal_conditions": [],
+        "provenance_controls": [],
+        "escalation_rules": [],
+        "reusable_controls": [
+          {
+            "id": "rc.authority-boundary",
+            "name": "rc.authority-boundary"
+          }
+        ],
+        "gaps_closed": [
+          {
+            "id": "gap.authority-boundary",
+            "description": "Authority of a cited source is not bounded"
+          }
+        ]
+      },
+      "propagation": [
+        {
+          "product_id": "deadlinesf",
+          "product": "DeadlineSF",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.authority-boundary",
+              "name": "Authority boundary enforcement"
+            },
+            {
+              "kind": "blocking_invariants",
+              "id": "inv.authority-in-scope",
+              "name": "inv.authority-in-scope"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.authority-boundary",
+              "name": "rc.authority-boundary"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta",
+          "product": "BillRosetta",
+          "status": "LIVE",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta-capital",
+          "product": "BillRosetta Capital",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "venturepilotai",
+          "product": "VenturePilotAI",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "goldtrac",
+          "product": "GoldTrac",
+          "status": "DESIGNED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "bopcart",
+          "product": "BopCart",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "cited",
+          "product": "Cited",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        }
+      ],
+      "reasons": [
+        "8 control(s) added, 1 gap(s) closed.",
+        "Strength score moved +0.7."
+      ]
+    },
+    {
+      "pack_id": "PACK_08",
+      "pack_version": "1.0.0",
+      "run_id": "run-pack-08-08",
+      "timestamp": "2026-04-08T12:00:00Z",
+      "result": "IMPROVED",
+      "score_before": 85.1,
+      "score_after": 85.6,
+      "score_change": 0.5,
+      "delta": {
+        "detectors": 1,
+        "regression_tests": 7,
+        "blocking_invariants": 1,
+        "authority_mappings": 0,
+        "reusable_controls": 1,
+        "refusal_conditions": 0,
+        "provenance_controls": 0,
+        "escalation_rules": 0,
+        "evidence_schemas": 1,
+        "human_review_triggers": 0,
+        "known_gaps": -1,
+        "is_measurable": true
+      },
+      "discoveries": 1,
+      "hardening": {
+        "detectors": [
+          {
+            "id": "det.effective-window",
+            "name": "Effective-date window"
+          }
+        ],
+        "regression_tests": [
+          {
+            "id": "t.temporal.01",
+            "name": "t.temporal.01"
+          },
+          {
+            "id": "t.temporal.02",
+            "name": "t.temporal.02"
+          },
+          {
+            "id": "t.temporal.03",
+            "name": "t.temporal.03"
+          },
+          {
+            "id": "t.temporal.04",
+            "name": "t.temporal.04"
+          },
+          {
+            "id": "t.temporal.05",
+            "name": "t.temporal.05"
+          },
+          {
+            "id": "t.temporal.06",
+            "name": "t.temporal.06"
+          },
+          {
+            "id": "t.temporal.07",
+            "name": "t.temporal.07"
+          }
+        ],
+        "blocking_invariants": [
+          {
+            "id": "inv.decision-timestamped",
+            "name": "Every decision pins the rule version effective at its timestamp"
+          }
+        ],
+        "authority_mappings": [],
+        "evidence_fields": [
+          {
+            "id": "ev.temporal",
+            "name": "ev.temporal"
+          }
+        ],
+        "refusal_conditions": [],
+        "provenance_controls": [],
+        "escalation_rules": [],
+        "reusable_controls": [
+          {
+            "id": "rc.effective-window",
+            "name": "rc.effective-window"
+          }
+        ],
+        "gaps_closed": [
+          {
+            "id": "gap.temporal-validity",
+            "description": "No handling of rules that change on an effective date"
+          }
+        ]
+      },
+      "propagation": [
+        {
+          "product_id": "deadlinesf",
+          "product": "DeadlineSF",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.effective-window",
+              "name": "Effective-date window"
+            },
+            {
+              "kind": "blocking_invariants",
+              "id": "inv.decision-timestamped",
+              "name": "inv.decision-timestamped"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.effective-window",
+              "name": "rc.effective-window"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta",
+          "product": "BillRosetta",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.effective-window",
+              "name": "Effective-date window"
+            },
+            {
+              "kind": "blocking_invariants",
+              "id": "inv.decision-timestamped",
+              "name": "inv.decision-timestamped"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.effective-window",
+              "name": "rc.effective-window"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta-capital",
+          "product": "BillRosetta Capital",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "venturepilotai",
+          "product": "VenturePilotAI",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "goldtrac",
+          "product": "GoldTrac",
+          "status": "DESIGNED",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.effective-window",
+              "name": "Effective-date window"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.effective-window",
+              "name": "rc.effective-window"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "bopcart",
+          "product": "BopCart",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "cited",
+          "product": "Cited",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        }
+      ],
+      "reasons": [
+        "11 control(s) added, 1 gap(s) closed.",
+        "Strength score moved +0.5."
+      ]
+    },
+    {
+      "pack_id": "PACK_09",
+      "pack_version": "1.0.0",
+      "run_id": "run-pack-09-09",
+      "timestamp": "2026-04-09T12:00:00Z",
+      "result": "IMPROVED",
+      "score_before": 85.6,
+      "score_after": 86.6,
+      "score_change": 0.9,
+      "delta": {
+        "detectors": 1,
+        "regression_tests": 6,
+        "blocking_invariants": 0,
+        "authority_mappings": 0,
+        "reusable_controls": 1,
+        "refusal_conditions": 0,
+        "provenance_controls": 0,
+        "escalation_rules": 0,
+        "evidence_schemas": 0,
+        "human_review_triggers": 0,
+        "known_gaps": 1,
+        "is_measurable": true
+      },
+      "discoveries": 2,
+      "hardening": {
+        "detectors": [
+          {
+            "id": "det.nested-exemption",
+            "name": "Nested exemption resolution"
+          }
+        ],
+        "regression_tests": [
+          {
+            "id": "t.exemption.01",
+            "name": "t.exemption.01"
+          },
+          {
+            "id": "t.exemption.02",
+            "name": "t.exemption.02"
+          },
+          {
+            "id": "t.exemption.03",
+            "name": "t.exemption.03"
+          },
+          {
+            "id": "t.exemption.04",
+            "name": "t.exemption.04"
+          },
+          {
+            "id": "t.exemption.05",
+            "name": "t.exemption.05"
+          },
+          {
+            "id": "t.exemption.06",
+            "name": "t.exemption.06"
+          }
+        ],
+        "blocking_invariants": [],
+        "authority_mappings": [],
+        "evidence_fields": [],
+        "refusal_conditions": [],
+        "provenance_controls": [],
+        "escalation_rules": [],
+        "reusable_controls": [
+          {
+            "id": "rc.nested-exemption",
+            "name": "rc.nested-exemption"
+          }
+        ],
+        "gaps_closed": []
+      },
+      "propagation": [
+        {
+          "product_id": "deadlinesf",
+          "product": "DeadlineSF",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.nested-exemption",
+              "name": "Nested exemption resolution"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.nested-exemption",
+              "name": "rc.nested-exemption"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta",
+          "product": "BillRosetta",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.nested-exemption",
+              "name": "Nested exemption resolution"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.nested-exemption",
+              "name": "rc.nested-exemption"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta-capital",
+          "product": "BillRosetta Capital",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "venturepilotai",
+          "product": "VenturePilotAI",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "goldtrac",
+          "product": "GoldTrac",
+          "status": "DESIGNED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "bopcart",
+          "product": "BopCart",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "cited",
+          "product": "Cited",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        }
+      ],
+      "reasons": [
+        "1 new known gap(s) recorded (discovery, not a regression).",
+        "8 control(s) added, 0 gap(s) closed.",
+        "Strength score moved +0.9."
+      ]
+    },
+    {
+      "pack_id": "PACK_10",
+      "pack_version": "1.0.0",
+      "run_id": "run-pack-10-10",
+      "timestamp": "2026-05-10T12:00:00Z",
+      "result": "IMPROVED",
+      "score_before": 86.6,
+      "score_after": 88.3,
+      "score_change": 1.7,
+      "delta": {
+        "detectors": 2,
+        "regression_tests": 8,
+        "blocking_invariants": 1,
+        "authority_mappings": 2,
+        "reusable_controls": 1,
+        "refusal_conditions": 1,
+        "provenance_controls": 1,
+        "escalation_rules": 1,
+        "evidence_schemas": 0,
+        "human_review_triggers": 0,
+        "known_gaps": 1,
+        "is_measurable": true
+      },
+      "discoveries": 1,
+      "hardening": {
+        "detectors": [
+          {
+            "id": "det.disbursement-authz",
+            "name": "Disbursement authorization match"
+          },
+          {
+            "id": "det.authz-chain",
+            "name": "Authorization chain integrity"
+          }
+        ],
+        "regression_tests": [
+          {
+            "id": "t.disbursement.01",
+            "name": "t.disbursement.01"
+          },
+          {
+            "id": "t.disbursement.02",
+            "name": "t.disbursement.02"
+          },
+          {
+            "id": "t.disbursement.03",
+            "name": "t.disbursement.03"
+          },
+          {
+            "id": "t.disbursement.04",
+            "name": "t.disbursement.04"
+          },
+          {
+            "id": "t.disbursement.05",
+            "name": "t.disbursement.05"
+          },
+          {
+            "id": "t.authz-chain.01",
+            "name": "t.authz-chain.01"
+          },
+          {
+            "id": "t.authz-chain.02",
+            "name": "t.authz-chain.02"
+          },
+          {
+            "id": "t.authz-chain.03",
+            "name": "t.authz-chain.03"
+          }
+        ],
+        "blocking_invariants": [
+          {
+            "id": "inv.no-unauthorized-funds",
+            "name": "No disbursement without a verified authorization record"
+          }
+        ],
+        "authority_mappings": [
+          {
+            "id": "am.ucc9",
+            "name": "am.ucc9"
+          },
+          {
+            "id": "am.ca-fin",
+            "name": "am.ca-fin"
+          }
+        ],
+        "evidence_fields": [],
+        "refusal_conditions": [
+          {
+            "id": "rf.missing-authz",
+            "name": "Refuse any funding action lacking an authorization chain"
+          }
+        ],
+        "provenance_controls": [
+          {
+            "id": "prov.authz-record",
+            "name": "prov.authz-record"
+          }
+        ],
+        "escalation_rules": [
+          {
+            "id": "esc.funding-threshold",
+            "name": "esc.funding-threshold"
+          }
+        ],
+        "reusable_controls": [
+          {
+            "id": "rc.disbursement-authz",
+            "name": "rc.disbursement-authz"
+          }
+        ],
+        "gaps_closed": []
+      },
+      "propagation": [
+        {
+          "product_id": "deadlinesf",
+          "product": "DeadlineSF",
+          "status": "LIVE",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta",
+          "product": "BillRosetta",
+          "status": "LIVE",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.disbursement-authz",
+              "name": "Disbursement authorization match"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.disbursement-authz",
+              "name": "rc.disbursement-authz"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta-capital",
+          "product": "BillRosetta Capital",
+          "status": "VALIDATING",
+          "verdict": "UNLOCKED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.disbursement-authz",
+              "name": "Disbursement authorization match"
+            },
+            {
+              "kind": "detectors",
+              "id": "det.authz-chain",
+              "name": "Authorization chain integrity"
+            },
+            {
+              "kind": "blocking_invariants",
+              "id": "inv.no-unauthorized-funds",
+              "name": "inv.no-unauthorized-funds"
+            },
+            {
+              "kind": "refusal_conditions",
+              "id": "rf.missing-authz",
+              "name": "rf.missing-authz"
+            },
+            {
+              "kind": "provenance_controls",
+              "id": "prov.authz-record",
+              "name": "prov.authz-record"
+            },
+            {
+              "kind": "escalation_rules",
+              "id": "esc.funding-threshold",
+              "name": "esc.funding-threshold"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.disbursement-authz",
+              "name": "rc.disbursement-authz"
+            }
+          ],
+          "unlocked": [
+            "Funding Authorization"
+          ]
+        },
+        {
+          "product_id": "venturepilotai",
+          "product": "VenturePilotAI",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "goldtrac",
+          "product": "GoldTrac",
+          "status": "DESIGNED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "bopcart",
+          "product": "BopCart",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "cited",
+          "product": "Cited",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        }
+      ],
+      "reasons": [
+        "1 new known gap(s) recorded (discovery, not a regression).",
+        "17 control(s) added, 0 gap(s) closed.",
+        "Strength score moved +1.7."
+      ]
+    },
+    {
+      "pack_id": "PACK_11",
+      "pack_version": "1.0.0",
+      "run_id": "run-pack-11-11",
+      "timestamp": "2026-05-11T12:00:00Z",
+      "result": "IMPROVED",
+      "score_before": 88.3,
+      "score_after": 89.2,
+      "score_change": 1,
+      "delta": {
+        "detectors": 2,
+        "regression_tests": 5,
+        "blocking_invariants": 1,
+        "authority_mappings": 0,
+        "reusable_controls": 1,
+        "refusal_conditions": 0,
+        "provenance_controls": 0,
+        "escalation_rules": 0,
+        "evidence_schemas": 0,
+        "human_review_triggers": 0,
+        "known_gaps": 1,
+        "is_measurable": true
+      },
+      "discoveries": 1,
+      "hardening": {
+        "detectors": [
+          {
+            "id": "det.nonce-freshness",
+            "name": "Nonce freshness"
+          },
+          {
+            "id": "det.receipt-uniqueness",
+            "name": "Receipt uniqueness"
+          }
+        ],
+        "regression_tests": [
+          {
+            "id": "t.nonce.01",
+            "name": "t.nonce.01"
+          },
+          {
+            "id": "t.nonce.02",
+            "name": "t.nonce.02"
+          },
+          {
+            "id": "t.nonce.03",
+            "name": "t.nonce.03"
+          },
+          {
+            "id": "t.uniqueness.01",
+            "name": "t.uniqueness.01"
+          },
+          {
+            "id": "t.uniqueness.02",
+            "name": "t.uniqueness.02"
+          }
+        ],
+        "blocking_invariants": [
+          {
+            "id": "inv.single-use-receipt",
+            "name": "A receipt may be honoured at most once"
+          }
+        ],
+        "authority_mappings": [],
+        "evidence_fields": [],
+        "refusal_conditions": [],
+        "provenance_controls": [],
+        "escalation_rules": [],
+        "reusable_controls": [
+          {
+            "id": "rc.replay-protection",
+            "name": "rc.replay-protection"
+          }
+        ],
+        "gaps_closed": []
+      },
+      "propagation": [
+        {
+          "product_id": "deadlinesf",
+          "product": "DeadlineSF",
+          "status": "LIVE",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta",
+          "product": "BillRosetta",
+          "status": "LIVE",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta-capital",
+          "product": "BillRosetta Capital",
+          "status": "VALIDATING",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.nonce-freshness",
+              "name": "Nonce freshness"
+            },
+            {
+              "kind": "detectors",
+              "id": "det.receipt-uniqueness",
+              "name": "Receipt uniqueness"
+            },
+            {
+              "kind": "blocking_invariants",
+              "id": "inv.single-use-receipt",
+              "name": "inv.single-use-receipt"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.replay-protection",
+              "name": "rc.replay-protection"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "venturepilotai",
+          "product": "VenturePilotAI",
+          "status": "VALIDATING",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.nonce-freshness",
+              "name": "Nonce freshness"
+            },
+            {
+              "kind": "detectors",
+              "id": "det.receipt-uniqueness",
+              "name": "Receipt uniqueness"
+            },
+            {
+              "kind": "blocking_invariants",
+              "id": "inv.single-use-receipt",
+              "name": "inv.single-use-receipt"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.replay-protection",
+              "name": "rc.replay-protection"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "goldtrac",
+          "product": "GoldTrac",
+          "status": "DESIGNED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "bopcart",
+          "product": "BopCart",
+          "status": "UNDECLARED",
+          "verdict": "STRENGTHENED",
+          "inherited": [
+            {
+              "kind": "detectors",
+              "id": "det.nonce-freshness",
+              "name": "Nonce freshness"
+            },
+            {
+              "kind": "detectors",
+              "id": "det.receipt-uniqueness",
+              "name": "Receipt uniqueness"
+            },
+            {
+              "kind": "blocking_invariants",
+              "id": "inv.single-use-receipt",
+              "name": "inv.single-use-receipt"
+            },
+            {
+              "kind": "reusable_controls",
+              "id": "rc.replay-protection",
+              "name": "rc.replay-protection"
+            }
+          ],
+          "unlocked": []
+        },
+        {
+          "product_id": "cited",
+          "product": "Cited",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        }
+      ],
+      "reasons": [
+        "1 new known gap(s) recorded (discovery, not a regression).",
+        "9 control(s) added, 0 gap(s) closed.",
+        "Strength score moved +1."
+      ]
+    },
+    {
+      "pack_id": "PACK_12",
+      "pack_version": "1.0.0",
+      "run_id": "run-pack-12-12",
+      "timestamp": "2026-05-12T12:00:00Z",
+      "result": "VALIDATED_NO_CHANGE",
+      "score_before": 89.2,
+      "score_after": 89.2,
+      "score_change": 0,
+      "delta": {
+        "detectors": 0,
+        "regression_tests": 0,
+        "blocking_invariants": 0,
+        "authority_mappings": 0,
+        "reusable_controls": 0,
+        "refusal_conditions": 0,
+        "provenance_controls": 0,
+        "escalation_rules": 0,
+        "evidence_schemas": 0,
+        "human_review_triggers": 0,
+        "known_gaps": 0,
+        "is_measurable": false
+      },
+      "discoveries": 0,
+      "hardening": {
+        "detectors": [],
+        "regression_tests": [],
+        "blocking_invariants": [],
+        "authority_mappings": [],
+        "evidence_fields": [],
+        "refusal_conditions": [],
+        "provenance_controls": [],
+        "escalation_rules": [],
+        "reusable_controls": [],
+        "gaps_closed": []
+      },
+      "propagation": [
+        {
+          "product_id": "deadlinesf",
+          "product": "DeadlineSF",
+          "status": "LIVE",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta",
+          "product": "BillRosetta",
+          "status": "LIVE",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "billrosetta-capital",
+          "product": "BillRosetta Capital",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "venturepilotai",
+          "product": "VenturePilotAI",
+          "status": "VALIDATING",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "goldtrac",
+          "product": "GoldTrac",
+          "status": "DESIGNED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "bopcart",
+          "product": "BopCart",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        },
+        {
+          "product_id": "cited",
+          "product": "Cited",
+          "status": "UNDECLARED",
+          "verdict": "NO_CHANGE",
+          "inherited": [],
+          "unlocked": []
+        }
+      ],
+      "reasons": [
+        "Existing controls survived an independent rule set: 20 rule(s) evaluated, 55 deterministic check(s) executed, no new failure mode found."
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "deadlinesf",
+      "name": "DeadlineSF",
+      "status": "LIVE",
+      "inherited_controls": [
+        {
+          "id": "det.clause-parse",
+          "known": false
+        },
+        {
+          "id": "inv.no-decision-without-rule",
+          "known": false
+        },
+        {
+          "id": "det.evidence-complete",
+          "known": false
+        },
+        {
+          "id": "prov.source-hash",
+          "known": false
+        },
+        {
+          "id": "rc.evidence-complete",
+          "known": true
+        },
+        {
+          "id": "det.replay-identity",
+          "known": false
+        },
+        {
+          "id": "inv.replay-identical",
+          "known": false
+        },
+        {
+          "id": "rc.replay-identity",
+          "known": true
+        },
+        {
+          "id": "det.citation-resolves",
+          "known": false
+        },
+        {
+          "id": "prov.derived-artifact",
+          "known": false
+        },
+        {
+          "id": "rc.citation-resolves",
+          "known": true
+        },
+        {
+          "id": "det.jurisdiction-scope",
+          "known": false
+        },
+        {
+          "id": "rf.out-of-scope",
+          "known": false
+        },
+        {
+          "id": "rf.stale-authority",
+          "known": false
+        },
+        {
+          "id": "rc.jurisdiction-scope",
+          "known": true
+        },
+        {
+          "id": "det.rule-conflict",
+          "known": false
+        },
+        {
+          "id": "esc.conflict-to-human",
+          "known": false
+        },
+        {
+          "id": "det.authority-boundary",
+          "known": false
+        },
+        {
+          "id": "inv.authority-in-scope",
+          "known": false
+        },
+        {
+          "id": "rc.authority-boundary",
+          "known": true
+        },
+        {
+          "id": "det.effective-window",
+          "known": false
+        },
+        {
+          "id": "inv.decision-timestamped",
+          "known": false
+        },
+        {
+          "id": "rc.effective-window",
+          "known": true
+        },
+        {
+          "id": "det.nested-exemption",
+          "known": false
+        },
+        {
+          "id": "rc.nested-exemption",
+          "known": true
+        }
+      ],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "billrosetta",
+      "name": "BillRosetta",
+      "status": "LIVE",
+      "inherited_controls": [
+        {
+          "id": "det.evidence-complete",
+          "known": false
+        },
+        {
+          "id": "prov.source-hash",
+          "known": false
+        },
+        {
+          "id": "rc.evidence-complete",
+          "known": true
+        },
+        {
+          "id": "det.replay-identity",
+          "known": false
+        },
+        {
+          "id": "rc.replay-identity",
+          "known": true
+        },
+        {
+          "id": "det.jurisdiction-scope",
+          "known": false
+        },
+        {
+          "id": "rf.out-of-scope",
+          "known": false
+        },
+        {
+          "id": "rc.jurisdiction-scope",
+          "known": true
+        },
+        {
+          "id": "det.rule-conflict",
+          "known": false
+        },
+        {
+          "id": "det.effective-window",
+          "known": false
+        },
+        {
+          "id": "inv.decision-timestamped",
+          "known": false
+        },
+        {
+          "id": "rc.effective-window",
+          "known": true
+        },
+        {
+          "id": "det.nested-exemption",
+          "known": false
+        },
+        {
+          "id": "rc.nested-exemption",
+          "known": true
+        },
+        {
+          "id": "det.disbursement-authz",
+          "known": false
+        },
+        {
+          "id": "rc.disbursement-authz",
+          "known": true
+        }
+      ],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "billrosetta-capital",
+      "name": "BillRosetta Capital",
+      "status": "VALIDATING",
+      "inherited_controls": [
+        {
+          "id": "det.disbursement-authz",
+          "known": false
+        },
+        {
+          "id": "det.authz-chain",
+          "known": false
+        },
+        {
+          "id": "inv.no-unauthorized-funds",
+          "known": false
+        },
+        {
+          "id": "rf.missing-authz",
+          "known": false
+        },
+        {
+          "id": "prov.authz-record",
+          "known": false
+        },
+        {
+          "id": "esc.funding-threshold",
+          "known": false
+        },
+        {
+          "id": "rc.disbursement-authz",
+          "known": true
+        },
+        {
+          "id": "det.nonce-freshness",
+          "known": false
+        },
+        {
+          "id": "det.receipt-uniqueness",
+          "known": false
+        },
+        {
+          "id": "inv.single-use-receipt",
+          "known": false
+        },
+        {
+          "id": "rc.replay-protection",
+          "known": true
+        }
+      ],
+      "capabilities_unlocked": [
+        {
+          "capability": "Funding Authorization",
+          "unlocked_by_pack": "PACK_10",
+          "note": "Capital flows could not be gated before this pack existed."
+        }
+      ],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "venturepilotai",
+      "name": "VenturePilotAI",
+      "status": "VALIDATING",
+      "inherited_controls": [
+        {
+          "id": "det.replay-identity",
+          "known": false
+        },
+        {
+          "id": "inv.replay-identical",
+          "known": false
+        },
+        {
+          "id": "rc.replay-identity",
+          "known": true
+        },
+        {
+          "id": "det.nonce-freshness",
+          "known": false
+        },
+        {
+          "id": "det.receipt-uniqueness",
+          "known": false
+        },
+        {
+          "id": "inv.single-use-receipt",
+          "known": false
+        },
+        {
+          "id": "rc.replay-protection",
+          "known": true
+        }
+      ],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "goldtrac",
+      "name": "GoldTrac",
+      "status": "DESIGNED",
+      "inherited_controls": [
+        {
+          "id": "det.effective-window",
+          "known": false
+        },
+        {
+          "id": "rc.effective-window",
+          "known": true
+        }
+      ],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "bopcart",
+      "name": "BopCart",
+      "status": "UNDECLARED",
+      "inherited_controls": [
+        {
+          "id": "det.nonce-freshness",
+          "known": false
+        },
+        {
+          "id": "det.receipt-uniqueness",
+          "known": false
+        },
+        {
+          "id": "inv.single-use-receipt",
+          "known": false
+        },
+        {
+          "id": "rc.replay-protection",
+          "known": true
+        }
+      ],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    },
+    {
+      "id": "cited",
+      "name": "Cited",
+      "status": "UNDECLARED",
+      "inherited_controls": [
+        {
+          "id": "det.citation-resolves",
+          "known": false
+        },
+        {
+          "id": "prov.derived-artifact",
+          "known": false
+        },
+        {
+          "id": "prov.model-output",
+          "known": false
+        },
+        {
+          "id": "rc.citation-resolves",
+          "known": true
+        }
+      ],
+      "capabilities_unlocked": [],
+      "scenario_monthly_usd": null,
+      "scenario_basis": null
+    }
+  ],
+  "capability_unlocks": [
+    {
+      "pack_id": "PACK_10",
+      "capability": "Funding Authorization",
+      "product_id": "billrosetta-capital",
+      "product": "BillRosetta Capital"
+    }
+  ],
+  "ledger_head": "825c0dc02d940d276f49d4ddeeab7d93ec691559b5b99b1f73dcba1498c66c65",
+  "verification": {
+    "ok": true,
+    "receipts": 12,
+    "head": "825c0dc02d940d276f49d4ddeeab7d93ec691559b5b99b1f73dcba1498c66c65",
+    "problems": []
+  },
+  "signing": {
+    "key_source": "ENGINE_HARDENING_SIGNING_KEY (example key, not a secret)"
+  }
+}

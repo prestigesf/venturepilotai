@@ -97,6 +97,7 @@ Live: https://venturepilotai.netlify.app (or current Netlify domain)
 | 08 | [Operational Boundaries](docs/08-operational-boundaries.md) | Gap 5: Epoch-Bound State Attestation & limitations |
 | 09 | [Example Schemas](docs/09-example-schemas.md) | Concrete JSON shapes including WorkGraph node |
 | 10 | [Continuity Verification](docs/10-continuity-verification.md) | How to verify a receipt is still intact |
+| 11 | [Engine Hardening Layer](docs/11-engine-hardening-layer.md) | Additive: PACK IN → DELTA OUT, engine delta receipts and strength scoring |
 | — | [Production WorkGraph Node Schema](docs/workgraph_node_schema.json) | Locked Gap 1 through Gap 5 production JSON |
 
 ---
@@ -108,3 +109,47 @@ Gap 3 (Deterministic OPA/AST Guardrail) closed additively.
 Gap 4 (Confidential Computing Enclaves & Semantic Nonce Masking) closed additively.  
 Gap 5 (Epoch-Bound State Attestation & Operational Boundaries) closed additively.  
 **All 5 Architecture Gaps Closed.**
+
+---
+
+## Engine Hardening Layer (Additive)
+
+A new instrumentation layer beside the existing engine. It does not replace or alter the
+engine, the law packs, the tests, or any historical result.
+
+**PACK IN → DELTA OUT.** Every pack run emits an `ENGINE DELTA RECEIPT` answering four
+questions: what the pack tested, what it revealed, what permanent hardening the engine
+gained, and which products inherited that gain.
+
+One hard rule:
+
+> A pack run is not complete until it produces either a measurable hardening delta or a
+> signed `VALIDATED_NO_CHANGE` receipt.
+
+`INCONCLUSIVE` runs exit non-zero and write nothing, so a run can never be quietly filed
+as progress. A pack that finds nothing still produces a signed `VALIDATED_NO_CHANGE` —
+that means the current controls survived another independent rule set.
+
+- **Engine Strength Score** — 100 points from measurable fields only. Every component
+  exposes the raw numbers behind it, each tagged `derived` (counted from the control
+  inventory) or `asserted` (reported by the pack run). Unmeasured scores 0, never full
+  credit.
+- **Hash-chained receipts** — each receipt carries the digest of the previous one, so
+  history cannot be rewritten without `engine-delta verify` catching it.
+- **Widget** — [`engine-hardening.html`](engine-hardening.html) with four views: Engine
+  Strength, Pack History, Capability Unlocks, Economic Surface.
+- **Engine strength is evidence; revenue is a scenario.** The widget keeps them apart and
+  labels every scenario figure `NOT A FORECAST`.
+
+```bash
+node engine-hardening/bin/engine-delta.mjs score     # what is the engine worth, and why
+node engine-hardening/bin/engine-delta.mjs run --run pack-11.json --after new-state.json
+node engine-hardening/bin/engine-delta.mjs verify    # was the history rewritten?
+cd engine-hardening && npm test                      # 43 tests, mostly adversarial
+```
+
+The live engine state ships empty and scores 0 — nothing is seeded. See
+[`engine-hardening/`](engine-hardening/) for the layer and
+[`engine-hardening/examples/`](engine-hardening/examples/) for a worked example whose pack
+contents are illustrative but whose every score, delta, result and signature is computed by
+the real library and passes the real completeness gate.

@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://venturepilot.ai/schema/engine-hardening/engine-state.schema.json",
+  "title": "Engine State",
+  "description": "The control inventory the strength score is derived from. Counts are never asserted here — they are counted from these arrays. Only the measurement block carries asserted numbers.",
+  "type": "object",
+  "required": ["engine_version", "controls", "measurement", "products"],
+  "properties": {
+    "data_class": { "enum": ["LIVE", "ILLUSTRATIVE_EXAMPLE"] },
+    "engine_version": { "type": "string" },
+    "state_version": { "type": "integer", "minimum": 0 },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" },
+    "commit": { "type": ["string", "null"] },
+    "last_pack_id": { "type": ["string", "null"] },
+    "controls": {
+      "type": "object",
+      "properties": {
+        "detectors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "kind"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "kind": { "enum": ["deterministic", "heuristic"] },
+              "failure_modes": { "type": "array", "items": { "type": "string" } },
+              "added_by_pack": { "type": "string" },
+              "products": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "regression_tests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "status"],
+            "properties": {
+              "id": { "type": "string" },
+              "status": { "enum": ["PASS", "FAIL", "SKIP"] },
+              "covers_detector": { "type": "string" },
+              "covers_failure_mode": { "type": "string" },
+              "added_by_pack": { "type": "string" }
+            }
+          }
+        },
+        "blocking_invariants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id"],
+            "properties": {
+              "id": { "type": "string" },
+              "statement": { "type": "string" },
+              "test_id": { "type": ["string", "null"], "description": "A test that proves the invariant actually blocks. Null scores as unproven." },
+              "added_by_pack": { "type": "string" },
+              "products": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "evidence_schemas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id"],
+            "properties": {
+              "id": { "type": "string" },
+              "version": { "type": "string" },
+              "required_fields": { "type": "array", "items": { "type": "string" } },
+              "populated_fields": { "type": "array", "items": { "type": "string" } },
+              "added_by_pack": { "type": "string" }
+            }
+          }
+        },
+        "refusal_conditions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id"],
+            "properties": {
+              "id": { "type": "string" },
+              "condition": { "type": "string" },
+              "exercised_by_test": { "type": ["string", "null"] },
+              "added_by_pack": { "type": "string" },
+              "products": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "human_review_triggers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id"],
+            "properties": {
+              "id": { "type": "string" },
+              "trigger": { "type": "string" },
+              "added_by_pack": { "type": "string" }
+            }
+          }
+        },
+        "authority_mappings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id"],
+            "properties": {
+              "id": { "type": "string" },
+              "rule_id": { "type": "string" },
+              "authority_source": { "type": "string" },
+              "citation": { "type": "string" },
+              "ambiguous": { "type": "boolean" },
+              "added_by_pack": { "type": "string" },
+              "products": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "provenance_controls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id"],
+            "properties": {
+              "id": { "type": "string" },
+              "artifact_class": { "type": "string" },
+              "has_source": { "type": "boolean" },
+              "has_hash": { "type": "boolean" },
+              "has_timestamp": { "type": "boolean" },
+              "has_authority_link": { "type": "boolean" },
+              "added_by_pack": { "type": "string" },
+              "products": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "escalation_rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id"],
+            "properties": {
+              "id": { "type": "string" },
+              "rule": { "type": "string" },
+              "added_by_pack": { "type": "string" },
+              "products": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "reusable_controls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id"],
+            "properties": {
+              "id": { "type": "string" },
+              "control_ref": { "type": "string" },
+              "products": { "type": "array", "items": { "type": "string" }, "description": "Products actually consuming this control. 2+ counts toward the reuse component." },
+              "added_by_pack": { "type": "string" }
+            }
+          }
+        },
+        "known_gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id"],
+            "properties": {
+              "id": { "type": "string" },
+              "description": { "type": "string" },
+              "opened_by_pack": { "type": "string" },
+              "closed_by_pack": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "measurement": {
+      "type": "object",
+      "description": "Asserted by the pack run. A missing key is unmeasured and scores 0 — never full credit.",
+      "properties": {
+        "rules_total": { "type": "integer", "minimum": 0 },
+        "rules_evaluated": { "type": "integer", "minimum": 0 },
+        "rules_unsupported": { "type": "integer", "minimum": 0 },
+        "authority_sources_required": { "type": "integer", "minimum": 0 },
+        "authority_sources_used": { "type": "integer", "minimum": 0 },
+        "failure_modes_known": { "type": "integer", "minimum": 0 },
+        "deterministic_checks_total": { "type": "integer", "minimum": 0 },
+        "deterministic_checks_executed": { "type": "integer", "minimum": 0 },
+        "replay_runs": { "type": "integer", "minimum": 0 },
+        "replay_identical": { "type": "integer", "minimum": 0 },
+        "labeled_cases": { "type": "integer", "minimum": 0 },
+        "true_positives": { "type": "integer", "minimum": 0 },
+        "false_positives": { "type": "integer", "minimum": 0 },
+        "false_negatives": { "type": "integer", "minimum": 0 },
+        "bypasses_observed": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "status": { "enum": ["LIVE", "VALIDATING", "DESIGNED", "UNDECLARED"] },
+          "status_source": { "type": "string" },
+          "inherited_controls": { "type": "array", "items": { "type": "string" } },
+          "capabilities_unlocked": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["capability", "unlocked_by_pack"],
+              "properties": {
+                "capability": { "type": "string" },
+                "unlocked_by_pack": { "type": "string" },
+                "note": { "type": "string" }
+              }
+            }
+          },
+          "scenario_monthly_usd": { "type": ["number", "null"], "description": "Scenario only. Not a forecast, not revenue, not measured by this layer." },
+          "scenario_basis": { "type": ["string", "null"], "description": "How the scenario number was constructed. Required whenever scenario_monthly_usd is non-null." }
+        }
+      }
+    }
+  }
+}
