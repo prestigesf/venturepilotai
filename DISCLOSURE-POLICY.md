@@ -29,9 +29,11 @@ a repository with this configuration is public the moment it deploys.
 Two controls guard this:
 
 1. Internal material is not present in the published tree on `main`.
-2. `netlify.toml` carries forced `404` rules for `/engine-hardening.html`,
-   `/engine-hardening/*` and `/docs/*`. Forced rules are evaluated ahead of static
-   files, so they hold even if a file is reintroduced by mistake.
+2. `netlify.toml` carries forced `404` rules for `/engine-hardening.html` and
+   `/engine-hardening/*` (which covers `/engine-hardening/state/*`). Forced rules
+   are evaluated ahead of static files, so they hold even if a file is
+   reintroduced by mistake. `/docs/*` is not blocked — it is pre-existing public
+   documentation and keeps the access it had before the hardening deployment.
 
 ## Before publishing anything new
 
