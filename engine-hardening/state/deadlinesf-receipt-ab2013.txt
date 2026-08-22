@@ -1,0 +1,95 @@
+
+ENGINE DELTA RECEIPT
+Engine Version:          deadlinesf-phase-19
+Pack ID:                 AB2013
+Pack Version:            1.0.0
+Run ID:                  dsf-phase19-ab2013
+Timestamp:               2026-08-02T13:59:50.156660+00:00
+Starting Commit:         baseline18:d0f421694137fdd50609b5f91a424dd427b794b7
+Ending Commit:           baseline19:e0735ddd7a9abd367192ce51a47c7c6449b1d9dd
+
+PACK COVERAGE
+- Rules evaluated:       8
+- Rules unsupported:     0
+- Authority sources used: 1
+- Deterministic checks:  572
+
+BEFORE
+- Active detectors:      7
+- Regression tests:      14
+- Blocking invariants:   1
+- Evidence schemas:      1
+- Known gaps:            0
+- Human-review triggers: 0
+- Reusable controls:     0
+
+DISCOVERIES
+- New failure modes:     0
+- New edge cases:        0
+- False positives:       0
+- False negatives:       0
+- Ambiguous authority:   0
+- Missing provenance:    0
+- Missing refusals:      0
+
+HARDENING ADDED
+  Detectors
+  - none
+  Regression tests
+  - none
+  Invariants
+  - none
+  Authority mappings
+  - lawpacks/ab2013.yaml
+  Evidence fields
+  - none
+  Refusal conditions
+  - none
+  Provenance controls
+  - none
+  Escalation rules
+  - none
+
+AFTER
+- Active detectors:      7
+- Regression tests:      14
+- Blocking invariants:   1
+- Evidence schemas:      1
+- Known gaps:            0
+- Human-review triggers: 0
+- Reusable controls:     0
+
+ENGINE DELTA
+  detectors:             0
+  regressions:           0
+  invariants:            0
+  authority mappings:    +1
+  reusable controls:     0
+  known gaps:            0
+
+PRODUCT PROPAGATION
+  DeadlineSF:            strengthened (lawpacks/ab2013.yaml)
+
+STRENGTH
+  Rule Coverage            10 / 20
+  Detector Coverage         6 / 20
+  Regression Depth          6 / 15
+  Evidence Quality        7.5 / 15
+  Detection Accuracy        0 / 10   (unmeasured)
+  Blocking Integrity        5 / 10
+  Provenance                5 / 5
+  Reuse                     2 / 5
+  TOTAL                  41.5 / 100
+  CHANGE                41.5 → 41.5  (0)
+
+RESULT
+  IMPROVED
+  · 1 control(s) added, 0 gap(s) closed.
+
+ATTESTATION
+  Algorithm:             HMAC-SHA-256
+  Signed:                yes (key a44ab595590093df)
+  Body digest:           4866bfe4ef192549ebf8ba682684f2cf…
+  Previous receipt:      00000000000000000000000000000000…
+  Receipt hash:          86818bf3f501413233274b46cfbdcf62…
+
