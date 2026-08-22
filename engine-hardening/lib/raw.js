@@ -145,8 +145,16 @@ export function rawInputs(state) {
     failure_modes_with_detector: derived(coveredFailureModes.size),
 
     // 3 — regression depth
+    //
+    // Two granularities exist and they are not interchangeable. The inventory
+    // counts test FILES, because that is what a frozen baseline can name. A
+    // suite reports test CASES, which is the number that actually moves when a
+    // pack hardens existing files. Where a run asserts the case counts, they
+    // are preferred; otherwise the file counts stand in and the scorer says so.
     regression_tests: derived(inv.regressionTests.length),
     regression_tests_passing: derived(passingTests.length),
+    regression_test_cases: asserted(m, 'regression_test_cases'),
+    regression_test_cases_passing: asserted(m, 'regression_test_cases_passing'),
     failure_modes_with_regression: derived(regressedFailureModes.size),
 
     // 4 — evidence reproducibility

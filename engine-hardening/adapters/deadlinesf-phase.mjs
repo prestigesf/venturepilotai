@@ -186,6 +186,13 @@ const state = {
     authority_sources_used: authorityMappings.length,
     deterministic_checks_total: artifact?.test_counts?.passed ?? 0,
     deterministic_checks_executed: artifact?.test_counts?.passed ?? 0,
+    // Test CASE counts, taken straight from the phase's own suite result. The
+    // baseline can only name test files; a pack that hardens existing files
+    // moves this number and not the file count, so both are carried.
+    regression_test_cases:
+      (artifact?.test_counts?.passed ?? 0) + (artifact?.test_counts?.failed ?? 0)
+      + (artifact?.test_counts?.errors ?? 0),
+    regression_test_cases_passing: artifact?.test_counts?.passed ?? 0,
     bypasses_observed: 0,
   },
   products: [{

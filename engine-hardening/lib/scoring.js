@@ -144,16 +144,27 @@ function detectorCoverage(raw) {
 function regressionDepth(raw) {
   const keys = [
     'regression_tests', 'regression_tests_passing',
+    'regression_test_cases', 'regression_test_cases_passing',
     'failure_modes_with_regression', 'failure_modes_known', 'active_detectors',
   ];
-  const tests = v(raw, 'regression_tests');
-  const passing = v(raw, 'regression_tests_passing');
+  // Prefer asserted test-case counts over counted test files. A pack that adds
+  // 25 cases to files that already existed changes no file count at all, so
+  // scoring on files alone reports no hardening where real hardening happened.
+  const cases = v(raw, 'regression_test_cases');
+  const usingCases = cases > 0;
+  const tests = usingCases ? cases : v(raw, 'regression_tests');
+  const passing = usingCases
+    ? (raw.regression_test_cases_passing?.present ? v(raw, 'regression_test_cases_passing') : cases)
+    : v(raw, 'regression_tests_passing');
   const known = v(raw, 'failure_modes_known');
   const regressed = v(raw, 'failure_modes_with_regression');
   const detectors = v(raw, 'active_detectors');
   const density = detectors > 0 ? ratio(tests / detectors, TARGET_TESTS_PER_DETECTOR) : null;
 
   const notes = [];
+  notes.push(usingCases
+    ? `Counting ${tests} test case(s) (asserted by the run).`
+    : `Counting ${tests} test file(s) — no test-case count asserted, so density is measured at file granularity.`);
   const failing = tests - passing;
   if (failing > 0) notes.push(`${failing} regression test(s) are not passing.`);
   if (detectors > 0) {
@@ -166,7 +177,7 @@ function regressionDepth(raw) {
     term('Test density vs target', density, 0.3,
       '(regression_tests / active_detectors) / 3'),
     term('Regression tests passing', ratio(passing, tests), 0.2,
-      'regression_tests_passing / regression_tests'),
+      'passing / total (test cases when asserted, else test files)'),
   ], basisMap(raw, keys), notes);
 }
 

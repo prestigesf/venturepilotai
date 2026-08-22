@@ -431,3 +431,59 @@ test('scoreDelta reports per-component movement', () => {
   assert.ok(delta.change > 0);
   assert.equal(delta.components.length, 8);
 });
+
+/* ------------------------------------------- regression counting granularity */
+test('asserted test-case counts outrank counted test files', () => {
+  // The defect this guards: a pack that adds 25 cases to files that already
+  // existed changed no file count, so scoring on files alone reported no
+  // hardening where real hardening had happened.
+  const files = populatedState();
+  const cases = populatedState();
+  cases.measurement.regression_test_cases = 60;
+  cases.measurement.regression_test_cases_passing = 60;
+
+  const a = score(files).components.find((c) => c.id === 'regression_depth');
+  const b = score(cases).components.find((c) => c.id === 'regression_depth');
+  assert.ok(b.points > a.points, 'more test cases scores deeper than two test files');
+  assert.match(b.notes.join(' '), /60 test case\(s\)/);
+  assert.match(a.notes.join(' '), /test file\(s\)/);
+});
+
+test('counting cases raises depth where counting files understated it', () => {
+  // Two test files across two detectors reads as density 1.0/detector against a
+  // target of 3. The same suite counted as cases is far past the target. The
+  // fix is about measuring the right thing, not about inflating the result.
+  const byFiles = populatedState();
+  const byCases = populatedState();
+  byCases.measurement.regression_test_cases = 547;
+  byCases.measurement.regression_test_cases_passing = 547;
+  const density = (s) => score(s).components.find((c) => c.id === 'regression_depth')
+    .terms.find((t) => t.label === 'Test density vs target').value;
+  assert.ok(density(byFiles) < 1, 'file granularity understates a large suite');
+  assert.equal(density(byCases), 1, 'case granularity reaches the target');
+});
+
+test('a component already at ceiling does not move, and that is correct', () => {
+  // The AB 2013 shape: 547 -> 572 cases, no new test files. Density is clamped
+  // at the target either side, so regression depth genuinely does not change.
+  // Recording a real zero beats manufacturing a delta that is not there.
+  const before = populatedState();
+  before.measurement.regression_test_cases = 547;
+  before.measurement.regression_test_cases_passing = 547;
+  const after = populatedState();
+  after.measurement.regression_test_cases = 572;
+  after.measurement.regression_test_cases_passing = 572;
+  assert.equal(after.controls.regression_tests.length, before.controls.regression_tests.length);
+  const d = computeDelta(before, after);
+  const depth = d.score.components.find((c) => c.id === 'regression_depth');
+  assert.equal(depth.change, 0, 'saturated density cannot rise further');
+  assert.equal(depth.after, depth.before);
+});
+
+test('failing cases are counted against the pass rate', () => {
+  const red = populatedState();
+  red.measurement.regression_test_cases = 100;
+  red.measurement.regression_test_cases_passing = 90;
+  const c = score(red).components.find((c) => c.id === 'regression_depth');
+  assert.match(c.notes.join(' '), /10 regression test\(s\) are not passing/);
+});
